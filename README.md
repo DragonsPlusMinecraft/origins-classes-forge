@@ -1,5 +1,5 @@
 # Origin: Classes (Forge)
-A Forge port for Origin: Classes
+A unofficial Forge port for Origin: Classes
 
 ## Description
 This mod is an add-on to the Origins mod. In addition to choosing an origin, you now also choose a class.
