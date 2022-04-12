@@ -1,0 +1,9 @@
+{
+  "type": "apoli:attribute",
+  "modifier": {
+    "attribute": "forge:nametag_distance",
+    "name": "No Nametag Render",
+    "value": -1.0,
+    "operation": "multiply_total"
+  }
+}

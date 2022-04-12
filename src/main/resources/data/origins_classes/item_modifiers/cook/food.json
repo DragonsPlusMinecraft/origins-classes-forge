@@ -1,0 +1,6 @@
+[
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{OriginsClasses: {FoodBonus: 0.25f}}"
+  }
+]

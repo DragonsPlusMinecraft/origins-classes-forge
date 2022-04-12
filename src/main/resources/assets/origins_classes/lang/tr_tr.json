@@ -1,0 +1,134 @@
+{
+  "layer.origins_classes.class.name": "Sınıf",
+  "layer.origins_classes.class.missing_origin.name": "Bilinmiyor",
+  "layer.origins_classes.class.missing_origin.description": "Herhangi bir sınıfın yok.",
+
+  "attribute.origins_classes.mining_speed": "Mining Speed",
+  "attribute.origins_classes.projectile_strength": "Projectile Strength",
+
+  "tooltip.origins_classes.food_bonus": "+%s Besin",
+  "tooltip.origins_classes.potion_bonus": "+%s Quality",
+
+  "origin.origins_classes.warrior.name": "Şavaşcı",
+  "origin.origins_classes.warrior.description": "Bu Şerefli Şavaşçılar düşmanlarını indirmek için kılıç ve kalkan kullanır.",
+
+  "origin.origins_classes.archer.name": "Okçu",
+  "origin.origins_classes.archer.description": "Tek ok, Tek leş.",
+
+  "origin.origins_classes.rogue.name": "Haydut",
+  "origin.origins_classes.rogue.description": "Haydutlar pusmakta ve gizli saldırılarda çok iyilerdir.",
+
+  "origin.origins_classes.beastmaster.name": "Canavar Ustası",
+  "origin.origins_classes.beastmaster.description": "Canavar Ustaları genelde tek yaşar ve hayvanlarla iç içelerdir.",
+
+  "origin.origins_classes.blacksmith.name": "Demir Ustası",
+  "origin.origins_classes.blacksmith.description": "Herkezin iyi arkadaşları Demir Ustaları daha iyi araçlar, silahlar ve zırhlar üretebilmektedirler.",
+
+  "origin.origins_classes.cleric.name": "İksir Ustası",
+  "origin.origins_classes.cleric.description": "İksir Ustaları sihri nasıl kendi avantajlarına nasıl kullanacaklarını biliyorlar.",
+
+  "origin.origins_classes.cook.name": "Aşçı",
+  "origin.origins_classes.cook.description": "Yemeğini sana Aşçı dan daha iyi hazırlicak kişi yok.",
+
+  "origin.origins_classes.farmer.name": "Tarımcı",
+  "origin.origins_classes.farmer.description": "Çiftçiler, herkese yiyecek sağlar.",
+
+  "origin.origins_classes.merchant.name": "Tüccar",
+  "origin.origins_classes.merchant.description": "Herzaman fazladan emerald için pazarlık yapar, Tüccarlar uzman Takascılardır.",
+
+  "origin.origins_classes.rancher.name": "Çiftçi",
+  "origin.origins_classes.rancher.description": "Hayvanlar iyi şekilde yararlanan, Çiftçiler bir çok kullanışlı malzemeyi toplayabilmekte.",
+
+  "origin.origins_classes.miner.name": "Madenci",
+  "origin.origins_classes.miner.description": "Madenciler dünyanın hazinelerini kazmakta ustalar.",
+
+  "origin.origins_classes.lumberjack.name": "Oduncu",
+  "origin.origins_classes.lumberjack.description": "Ağaçlar, Oduncular yakınken dikkat etmeli.",
+
+  "origin.origins_classes.explorer.name": "Maceracı",
+  "origin.origins_classes.explorer.description": "Maceracılar yollarını zor doğa şartlarına rağmen kolayca bulurlar ve gizli anıtları bulurlar.",
+
+  "origin.origins_classes.nitwit.name": "Beyinsiz",
+  "origin.origins_classes.nitwit.description": "Bu Mallar hiç birşeyde iyi değil.",
+
+  "power.origins_classes.less_shield_slowdown.name": "Kalkan Uzmanı",
+  "power.origins_classes.less_shield_slowdown.description": "Kalkanını kullanıyorken daha az yavaşlarsın.",
+
+  "power.origins_classes.sneaky.name": "Sinsi",
+  "power.origins_classes.sneaky.description": "İsmin duvarların ardından gözükmez, eğilmiyorken bile.",
+
+  "power.origins_classes.stealth.name": "Gölgelerin İçinde",
+  "power.origins_classes.stealth.description": "5 Saniy boyunca eğilirsin Gizlilik moduna geçersin.",
+
+  "power.origins_classes.stealth_core.name": "Gizlilik",
+  "power.origins_classes.stealth_core.description": "Gizlilik modunda iken, düşmana arkadan saldırdığında daha fazla vurur ve daha az gürültü yaparsın. Eğilmeyi bıraktığında yada bir düşmana vurduğunda gizlilik modundan çıkarsın.",
+
+  "power.origins_classes.less_bow_slowdown.name": "Kıvrak",
+  "power.origins_classes.less_bow_slowdown.description": "Yayını çekerken daha hızlı hareket edebilirsin.",
+
+  "power.origins_classes.no_projectile_divergence.name": "İsabet",
+  "power.origins_classes.no_projectile_divergence.description": "Fırlattığın tüm şeylerin İsabetliliği daha fazla.",
+
+  "power.origins_classes.more_attack_damage.name": "Silah Bilgisi",
+  "power.origins_classes.more_attack_damage.description": "Her silahi tam potensiyallerinde kullanır, biraz daha hasar verir.",
+
+  "power.origins_classes.tamed_animal_boost.name": "Hayvan Arkadaşlar",
+  "power.origins_classes.tamed_animal_boost.description": "Senin evcilleştirdiğin hayvanlar daha güçlü ve dayanıklıdır.",
+
+  "power.origins_classes.tamed_potion_diffusal.name": "Empati",
+  "power.origins_classes.tamed_potion_diffusal.description": "İksir etkisinde olduğunda etkisi yakındaki evcil hayvanlarıda etkiler.",
+
+  "power.origins_classes.more_smoker_xp.name": "Duman Fırını Ustası",
+  "power.origins_classes.more_smoker_xp.description": "Duman Fırınında yemek pişirmekten daha fazla tecrübe puanı alırsın.",
+
+  "power.origins_classes.better_crafted_food.name": "Doyurucu Öğünler",
+  "power.origins_classes.better_crafted_food.description": "Senin tarafından yapılan yemekler daha fazla doyurur.",
+
+  "power.origins_classes.potion_bonus.name": "Uzatılmış İksirler",
+  "power.origins_classes.potion_bonus.description": "İksir yapımında son aşama olarak, bi iksirin süresini su dolu bir kazana sağ tıklayarak ikiye katlayabilirsin.",
+
+  "power.origins_classes.better_enchanting.name": "Büyü Ustsı",
+  "power.origins_classes.better_enchanting.description": "Büyü Masasında daha iyi büyüler çıkarabilirsin.",
+
+  "power.origins_classes.quality_equipment.name": "Kaliteli Araç-Gereç",
+  "power.origins_classes.quality_equipment.description": "Senin ürettiğin araçlar küçük artıları vardır.",
+
+  "power.origins_classes.efficient_repairs.name": "Verimli Tamirler",
+  "power.origins_classes.efficient_repairs.description": "Anvilde eşya tamir etmek daha az malzeme gerektirir. Ve daha verimli eşya birleştirsin.",
+
+  "power.origins_classes.more_crop_drops.name": "Verimli Hasat",
+  "power.origins_classes.more_crop_drops.description": "Mahsul hasat ederken bi şanşla iki katı malzeme alırsın.",
+
+  "power.origins_classes.better_bone_meal.name": "Verimli Kemik Tozu",
+  "power.origins_classes.better_bone_meal.description": "Tecrübeli ellerinde kemik tozu iki katı daha etkili.",
+
+  "power.origins_classes.twin_breeding.name": "İkizler",
+  "power.origins_classes.twin_breeding.description": "Doğurttuğun hayvanlar bi şanşla ikiz olur.",
+
+  "power.origins_classes.more_animal_loot.name": "Verimli Eller",
+  "power.origins_classes.more_animal_loot.description": "Bazen hayvanlardan daha fazla malzeme düşürürsün.",
+
+  "power.origins_classes.trade_availability.name": "Hızlı Stoklama",
+  "power.origins_classes.trade_availability.description": "Takas yaptığın köylülerün stokları bitmez.",
+
+  "power.origins_classes.rare_wandering_loot.name": "Karizma",
+  "power.origins_classes.rare_wandering_loot.description": "Gezgin Tüccarları sana daha kaliteli eşylaranı göstermeye ikna edebilirsin.",
+
+  "power.origins_classes.no_sprint_exhaustion.name": "Fit",
+  "power.origins_classes.no_sprint_exhaustion.description": "Koşmak seni yormaz.",
+
+  "power.origins_classes.explorer_kit.name": "Maceracı Kiti",
+  "power.origins_classes.explorer_kit.description": "Oyunu bir pusula, bir saat ve dokuz boş harita ile başlarsın.",
+
+  "power.origins_classes.no_mining_exhaustion.name": "Tecrübeli Madenci",
+  "power.origins_classes.no_mining_exhaustion.description": "Blok Kırmak Seni Yormaz.",
+
+  "power.origins_classes.more_stone_break_speed.name": "Uzman Madenci",
+  "power.origins_classes.more_stone_break_speed.description": "Taşları daha hızlı kırarsın.",
+
+  "power.origins_classes.tree_felling.name": "Timber!",
+  "power.origins_classes.tree_felling.description": "Eğilmediğin sürece koca ağaçları tekte kessebilirsin.",
+
+  "power.origins_classes.more_planks_from_logs.name": "Verimli Üretim",
+  "power.origins_classes.more_planks_from_logs.description": "1 kütükten 6 tahta alırsın."
+}

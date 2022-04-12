@@ -1,0 +1,22 @@
+[
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "name": "Blacksmith Tool Bonus",
+        "attribute": "origins_classes:mining_speed",
+        "operation": "multiply_base",
+        "amount": {
+          "type": "minecraft:constant",
+          "value": 0.1
+        },
+        "id": "8a362136-f803-473f-bf65-2e7fc1dda544",
+        "slot": "mainhand"
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{AdditionalAttributes: 1b}"
+  }
+]

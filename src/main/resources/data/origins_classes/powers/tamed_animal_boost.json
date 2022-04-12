@@ -1,0 +1,24 @@
+{
+  "type": "origins_classes:action_on_tame",
+  "bientity_action": {
+    "type": "apoli:target_action",
+    "action": {
+      "type": "origins_classes:attribute",
+      "modifiers": [
+        {
+          "attribute": "minecraft:generic.max_health",
+          "name": "Beastmaster Bonus",
+          "value": 0.3,
+          "operation": "multiply_total"
+        },
+        {
+          "attribute": "minecraft:generic.attack_damage",
+          "name": "Beastmaster Bonus",
+          "value": 1.5,
+          "operation": "addition"
+        }
+      ],
+      "update_health": true
+    }
+  }
+}

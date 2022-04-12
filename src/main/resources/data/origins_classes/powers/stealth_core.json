@@ -1,0 +1,54 @@
+{
+  "type": "apoli:multiple",
+  "overlay": {
+    "type": "apoli:overlay",
+    "texture": "minecraft:textures/misc/nausea.png",
+    "red": 0.2,
+    "green": 0.2,
+    "blue": 0.6,
+    "strength": 0.6,
+    "draw_mode": "nausea",
+    "draw_phase": "above_hud",
+    "visible_in_third_person": true,
+    "hide_with_hud": false,
+    "condition": {
+      "type": "apoli:resource",
+      "resource": "origins_classes:stealth",
+      "comparison": "==",
+      "compare_to": 10
+    }
+  },
+  "damage_boost": {
+    "type": "apoli:modify_damage_dealt",
+    "modifier": {
+      "name": "Stealth Damage Multiplier",
+      "value": 1.0,
+      "operation": "multiply_base"
+    },
+    "damage_condition": {
+      "type": "apoli:projectile",
+      "inverted": true
+    },
+    "bientity_condition": {
+      "type": "origins_classes:yaw_diff",
+      "comparison": "<=",
+      "compare_to": 90
+    },
+    "condition": {
+      "type": "apoli:resource",
+      "resource": "origins_classes:stealth",
+      "comparison": "==",
+      "compare_to": 10
+    }
+  },
+  "silent_step": {
+    "type": "apoli:prevent_game_event",
+    "event": "minecraft:step",
+    "condition": {
+      "type": "apoli:resource",
+      "resource": "origins_classes:stealth",
+      "comparison": "==",
+      "compare_to": 10
+    }
+  }
+}

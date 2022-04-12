@@ -1,0 +1,14 @@
+{
+  "type": "origins_classes:modify_entity_loot",
+  "modifier": {
+    "name": "Rancher Animal Loot Bonus",
+    "value": 0.3,
+    "operation": "multiply_base"
+  },
+  "bientity_condition": {
+    "type": "apoli:target_condition",
+    "condition": {
+      "type": "origins_classes:animal"
+    }
+  }
+}

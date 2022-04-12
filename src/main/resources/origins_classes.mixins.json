@@ -1,0 +1,34 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "limonblaze.originsclasses.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AbstractCauldronBlockMixin",
+    "AbstractFurnaceBlockEntityMixin",
+    "AbstractVillagerMixin",
+    "AnvilMenuMixin",
+    "ArrowMixin",
+    "BlockMixin",
+    "BreedGoalMixin",
+    "BrewingRecipeRegistryMixin",
+    "EnchantmentMenuMixin",
+    "FoodDataMixin",
+    "PlayerMixin",
+    "PotionUtilMixin",
+    "ProjectileMixin",
+    "RepairItemRecipeMixin",
+    "ServerPlayerGameModeMixin",
+    "TippedArrowRecipeMixin",
+    "accessor.LivingEntityAccessor",
+    "accessor.LootTableAccessor"
+  ],
+  "client": [
+    "client.ClientSideMerchantMixin",
+    "client.LocalPlayerMixin"
+  ],
+  "refmap": "origins_classes.refmap.json",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

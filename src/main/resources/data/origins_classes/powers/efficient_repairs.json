@@ -1,0 +1,19 @@
+{
+  "type": "apoli:multiple",
+  "less_material_cost": {
+    "type": "origins_classes:modify_repair_material_cost",
+    "modifier": {
+      "name": "Effecient Repair",
+      "value": -0.5,
+      "operation": "multiply_base"
+    }
+  },
+  "more_combine_durability": {
+    "type": "origins_classes:modify_combine_repair_durability",
+    "modifier": {
+      "name": "Effecient Repair",
+      "value": 1.0,
+      "operation": "multiply_base"
+    }
+  }
+}

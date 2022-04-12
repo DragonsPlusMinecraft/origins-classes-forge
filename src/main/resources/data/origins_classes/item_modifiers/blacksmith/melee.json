@@ -1,0 +1,22 @@
+[
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "name": "Blacksmith Melee Bonus",
+        "attribute": "minecraft:generic.attack_damage",
+        "operation": "addition",
+        "amount": {
+          "type": "minecraft:constant",
+          "value": 0.5
+        },
+        "id": "f99b89c9-c227-43a1-9e90-b62561e88db1",
+        "slot": "mainhand"
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{AdditionalAttributes: 1b}"
+  }
+]

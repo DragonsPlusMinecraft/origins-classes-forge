@@ -1,0 +1,11 @@
+{
+  "type": "apoli:modify_crafting",
+  "item_condition": {
+    "type": "apoli:food",
+    "inverted": true
+  },
+  "item_action": {
+    "type": "apoli:modify",
+    "modifier": "origins_classes:cook/food"
+  }
+}

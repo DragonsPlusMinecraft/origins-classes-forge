@@ -1,0 +1,11 @@
+{
+  "type": "origins_classes:modify_speed_on_item_use",
+  "modifier": {
+    "name": "Archer Bonus",
+    "value": 2.0,
+    "operation": "multiply_base"
+  },
+  "item_condition": {
+    "type": "origins_classes:shield"
+  }
+}

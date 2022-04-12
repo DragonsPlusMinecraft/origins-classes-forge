@@ -1,0 +1,134 @@
+{
+  "layer.origins_classes.class.name": "Класс",
+  "layer.origins_classes.class.missing_origin.name": "Отсутствует",
+  "layer.origins_classes.class.missing_origin.description": "У вас нет класса.",
+
+  "attribute.origins_classes.mining_speed": "Mining Speed",
+  "attribute.origins_classes.projectile_strength": "Projectile Strength",
+
+  "tooltip.origins_classes.food_bonus": "+%s Сытость",
+  "tooltip.origins_classes.potion_bonus": "+%s Quality",
+
+  "origin.origins_classes.warrior.name": "Воин",
+  "origin.origins_classes.warrior.description": "Эти благородные бойцы предпочитают меч и щит, чтобы побеждать своих врагов.",
+
+  "origin.origins_classes.archer.name": "Лучник",
+  "origin.origins_classes.archer.description": "Один выстрел, одно убийство.",
+
+  "origin.origins_classes.rogue.name": "Разбойник",
+  "origin.origins_classes.rogue.description": "Обычно известные как воры и грабители. Разбойники умеют устраивать засады и атаковать скрытно.",
+
+  "origin.origins_classes.beastmaster.name": "Охотник",
+  "origin.origins_classes.beastmaster.description": "Охотники - одинокие люди, предпочитающие находиться в компании животных.",
+
+  "origin.origins_classes.blacksmith.name": "Кузнец",
+  "origin.origins_classes.blacksmith.description": "Кузнецы - ценные друзья для любого человека. Умеют создавать лучшие инструменты, оружие и доспехи.",
+
+  "origin.origins_classes.cleric.name": "Клирик",
+  "origin.origins_classes.cleric.description": "Они научились управлять магией, присутствующую в мире и использовать её в своих интересах.",
+
+  "origin.origins_classes.cook.name": "Повар",
+  "origin.origins_classes.cook.description": "Нет того, кто лучше приготовит еду, чем повар.",
+
+  "origin.origins_classes.farmer.name": "Фермер",
+  "origin.origins_classes.farmer.description": "Фермеры, как известно, обеспечивают всех едой с тех пор, сколько их помнят.",
+
+  "origin.origins_classes.merchant.name": "Торговец",
+  "origin.origins_classes.merchant.description": "Всегда ищут дополнительный изумруд. Торговцы - опытные купцы.",
+
+  "origin.origins_classes.rancher.name": "Скотовод",
+  "origin.origins_classes.rancher.description": "Используя животных по максимуму, скотоводы могут получать много полезных ресурсов.",
+
+  "origin.origins_classes.miner.name": "Шахтёр",
+  "origin.origins_classes.miner.description": "Шахтеры наиболее искусны в выкапывании земных сокровищ.",
+
+  "origin.origins_classes.lumberjack.name": "Лесоруб",
+  "origin.origins_classes.lumberjack.description": "Деревья должны быть начеку, когда лесорубы рядом.",
+
+  "origin.origins_classes.explorer.name": "Исследователь",
+  "origin.origins_classes.explorer.description": "Исследователи легко преодолевают самые сложные участки местности и открывают скрытые достопримечательности.",
+
+  "origin.origins_classes.nitwit.name": "Придурок",
+  "origin.origins_classes.nitwit.description": "Придурки ни в чем не хороши.",
+
+  "power.origins_classes.less_shield_slowdown.name": "Владение щитом",
+  "power.origins_classes.less_shield_slowdown.description": "Вы меньше замедляетесь, защищая себя щитом.",
+
+  "power.origins_classes.sneaky.name": "Подлый",
+  "power.origins_classes.sneaky.description": "Ваше имя никогда не видно сквозь стены, даже если вы не подкрадываетесь.",
+
+  "power.origins_classes.stealth.name": "В тени",
+  "power.origins_classes.stealth.description": "Когда вы подкрадываетесь более 5 секунд, вы становитесь скрытным.",
+
+  "power.origins_classes.stealth_core.name": "Скрытность",
+  "power.origins_classes.stealth_core.description": "В скрытности, вы производите меньше звуков и наносите дополнительный урон когда атакуете врага за спиною. Вы выходите из скрытности когда вы перестаёте подкрадываться или атакуете врага.",
+
+  "power.origins_classes.less_bow_slowdown.name": "Ловкость",
+  "power.origins_classes.less_bow_slowdown.description": "Вы движетесь быстрее, чем остальные, когда натягиваете тетиву лука.",
+
+  "power.origins_classes.no_projectile_divergence.name": "Точность",
+  "power.origins_classes.no_projectile_divergence.description": "Все ваши снаряды имеют повышенную точность.",
+
+  "power.origins_classes.more_attack_damage.name": "Знаток оружия",
+  "power.origins_classes.more_attack_damage.description": "Вы можете использовать каждое оружие в полной мере, поэтому наносите немного больше урона.",
+
+  "power.origins_classes.tamed_animal_boost.name": "Друзья фауны",
+  "power.origins_classes.tamed_animal_boost.description": "Прирученные тобою животные получают постоянный эффект на их здоровье и силу.",
+
+  "power.origins_classes.tamed_potion_diffusal.name": "Эффективное сочувствие",
+  "power.origins_classes.tamed_potion_diffusal.description": "Прирученные животные поблизости также получают эффекты зелья, когда вы пьете зелье.",
+
+  "power.origins_classes.more_smoker_xp.name": "Копчение",
+  "power.origins_classes.more_smoker_xp.description": "Вы получаете больше опыта при готовке в коптильне.",
+
+  "power.origins_classes.better_crafted_food.name": "Хорошая еда",
+  "power.origins_classes.better_crafted_food.description": "Приготовленная тобою еда более сытная.",
+
+  "power.origins_classes.potion_bonus.name": "Продлённые зелья",
+  "power.origins_classes.potion_bonus.description": "В качестве последнего шага в приготовлении зелий, вы можете удвоить продолжительность действия зелий с водой из котла.",
+
+  "power.origins_classes.better_enchanting.name": "Мастер чар",
+  "power.origins_classes.better_enchanting.description": "Вы можете накладывать чары получше на чародейском столе.",
+
+  "power.origins_classes.quality_equipment.name": "Качественное снаряжение",
+  "power.origins_classes.quality_equipment.description": "Созданное вами сняряжение будет иметь небольшое улучшение.",
+
+  "power.origins_classes.efficient_repairs.name": "Эффективный ремонт",
+  "power.origins_classes.efficient_repairs.description": "Ремонт снаряжения на наковальне требует меньших затрат материала. Ремонт, путем комбинирования снаряжения, восстанавливает больше прочности.",
+
+  "power.origins_classes.more_crop_drops.name": "Обильный урожай",
+  "power.origins_classes.more_crop_drops.description": "При сборе урожая, есть шанс получить вдвое больше урожая.",
+
+  "power.origins_classes.better_bone_meal.name": "Техники удобрения",
+  "power.origins_classes.better_bone_meal.description": "Костная мука вдвое эффективнее в ваших опытных руках при использовании на сельскохозяйственных культурах и растениях.",
+
+  "power.origins_classes.twin_breeding.name": "Рождение близнецов",
+  "power.origins_classes.twin_breeding.description": "У выведенных вами животных есть шанс произвести на свет двух детенышей.",
+
+  "power.origins_classes.more_animal_loot.name": "Уборка мусора",
+  "power.origins_classes.more_animal_loot.description": "Иногда вы можете получить больше материала за убийство животных.",
+
+  "power.origins_classes.trade_availability.name": "Пополнение запасов",
+  "power.origins_classes.trade_availability.description": "Крестьяне, с которыми вы торгуете, никогда не исчерпают ресурсы, чтобы обменять их.",
+
+  "power.origins_classes.rare_wandering_loot.name": "Харизма",
+  "power.origins_classes.rare_wandering_loot.description": "Вы можете убедить странствующих торговцев предложить вам некоторые из их более редких предметов.",
+
+  "power.origins_classes.no_sprint_exhaustion.name": "В форме",
+  "power.origins_classes.no_sprint_exhaustion.description": "Бег не заставляет вас утомляться.",
+
+  "power.origins_classes.explorer_kit.name": "Комплект исследователя",
+  "power.origins_classes.explorer_kit.description": "Вы начинаете игру с компасом, часами и девятью пустыми картами.",
+
+  "power.origins_classes.no_mining_exhaustion.name": "Опытный землекоп",
+  "power.origins_classes.no_mining_exhaustion.description": "Разрушение блоков не вызывает утомление.",
+
+  "power.origins_classes.more_stone_break_speed.name": "Эксперт горного дела",
+  "power.origins_classes.more_stone_break_speed.description": "Вы добываете камень быстрее, чем другие.",
+
+  "power.origins_classes.tree_felling.name": "Древесина!",
+  "power.origins_classes.tree_felling.description": "Вы рубите сразу целые деревья, если не крадетесь.",
+
+  "power.origins_classes.more_planks_from_logs.name": "Резка по дереву",
+  "power.origins_classes.more_planks_from_logs.description": "Вы получаете на две доски больше с одного бревна при крафте."
+}

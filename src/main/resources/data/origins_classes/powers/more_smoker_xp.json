@@ -1,0 +1,12 @@
+{
+  "type": "origins_classes:modify_furnace_xp",
+  "modifier": {
+    "name": "Cook Smoker Xp Bonus",
+    "value": 1.0,
+    "operation": "multiply_base"
+  },
+  "block_condition": {
+    "type": "apoli:block",
+    "block": "minecraft:smoker"
+  }
+}

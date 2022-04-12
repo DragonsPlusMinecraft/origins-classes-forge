@@ -1,0 +1,22 @@
+[
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "name": "Blacksmith Shield Bonus",
+        "attribute": "minecraft:generic.knockback_resistance",
+        "operation": "addition",
+        "amount": {
+          "type": "minecraft:constant",
+          "value": 0.1
+        },
+        "id": "f99b89c9-c227-43a1-9e90-b62561e88db1",
+        "slot": "offhand"
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{AdditionalAttributes: 1b}"
+  }
+]

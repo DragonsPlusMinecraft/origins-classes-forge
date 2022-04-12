@@ -1,0 +1,33 @@
+[
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "name": "Blacksmith Range Bonus",
+        "attribute": "origins_classes:projectile_strength",
+        "operation": "multiply_base",
+        "amount": {
+          "type": "minecraft:constant",
+          "value": 0.25
+        },
+        "id": "699eae30-e0b8-466f-8996-c1e50d43eef5",
+        "slot": "mainhand"
+      },
+      {
+        "name": "Blacksmith Range Bonus",
+        "attribute": "origins_classes:projectile_strength",
+        "operation": "multiply_base",
+        "amount": {
+          "type": "minecraft:constant",
+          "value": 0.25
+        },
+        "id": "e0cd3f87-ad78-46c1-bd3f-56a49c7c23b3",
+        "slot": "offhand"
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{AdditionalAttributes: 1b}"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "name": "Blacksmith Chestplate Bonus",
+        "attribute": "minecraft:generic.armor_toughness",
+        "operation": "addition",
+        "amount": {
+          "type": "minecraft:constant",
+          "value": 0.25
+        },
+        "id": "176957c2-582e-49f9-ad9b-cc65c06487fb",
+        "slot": "chest"
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{AdditionalAttributes: 1b}"
+  }
+]

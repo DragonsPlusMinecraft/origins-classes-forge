@@ -1,0 +1,8 @@
+{
+  "type": "origins_classes:modify_breeding",
+  "modifier": {
+    "name": "Rancher Breeding Bonus",
+    "value": 0.2,
+    "operation": "multiply_base"
+  }
+}
