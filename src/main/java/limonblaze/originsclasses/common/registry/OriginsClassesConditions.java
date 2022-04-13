@@ -10,6 +10,7 @@ import io.github.edwinmindcraft.apoli.common.condition.block.SimpleBlockConditio
 import io.github.edwinmindcraft.apoli.common.condition.entity.SimpleEntityCondition;
 import io.github.edwinmindcraft.apoli.common.condition.item.SimpleItemCondition;
 import limonblaze.originsclasses.OriginsClasses;
+import limonblaze.originsclasses.common.condition.item.ToolActionCondition;
 import limonblaze.originsclasses.util.PowerUtil;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.Animal;
@@ -47,6 +48,7 @@ public class OriginsClassesConditions {
         new SimpleItemCondition(stack -> stack.getItem() instanceof ArmorItem armor && armor.getSlot() == EquipmentSlot.LEGS));
     public static final RegistryObject<SimpleItemCondition> SHOES = ITEM_CONDITIONS.register("shoes", () ->
         new SimpleItemCondition(stack -> stack.getItem() instanceof ArmorItem armor && armor.getSlot() == EquipmentSlot.FEET));
+    public static final RegistryObject<ToolActionCondition> TOOL_ACTION = ITEM_CONDITIONS.register("tool_action", ToolActionCondition::new);
 
     public static final DeferredRegister<BlockCondition<?>> BLOCK_CONDITIONS = DeferredRegister.create(ApoliRegistries.BLOCK_CONDITION_KEY, OriginsClasses.MODID);
     public static final RegistryObject<SimpleBlockCondition> CROP = BLOCK_CONDITIONS.register("crop", () ->
