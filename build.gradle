@@ -100,9 +100,9 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.1-39.1.2'
+    minecraft "net.minecraftforge:forge:${project.forge_version}"
 
-    implementation fg.deobf(group: 'top.theillusivec4.caelus', name: 'caelus-forge', version: "${project.minecraft_version}-${project.caelus_version}")
+    implementation fg.deobf(group: 'top.theillusivec4.caelus', name: 'caelus-forge', version: "${project.caelus_version}")
     implementation fg.deobf("curse.maven:origins-474438:${project.origins_version}")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'

@@ -21,7 +21,7 @@ public record MultiMineConfiguration(float speedMultiplier,
             .forGetter(x -> Optional.of(x.speedMultiplier)),
         CalioCodecHelper.optionalField(ConfiguredBlockCondition.CODEC, "block_condition")
             .forGetter(x -> Optional.ofNullable(x.blockCondition)),
-        CalioCodecHelper.optionalField(ConfiguredItemCondition.CODEC, "block_condition")
+        CalioCodecHelper.optionalField(ConfiguredItemCondition.CODEC, "item_condition")
             .forGetter(x -> Optional.ofNullable(x.itemCondition)),
         CalioCodecHelper.optionalField(ConfiguredEntityAction.CODEC, "entity_action")
             .forGetter(x -> Optional.ofNullable(x.entityAction))
