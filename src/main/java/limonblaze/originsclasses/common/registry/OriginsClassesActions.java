@@ -9,7 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class OriginsClassesActions {
 
-    public static final DeferredRegister<EntityAction<?>> ENTITY_ACTIONS = DeferredRegister.create(ApoliRegistries.ENTITY_ACTION_CLASS, OriginsClasses.MODID);
+    public static final DeferredRegister<EntityAction<?>> ENTITY_ACTIONS = DeferredRegister.create(ApoliRegistries.ENTITY_ACTION_KEY, OriginsClasses.MODID);
 
     public static final RegistryObject<AttributeAction> APPLY_MODIFIER = ENTITY_ACTIONS.register("attribute", AttributeAction::new);
 

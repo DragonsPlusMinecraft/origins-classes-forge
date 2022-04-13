@@ -4,6 +4,7 @@ import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import limonblaze.originsclasses.common.data.tag.OriginsClassesItemTags;
 import limonblaze.originsclasses.common.registry.OriginsClassesPowers;
 import limonblaze.originsclasses.util.ItemUtil;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
@@ -16,6 +17,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,6 +27,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Mixin(AbstractVillager.class)
 public abstract class AbstractVillagerMixin extends AgeableMob {
@@ -82,7 +85,7 @@ public abstract class AbstractVillagerMixin extends AgeableMob {
     private MerchantOffers originsClasses$buildAdditionalOffers() {
         MerchantOffers list = new MerchantOffers();
         Random random = new Random();
-        Set<Item> excludedItems = new HashSet<>(OriginsClassesItemTags.MERCHANT_BLACKLIST.getValues());
+        Set<Item> excludedItems = ForgeRegistries.ITEMS.tags().getTag(OriginsClassesItemTags.MERCHANT_BLACKLIST).stream().collect(Collectors.toSet());
         list.add(new MerchantOffer(
             new ItemStack(Items.EMERALD, random.nextInt(12) + 6),
             ItemUtil.createMerchantItemStack(ItemUtil.getRandomObtainableItem(

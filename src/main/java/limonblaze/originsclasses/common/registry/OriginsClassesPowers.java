@@ -12,7 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 public class OriginsClassesPowers {
-    public static final DeferredRegister<PowerFactory<?>> POWER_FACTORIES = DeferredRegister.create(ApoliRegistries.POWER_FACTORY_CLASS, OriginsClasses.MODID);
+    public static final DeferredRegister<PowerFactory<?>> POWER_FACTORIES = DeferredRegister.create(ApoliRegistries.POWER_FACTORY_KEY, OriginsClasses.MODID);
 
     // Rogue
     public static final RegistryObject<StealthPower> STEALTH = POWER_FACTORIES.register("stealth", StealthPower::new);

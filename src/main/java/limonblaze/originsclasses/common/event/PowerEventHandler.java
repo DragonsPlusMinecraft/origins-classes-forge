@@ -121,7 +121,7 @@ public class PowerEventHandler {
     @SubscribeEvent
     public static void onInteractEntity(PlayerInteractEvent.EntityInteract event) {
         if(event.getPlayer() instanceof ServerPlayer sp) {
-            if(OriginsClassesEntityTypeTags.INFINITE_TRADER.contains(event.getTarget().getType()) &&
+            if(event.getTarget().getType().is(OriginsClassesEntityTypeTags.INFINITE_TRADER) &&
                 IPowerContainer.hasPower(sp, OriginsClassesPowers.INFINITE_TRADE.get())) {
                 OriginsClassesCommon.CHANNEL.send(PacketDistributor.PLAYER.with(() -> sp), new S2CInfiniteTrader(true));
             } else {

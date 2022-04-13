@@ -108,7 +108,7 @@ public class PowerUtil {
                                 return new ArrayList<>(affected);
                             }
                         } else
-                        if((BlockTags.LEAVES.contains(newState.getBlock()) || newState.getBlock() instanceof LeavesBlock) && !newState.getValue(LeavesBlock.PERSISTENT)) {
+                        if((newState.is(BlockTags.LEAVES) || newState.getBlock() instanceof LeavesBlock) && !newState.getValue(LeavesBlock.PERSISTENT)) {
                             foundOneWithLeaves = true;
                         }
                     }

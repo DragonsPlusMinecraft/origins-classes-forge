@@ -13,6 +13,7 @@ import net.minecraft.world.level.storage.loot.entries.CompositeEntryBase;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.entries.TagEntry;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 
@@ -56,7 +57,7 @@ public class ItemUtil {
                 if(entry instanceof LootItem li) {
                     ItemUtil.OBTAINABLE.add(li.item);
                 } else if(entry instanceof TagEntry te) {
-                    ItemUtil.OBTAINABLE.addAll(te.tag.getValues());
+                    ForgeRegistries.ITEMS.tags().getTag(te.tag).forEach(ItemUtil.OBTAINABLE::add);
                 } else if(entry instanceof CompositeEntryBase ceb) {
                     entryQueue.addAll(Arrays.asList(ceb.children));
                 }

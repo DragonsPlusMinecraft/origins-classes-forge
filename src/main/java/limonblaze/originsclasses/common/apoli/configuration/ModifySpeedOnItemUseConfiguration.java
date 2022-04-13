@@ -6,19 +6,20 @@ import io.github.edwinmindcraft.apoli.api.IDynamicFeatureConfiguration;
 import io.github.edwinmindcraft.apoli.api.configuration.ListConfiguration;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredItemCondition;
 import io.github.edwinmindcraft.calio.api.network.CalioCodecHelper;
+import net.minecraft.core.Holder;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
 
 public record ModifySpeedOnItemUseConfiguration(ListConfiguration<AttributeModifier> modifiers,
-                                                @Nullable ConfiguredItemCondition<?, ?> itemCondition) implements IDynamicFeatureConfiguration {
+                                                Holder<ConfiguredItemCondition<?, ?>> itemCondition) implements IDynamicFeatureConfiguration {
 
     public static final Codec<ModifySpeedOnItemUseConfiguration> CODEC = RecordCodecBuilder.create(instance -> instance.group(
         ListConfiguration.modifierCodec("modifier")
             .forGetter(ModifySpeedOnItemUseConfiguration::modifiers),
-        CalioCodecHelper.optionalField(ConfiguredItemCondition.CODEC, "item_condition")
-            .forGetter(x -> Optional.ofNullable(x.itemCondition))
-    ).apply(instance, (mods, ic) -> new ModifySpeedOnItemUseConfiguration(mods, ic.orElse(null))));
+        ConfiguredItemCondition.optional("item_condition")
+            .forGetter(ModifySpeedOnItemUseConfiguration::itemCondition)
+    ).apply(instance, ModifySpeedOnItemUseConfiguration::new));
 
 }
