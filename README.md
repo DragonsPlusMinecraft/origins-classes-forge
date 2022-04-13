@@ -22,7 +22,7 @@ Classes available are the following:
 
 ## Disclaimer
 1. This is **NOT** an official port.
-2. **DON'T** ask for backport, this mod relies on [EdwinMindcraft](https://github.com/EdwinMindcraft)'s [forge port](https://github.com/EdwinMindcraft/origins-forge) for [Origins](https://github.com/apace100/origins-fabric), and most features needs the latest version of that mod to work properly.
+2. **DON'T** ask for backport, this mod depends on [EdwinMindcraft](https://github.com/EdwinMindcraft)'s [Forge port](https://github.com/EdwinMindcraft/origins-forge) for [Origins](https://github.com/apace100/origins-fabric), and most features needs some specific versions of that mod to work properly.
 3. Most of the code were rewritten to fit forge environment and extend customabilities, so keep in mind that some features may be slightly different from the fabric version.
 
 ## Contributing
@@ -31,4 +31,5 @@ Classes available are the following:
 3. For pull requests: I'm open to PRs. If you'd like to contribute with the mod, feel free to open a PR!
 
 ## Further Infomation
-For more information and a download link, visit the CurseForge page.
+For more information and a download link, visit the [CurseForge page](https://www.curseforge.com/minecraft/mc-mods/origins-classes-forge).
+You may also download the mod from the git repo's release, but please be aware of potential bugs in alpha and beta versions :)
