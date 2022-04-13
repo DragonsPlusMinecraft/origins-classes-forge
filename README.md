@@ -1,5 +1,6 @@
 # Origin: Classes (Forge)
-A unofficial Forge port for Origin: Classes
+A unofficial Forge port for [Origin: Classes](https://github.com/apace100/origins-classes)
+This mod depends on [Origins (Forge)](https://github.com/EdwinMindcraft/origins-forge), please have the proper version of that mod installed!
 
 ## Description
 This mod is an add-on to the Origins mod. In addition to choosing an origin, you now also choose a class.
