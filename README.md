@@ -24,7 +24,7 @@ Classes available are the following:
 ## Disclaimer
 1. This is **NOT** an official port.
 2. **DON'T** ask for backport, this mod depends on [EdwinMindcraft](https://github.com/EdwinMindcraft)'s [Forge port](https://github.com/EdwinMindcraft/origins-forge) for [Origins](https://github.com/apace100/origins-fabric), and most features needs some specific versions of that mod to work properly.
-3. Most of the code were rewritten to fit forge environment and extend customabilities, so keep in mind that some features may be slightly different from the fabric version.
+3. Most of the code were rewritten to fit forge environment and extend customizabilities, so keep in mind that some features may be slightly different from the fabric version.
 
 ## Contributing
 1. For translation: **DON'T** simply copy translation from the fabric version. As what I mentioned in the disclaimer, some features are different, so always take en_us.json as your only reference.
