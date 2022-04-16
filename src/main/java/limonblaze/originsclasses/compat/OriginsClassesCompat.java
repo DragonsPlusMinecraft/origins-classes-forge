@@ -33,10 +33,11 @@ public class OriginsClassesCompat implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if(mixinClassName.equals("limonblaze.originsclasses.mixin.compat.apotheosis.ApotheosisEnchantmentMenuMixin")) {
-            return APOTHEOSIS;
-        }
-        return true;
+        return switch(mixinClassName) {
+            case "limonblaze.originsclasses.mixin.compat.apotheosis.ApotheosisEnchantmentMenuMixin" -> APOTHEOSIS;
+            case "limonblaze.originsclasses.mixin.AnvilMenuMixin" -> !APOTHEOSIS;
+            default -> true;
+        };
     }
 
     @Override
