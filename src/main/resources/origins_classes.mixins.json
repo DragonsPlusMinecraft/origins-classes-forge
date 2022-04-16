@@ -28,6 +28,7 @@
     "client.ClientSideMerchantMixin",
     "client.LocalPlayerMixin"
   ],
+  "plugin": "limonblaze.originsclasses.compat.OriginsClassesCompat",
   "refmap": "origins_classes.refmap.json",
   "injectors": {
     "defaultRequire": 1
