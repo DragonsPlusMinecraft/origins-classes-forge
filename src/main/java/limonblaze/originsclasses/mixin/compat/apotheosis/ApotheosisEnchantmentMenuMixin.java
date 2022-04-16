@@ -17,9 +17,9 @@ import shadows.apotheosis.ench.table.ApothEnchantContainer;
 @Mixin(ApothEnchantContainer.class)
 public class ApotheosisEnchantmentMenuMixin {
 
-    @Shadow @Final protected Player player;
+    @Shadow(remap = false) @Final protected Player player;
 
-    @ModifyVariable(method = "lambda$slotsChanged$1", at = @At(value = "INVOKE", target = "Lshadows/apotheosis/ench/table/ApothEnchantContainer;gatherStats()V"))
+    @ModifyVariable(method = "lambda$slotsChanged$1", at = @At(value = "INVOKE", target = "Lshadows/apotheosis/ench/table/ApothEnchantContainer;gatherStats()V", remap = false))
     private ItemStack originsClasses$storeEnchanter(ItemStack stack) {
         stack.getOrCreateTagElement(NbtUtils.ORIGINS_CLASSES).putUUID(NbtUtils.ENCHANTER, this.player.getUUID());
         return stack;
