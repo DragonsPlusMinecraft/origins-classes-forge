@@ -3,7 +3,6 @@ package limonblaze.originsclasses.common.apoli.power;
 import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityAction;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityCondition;
-import io.github.edwinmindcraft.apoli.api.power.factory.BiEntityAction;
 import io.github.edwinmindcraft.apoli.api.power.factory.PowerFactory;
 import limonblaze.originsclasses.common.apoli.configuration.ActionOnTameConfiguration;
 import limonblaze.originsclasses.common.registry.OriginsClassesPowers;

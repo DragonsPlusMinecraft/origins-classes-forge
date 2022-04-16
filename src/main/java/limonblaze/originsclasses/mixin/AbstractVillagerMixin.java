@@ -3,8 +3,7 @@ package limonblaze.originsclasses.mixin;
 import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import limonblaze.originsclasses.common.data.tag.OriginsClassesItemTags;
 import limonblaze.originsclasses.common.registry.OriginsClassesPowers;
-import limonblaze.originsclasses.util.ItemUtil;
-import net.minecraft.core.Registry;
+import limonblaze.originsclasses.util.MerchantUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
@@ -24,7 +23,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -88,7 +86,7 @@ public abstract class AbstractVillagerMixin extends AgeableMob {
         Set<Item> excludedItems = ForgeRegistries.ITEMS.tags().getTag(OriginsClassesItemTags.MERCHANT_BLACKLIST).stream().collect(Collectors.toSet());
         list.add(new MerchantOffer(
             new ItemStack(Items.EMERALD, random.nextInt(12) + 6),
-            ItemUtil.createMerchantItemStack(ItemUtil.getRandomObtainableItem(
+            MerchantUtils.createMerchantItemStack(MerchantUtils.getRandomObtainableItem(
                 this.getServer(),
                 random,
                 excludedItems), random),
@@ -96,13 +94,13 @@ public abstract class AbstractVillagerMixin extends AgeableMob {
             5,
             0.05F)
         );
-        Item desiredItem = ItemUtil.getRandomObtainableItem(
+        Item desiredItem = MerchantUtils.getRandomObtainableItem(
             this.getServer(),
             random,
             excludedItems);
         list.add(new MerchantOffer(
             new ItemStack(desiredItem, 1 + random.nextInt(Math.min(16, desiredItem.getDefaultInstance().getMaxStackSize()))),
-            ItemUtil.createMerchantItemStack(ItemUtil.getRandomObtainableItem(
+            MerchantUtils.createMerchantItemStack(MerchantUtils.getRandomObtainableItem(
                 this.getServer(),
                 random,
                 excludedItems), random),

@@ -1,6 +1,6 @@
 package limonblaze.originsclasses.mixin;
 
-import limonblaze.originsclasses.util.PowerUtil;
+import limonblaze.originsclasses.util.ClericUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.alchemy.PotionUtils;
@@ -18,9 +18,9 @@ public class PotionUtilMixin {
 
     @Inject(method = "getAllEffects(Lnet/minecraft/nbt/CompoundTag;)Ljava/util/List;", at = @At("RETURN"), cancellable = true)
     private static void originsClasses$modifyPotion(@Nullable CompoundTag nbt, CallbackInfoReturnable<List<MobEffectInstance>> cir) {
-        byte bonusLevel = PowerUtil.getPotionBonus(nbt);
+        byte bonusLevel = ClericUtils.getPotionBonus(nbt);
         if(bonusLevel > 0) {
-            cir.setReturnValue(cir.getReturnValue().stream().map(effect -> PowerUtil.applyPotionBonus(effect, bonusLevel)).collect(Collectors.toList()));
+            cir.setReturnValue(cir.getReturnValue().stream().map(effect -> ClericUtils.applyPotionBonus(effect, bonusLevel)).collect(Collectors.toList()));
         }
     }
 

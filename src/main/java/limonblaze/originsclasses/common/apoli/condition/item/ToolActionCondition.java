@@ -1,4 +1,4 @@
-package limonblaze.originsclasses.common.condition.item;
+package limonblaze.originsclasses.common.apoli.condition.item;
 
 import com.mojang.serialization.Codec;
 import io.github.edwinmindcraft.apoli.api.configuration.FieldConfiguration;
@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ToolAction;
 
-import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class ToolActionCondition extends ItemCondition<FieldConfiguration<String>> {
 
@@ -16,7 +16,7 @@ public class ToolActionCondition extends ItemCondition<FieldConfiguration<String
     }
 
     @Override
-    protected boolean check(FieldConfiguration<String> configuration, @Nonnull Level level, ItemStack stack) {
+    protected boolean check(FieldConfiguration<String> configuration, @Nullable Level level, ItemStack stack) {
         return stack.canPerformAction(ToolAction.get(configuration.value()));
     }
 

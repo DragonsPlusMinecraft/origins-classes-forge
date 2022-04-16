@@ -21,7 +21,8 @@
     "ServerPlayerGameModeMixin",
     "TippedArrowRecipeMixin",
     "accessor.LivingEntityAccessor",
-    "accessor.LootTableAccessor"
+    "accessor.LootTableAccessor",
+    "compat.apotheosis.ApotheosisEnchantmentMenuMixin"
   ],
   "client": [
     "client.ClientSideMerchantMixin",

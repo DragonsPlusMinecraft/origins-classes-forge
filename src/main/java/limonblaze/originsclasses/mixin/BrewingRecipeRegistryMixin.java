@@ -1,6 +1,6 @@
 package limonblaze.originsclasses.mixin;
 
-import limonblaze.originsclasses.util.PowerUtil;
+import limonblaze.originsclasses.util.ClericUtils;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PotionItem;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
@@ -16,9 +16,9 @@ public class BrewingRecipeRegistryMixin {
     private static void originsClasses$handleAdditionalPotionNbt(ItemStack input, ItemStack ingredient, CallbackInfoReturnable<ItemStack> cir) {
         ItemStack output = cir.getReturnValue();
         if(output.getItem() instanceof PotionItem && input.hasTag()) {
-            byte bonus = PowerUtil.getPotionBonus(input);
+            byte bonus = ClericUtils.getPotionBonus(input);
             if(bonus > 0) {
-                cir.setReturnValue(PowerUtil.setPotionBonus(output, bonus));
+                cir.setReturnValue(ClericUtils.setPotionBonus(output, bonus));
             }
         }
     }

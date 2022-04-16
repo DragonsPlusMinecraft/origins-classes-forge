@@ -7,7 +7,7 @@ import io.github.edwinmindcraft.apoli.common.power.ModifyValueBlockPower;
 import io.github.edwinmindcraft.apoli.common.power.ModifyValuePower;
 import limonblaze.originsclasses.OriginsClasses;
 import limonblaze.originsclasses.common.apoli.power.*;
-import limonblaze.originsclasses.util.PowerUtil;
+import limonblaze.originsclasses.util.MultiMiner;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -41,7 +41,7 @@ public class OriginsClassesPowers {
     public static final RegistryObject<DummyPower> INFINITE_TRADE = POWER_FACTORIES.register("infinite_trade", DummyPower::new);
     public static final RegistryObject<DummyPower> RARE_WANDERING_LOOT = POWER_FACTORIES.register("rare_wandering_loot", DummyPower::new);
     // Lumberjack
-    public static final RegistryObject<MultiMinePower> LUMBERJACK = POWER_FACTORIES.register("lumberjack", () -> new MultiMinePower(PowerUtil::lumberjackMiner));
+    public static final RegistryObject<MultiMinePower> LUMBERJACK = POWER_FACTORIES.register("lumberjack", () -> new MultiMinePower(MultiMiner.LUMBERJACK));
     // Miner
     public static final RegistryObject<DummyPower> NO_MINING_EXHAUSTION = POWER_FACTORIES.register("no_mining_exhaustion", DummyPower::new);
     // Adventurer

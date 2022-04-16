@@ -5,12 +5,8 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.github.edwinmindcraft.apoli.api.configuration.ListConfiguration;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityCondition;
 import io.github.edwinmindcraft.apoli.api.power.configuration.power.IValueModifyingPowerConfiguration;
-import io.github.edwinmindcraft.calio.api.network.CalioCodecHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Optional;
 
 public record ModifyValueBiEntityConfiguration(ListConfiguration<AttributeModifier> modifiers,
                                                Holder<ConfiguredBiEntityCondition<?, ?>> condition) implements IValueModifyingPowerConfiguration {

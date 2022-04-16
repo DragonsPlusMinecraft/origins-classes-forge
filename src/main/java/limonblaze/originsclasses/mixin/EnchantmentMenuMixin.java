@@ -1,6 +1,7 @@
 package limonblaze.originsclasses.mixin;
 
-import limonblaze.originsclasses.util.PowerUtil;
+import limonblaze.originsclasses.util.NbtUtils;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -29,7 +30,7 @@ public class EnchantmentMenuMixin {
     @ModifyVariable(method = "slotsChanged", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/inventory/ContainerLevelAccess;execute(Ljava/util/function/BiConsumer;)V"))
     private ItemStack originsClasses$storeEnchanter(ItemStack stack) {
         if(this.originsClasses$enchanter != null) {
-            stack.getOrCreateTag().putUUID(PowerUtil.ORIGINS_CLASSES_ENCHANTER, this.originsClasses$enchanter.getUUID());
+            stack.getOrCreateTagElement(NbtUtils.ORIGINS_CLASSES).putUUID(NbtUtils.ENCHANTER, this.originsClasses$enchanter.getUUID());
         }
         return stack;
     }
@@ -37,7 +38,9 @@ public class EnchantmentMenuMixin {
     @Inject(method = "slotsChanged", at = @At("TAIL"))
     private void originsClasses$clearEnchanter(Container inventory, CallbackInfo ci) {
         ItemStack stack = inventory.getItem(0);
-        stack.removeTagKey(PowerUtil.ORIGINS_CLASSES_ENCHANTER);
+        CompoundTag ocNbt = stack.getOrCreateTagElement(NbtUtils.ORIGINS_CLASSES);
+        ocNbt.remove(NbtUtils.ENCHANTER);
+        if(ocNbt.isEmpty()) stack.removeTagKey(NbtUtils.ORIGINS_CLASSES);
     }
 
 }
