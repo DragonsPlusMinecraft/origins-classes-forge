@@ -2,7 +2,9 @@ package limonblaze.originsclasses.mixin;
 
 import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import limonblaze.originsclasses.common.registry.OriginsClassesPowers;
-import limonblaze.originsclasses.util.PowerUtil;
+import limonblaze.originsclasses.util.ClericUtils;
+import limonblaze.originsclasses.util.NbtType;
+import limonblaze.originsclasses.util.NbtUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -31,11 +33,13 @@ public class AbstractCauldronBlockMixin {
     private void originsClasses$addPotionBonus(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit, CallbackInfoReturnable<InteractionResult> cir) {
         if(state.is(Blocks.WATER_CAULDRON) && state.getValue(LayeredCauldronBlock.LEVEL) > 0) {
             ItemStack stack = player.getItemInHand(hand);
-            if(!(stack.getItem() instanceof PotionItem && stack.hasTag() && !PotionUtils.getPotion(stack).getEffects().isEmpty() && stack.getOrCreateTag().contains(PowerUtil.ORIGINS_CLASSES) && stack.getOrCreateTagElement(PowerUtil.ORIGINS_CLASSES).contains(PowerUtil.POTION_BONUS))) {
+            if(stack.getItem() instanceof PotionItem &&
+               !PotionUtils.getPotion(stack).getEffects().isEmpty() &&
+               NbtUtils.getOriginsClassesData(stack, NbtUtils.POTION_BONUS, NbtType.BYTE).isPresent()) {
                 int bonus = IPowerContainer.getPowers(player, OriginsClassesPowers.POTION_BONUS.get()).stream()
                     .filter(cp -> cp.isActive(player)).mapToInt(cp -> cp.getConfiguration().value()).sum();
                 if(bonus > 0) {
-                    PowerUtil.setPotionBonus(stack, (byte) bonus);
+                    ClericUtils.setPotionBonus(stack, (byte) bonus);
                     LayeredCauldronBlock.lowerFillLevel(state, world, pos);
                     world.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
                     world.gameEvent(null, GameEvent.FLUID_PICKUP, pos);

@@ -3,7 +3,7 @@ package limonblaze.originsclasses.mixin;
 import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import limonblaze.originsclasses.common.data.tag.OriginsClassesItemTags;
 import limonblaze.originsclasses.common.registry.OriginsClassesPowers;
-import limonblaze.originsclasses.util.ItemUtil;
+import limonblaze.originsclasses.util.MerchantUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
@@ -85,7 +85,7 @@ public abstract class AbstractVillagerMixin extends AgeableMob {
         Set<Item> excludedItems = new HashSet<>(OriginsClassesItemTags.MERCHANT_BLACKLIST.getValues());
         list.add(new MerchantOffer(
             new ItemStack(Items.EMERALD, random.nextInt(12) + 6),
-            ItemUtil.createMerchantItemStack(ItemUtil.getRandomObtainableItem(
+            MerchantUtils.createMerchantItemStack(MerchantUtils.getRandomObtainableItem(
                 this.getServer(),
                 random,
                 excludedItems), random),
@@ -93,13 +93,13 @@ public abstract class AbstractVillagerMixin extends AgeableMob {
             5,
             0.05F)
         );
-        Item desiredItem = ItemUtil.getRandomObtainableItem(
+        Item desiredItem = MerchantUtils.getRandomObtainableItem(
             this.getServer(),
             random,
             excludedItems);
         list.add(new MerchantOffer(
             new ItemStack(desiredItem, 1 + random.nextInt(Math.min(16, desiredItem.getDefaultInstance().getMaxStackSize()))),
-            ItemUtil.createMerchantItemStack(ItemUtil.getRandomObtainableItem(
+            MerchantUtils.createMerchantItemStack(MerchantUtils.getRandomObtainableItem(
                 this.getServer(),
                 random,
                 excludedItems), random),

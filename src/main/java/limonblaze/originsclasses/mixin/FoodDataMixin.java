@@ -1,6 +1,7 @@
 package limonblaze.originsclasses.mixin;
 
-import limonblaze.originsclasses.util.PowerUtil;
+import limonblaze.originsclasses.util.NbtType;
+import limonblaze.originsclasses.util.NbtUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.util.Mth;
@@ -22,11 +23,9 @@ public abstract class FoodDataMixin {
     @Inject(method = "eat(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/ItemStack;)V", at = @At("TAIL"))
     private void originsClasses$handleFoodBonus(Item item, ItemStack stack, CallbackInfo ci) {
         FoodProperties food = item.getFoodProperties();
-        if(food != null && stack.hasTag() && stack.getOrCreateTag().contains(PowerUtil.ORIGINS_CLASSES, Tag.TAG_COMPOUND)) {
-            CompoundTag nbt = stack.getOrCreateTagElement(PowerUtil.ORIGINS_CLASSES);
-            if(nbt.contains(PowerUtil.FOOD_BONUS, Tag.TAG_FLOAT)) {
-                this.eat(Mth.floor(food.getNutrition() * nbt.getFloat(PowerUtil.FOOD_BONUS)), food.getSaturationModifier());
-            }
+        if(food != null) {
+            NbtUtils.getOriginsClassesData(stack, NbtUtils.FOOD_BONUS, NbtType.FLOAT).ifPresent(f ->
+                this.eat(Mth.floor(food.getNutrition() * f), food.getSaturationModifier()));
         }
     }
 

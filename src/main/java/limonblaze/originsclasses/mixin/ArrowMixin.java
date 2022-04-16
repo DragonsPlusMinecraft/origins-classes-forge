@@ -1,6 +1,6 @@
 package limonblaze.originsclasses.mixin;
 
-import limonblaze.originsclasses.util.PowerUtil;
+import limonblaze.originsclasses.util.ClericUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.projectile.Arrow;
@@ -19,7 +19,7 @@ public class ArrowMixin {
 
     @Inject(method = "setEffectsFromItem", at = @At("TAIL"))
     private void originsClasses$initFromAdditionalPotionNbt(ItemStack arrow, CallbackInfo ci) {
-        byte bonus = PowerUtil.getPotionBonus(arrow);
+        byte bonus = ClericUtils.getPotionBonus(arrow);
         if(bonus > 0) {
             this.originsClass$potionBonus = bonus;
         }
@@ -27,22 +27,22 @@ public class ArrowMixin {
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
     private void originsClasses$writeAdditionalPotionNbt(CompoundTag nbt, CallbackInfo ci){
-        if(originsClass$potionBonus > 0) PowerUtil.setPotionBonus(nbt, originsClass$potionBonus);
+        if(originsClass$potionBonus > 0) ClericUtils.setPotionBonus(nbt, originsClass$potionBonus);
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
     private void originsClasses$readAdditionalPotionNbt(CompoundTag nbt, CallbackInfo ci){
-        originsClass$potionBonus = PowerUtil.getPotionBonus(nbt);
+        originsClass$potionBonus = ClericUtils.getPotionBonus(nbt);
     }
 
     @Inject(method = "getPickupItem", at = @At("RETURN"), cancellable = true)
     private void originsClasses$storeAdditionalPotionNbt(CallbackInfoReturnable<ItemStack> cir) {
-        if(originsClass$potionBonus > 0) cir.setReturnValue(PowerUtil.setPotionBonus(cir.getReturnValue(), originsClass$potionBonus));
+        if(originsClass$potionBonus > 0) cir.setReturnValue(ClericUtils.setPotionBonus(cir.getReturnValue(), originsClass$potionBonus));
     }
 
     @ModifyArg(method = "doPostHurtEffects", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;addEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)Z"), index = 0)
     private MobEffectInstance originsClasses$handlePotionBonus(MobEffectInstance effect) {
-        return originsClass$potionBonus > 0 ? PowerUtil.applyPotionBonus(effect, originsClass$potionBonus) : effect;
+        return originsClass$potionBonus > 0 ? ClericUtils.applyPotionBonus(effect, originsClass$potionBonus) : effect;
     }
 
 }

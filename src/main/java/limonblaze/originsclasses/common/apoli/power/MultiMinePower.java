@@ -1,5 +1,7 @@
 package limonblaze.originsclasses.common.apoli.power;
 
+import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.util.Pair;
 import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBlockCondition;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredItemCondition;
@@ -9,27 +11,33 @@ import io.github.edwinmindcraft.apoli.api.registry.ApoliRegistries;
 import limonblaze.originsclasses.client.OriginsClassesClient;
 import limonblaze.originsclasses.common.apoli.configuration.MultiMineConfiguration;
 import limonblaze.originsclasses.common.duck.SneakingStateSave;
+import limonblaze.originsclasses.util.MultiMiner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class MultiMinePower extends PowerFactory<MultiMineConfiguration> {
-    private static final List<MultiMinePower> POWERS = new ArrayList<>();
-    public final Miner miner;
+    private static ImmutableList<MultiMinePower> FACTORIES;
+    public final MultiMiner miner;
 
-    public MultiMinePower(Miner miner) {
+    public MultiMinePower(MultiMiner miner) {
         super(MultiMineConfiguration.CODEC);
         this.miner = miner;
     }
 
-    public static void bootstrap() {
-        ApoliRegistries.POWER_FACTORY.get().getValues().forEach(pf -> {
-            if(pf instanceof MultiMinePower mmp) POWERS.add(mmp);
-        });
+    public static List<MultiMinePower> factories() {
+        if(FACTORIES == null) {
+            ImmutableList.Builder<MultiMinePower> factories = ImmutableList.builder();
+            ApoliRegistries.POWER_FACTORY.get().getValues().forEach(pf -> {
+                if(pf instanceof MultiMinePower mmp) factories.add(mmp);
+            });
+            FACTORIES = factories.build();
+        }
+        return FACTORIES;
     }
 
     public static boolean shouldApply(ConfiguredPower<?, ?> cp, Player player, BlockPos pos, BlockState state) {
@@ -39,18 +47,18 @@ public class MultiMinePower extends PowerFactory<MultiMineConfiguration> {
             ConfiguredItemCondition.check(mmc.itemCondition(), player.level, player.getMainHandItem());
     }
 
-    public static MultiMineData getMultiMineData(Player player, BlockPos pos, BlockState state) {
-        List<ConfiguredPower<MultiMineConfiguration, MultiMinePower>> cmmps = POWERS.stream()
+    public static Optional<Pair<List<BlockPos>, Float>> getResult(Player player, BlockPos pos, BlockState state) {
+        List<ConfiguredPower<MultiMineConfiguration, MultiMinePower>> cmmps = factories().stream()
             .flatMap(pf -> IPowerContainer.getPowers(player, pf).stream())
             .filter(cp -> shouldApply(cp, player, pos, state))
             .toList();
         for(ConfiguredPower<MultiMineConfiguration, MultiMinePower> cmmp : cmmps) {
-            List<BlockPos> affectBlock = cmmp.getFactory().miner.getAffectedBlocks(player, state, pos);
-            if(affectBlock.size() > 0) {
-                return new MultiMineData(affectBlock, cmmp.getConfiguration().speedMultiplier());
+            List<BlockPos> affectBlocks = cmmp.getFactory().miner.getAffectedBlocks(player, state, pos);
+            if(affectBlocks.size() > 0) {
+                return Optional.of(new Pair<>(affectBlocks, cmmp.getConfiguration().speedMultiplier()));
             }
         }
-        return new MultiMineData(new ArrayList<>(), 1F);
+        return Optional.empty();
     }
 
     public static float modifyBreakingSpeed(float speed, Player player, BlockPos pos, BlockState state) {
@@ -61,26 +69,7 @@ public class MultiMinePower extends PowerFactory<MultiMineConfiguration> {
         } else {
             processMultimine = OriginsClassesClient.MULTI_MINING;
         }
-        if(processMultimine) {
-            MultiMineData data = getMultiMineData(player, pos, state);
-            if(data.affectedBlocks.size() > 0) {
-                return data.getModifiedSpeed(speed);
-            }
-        }
-        return speed;
-    }
-
-    public record MultiMineData(List<BlockPos> affectedBlocks, float speedMultiplier) {
-
-        public float getModifiedSpeed(float speed) {
-            return speed * this.speedMultiplier / affectedBlocks.size();
-        }
-
-    }
-
-    @FunctionalInterface
-    public interface Miner {
-        List<BlockPos> getAffectedBlocks(Player player, BlockState state, BlockPos pos);
+        return processMultimine ? speed * getResult(player, pos, state).map(Pair::getSecond).orElse(1.0F) : speed;
     }
 
 }

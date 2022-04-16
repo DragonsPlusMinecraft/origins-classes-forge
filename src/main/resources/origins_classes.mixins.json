@@ -21,12 +21,14 @@
     "ServerPlayerGameModeMixin",
     "TippedArrowRecipeMixin",
     "accessor.LivingEntityAccessor",
-    "accessor.LootTableAccessor"
+    "accessor.LootTableAccessor",
+    "compat.apotheosis.ApotheosisEnchantmentMenuMixin"
   ],
   "client": [
     "client.ClientSideMerchantMixin",
     "client.LocalPlayerMixin"
   ],
+  "plugin": "limonblaze.originsclasses.compat.OriginsClassesCompat",
   "refmap": "origins_classes.refmap.json",
   "injectors": {
     "defaultRequire": 1

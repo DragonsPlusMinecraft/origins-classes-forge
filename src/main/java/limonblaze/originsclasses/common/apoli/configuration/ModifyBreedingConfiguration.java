@@ -7,6 +7,7 @@ import io.github.edwinmindcraft.apoli.api.configuration.ListConfiguration;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityAction;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityCondition;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredEntityAction;
+import io.github.edwinmindcraft.apoli.api.power.configuration.power.IValueModifyingPowerConfiguration;
 import io.github.edwinmindcraft.calio.api.network.CalioCodecHelper;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
@@ -16,7 +17,7 @@ import java.util.Optional;
 public record ModifyBreedingConfiguration(ListConfiguration<AttributeModifier> modifiers,
                                           @Nullable ConfiguredBiEntityCondition<?, ?> parentsCondition,
                                           @Nullable ConfiguredBiEntityAction<?, ?> parentsAction,
-                                          @Nullable ConfiguredEntityAction<?, ?> playerAction) implements IDynamicFeatureConfiguration {
+                                          @Nullable ConfiguredEntityAction<?, ?> playerAction) implements IValueModifyingPowerConfiguration {
 
     public static final Codec<ModifyBreedingConfiguration> CODEC = RecordCodecBuilder.create(instance -> instance.group(
         ListConfiguration.modifierCodec("modifier")

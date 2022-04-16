@@ -16,7 +16,7 @@ import net.minecraft.world.level.storage.loot.entries.TagEntry;
 
 import java.util.*;
 
-public class ItemUtil {
+public class MerchantUtils {
     private static boolean APPENDED_OBTAINABLE_ITEMS;
     private static final Set<Item> OBTAINABLE = new HashSet<>();
 
@@ -54,9 +54,9 @@ public class ItemUtil {
             while(!entryQueue.isEmpty()) {
                 LootPoolEntryContainer entry = entryQueue.remove();
                 if(entry instanceof LootItem li) {
-                    ItemUtil.OBTAINABLE.add(li.item);
+                    MerchantUtils.OBTAINABLE.add(li.item);
                 } else if(entry instanceof TagEntry te) {
-                    ItemUtil.OBTAINABLE.addAll(te.tag.getValues());
+                    MerchantUtils.OBTAINABLE.addAll(te.tag.getValues());
                 } else if(entry instanceof CompositeEntryBase ceb) {
                     entryQueue.addAll(Arrays.asList(ceb.children));
                 }

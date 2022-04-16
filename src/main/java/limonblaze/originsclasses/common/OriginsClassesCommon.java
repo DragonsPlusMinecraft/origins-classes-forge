@@ -20,7 +20,6 @@ public class OriginsClassesCommon {
 
     public static void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(OriginsClassesCommon::initNetwork);
-        MultiMinePower.bootstrap();
     }
 
     private static void initNetwork() {

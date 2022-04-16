@@ -1,5 +1,6 @@
 package limonblaze.originsclasses.mixin;
 
+import com.mojang.datafixers.util.Pair;
 import limonblaze.originsclasses.common.OriginsClassesCommon;
 import limonblaze.originsclasses.common.duck.SneakingStateSave;
 import limonblaze.originsclasses.common.apoli.power.MultiMinePower;
@@ -19,6 +20,9 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.List;
+import java.util.Optional;
 
 @Mixin(ServerPlayerGameMode.class)
 public abstract class ServerPlayerGameModeMixin implements SneakingStateSave {
@@ -49,14 +53,16 @@ public abstract class ServerPlayerGameModeMixin implements SneakingStateSave {
     private void originsClasses$multiMinePower(BlockPos pos, ServerboundPlayerActionPacket.Action action, String reason, CallbackInfo ci) {
         if(!originsClasses$wasSneakingWhenStarted && !originsClasses$performingMultiMine) {
             originsClasses$performingMultiMine = true;
-            MultiMinePower.MultiMineData data = MultiMinePower.getMultiMineData(player, pos, originsClasses$justMinedState);
-            ItemStack tool = player.getMainHandItem().copy();
-            for(BlockPos bp : data.affectedBlocks()) {
-                destroyAndAck(bp, action, reason);
-                if(!player.getMainHandItem().sameItem(tool)) {
-                    break;
+            Optional<Pair<List<BlockPos>, Float>> result = MultiMinePower.getResult(player, pos, originsClasses$justMinedState);
+            result.ifPresent(pair -> {
+                ItemStack tool = player.getMainHandItem().copy();
+                for(BlockPos bp : pair.getFirst()) {
+                    destroyAndAck(bp, action, reason);
+                    if(!player.getMainHandItem().sameItem(tool)) {
+                        break;
+                    }
                 }
-            }
+            });
             originsClasses$performingMultiMine = false;
         }
     }
