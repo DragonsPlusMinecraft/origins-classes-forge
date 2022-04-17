@@ -18,9 +18,11 @@ public class PotionUtilMixin {
 
     @Inject(method = "getAllEffects(Lnet/minecraft/nbt/CompoundTag;)Ljava/util/List;", at = @At("RETURN"), cancellable = true)
     private static void originsClasses$modifyPotion(@Nullable CompoundTag nbt, CallbackInfoReturnable<List<MobEffectInstance>> cir) {
-        byte bonusLevel = ClericUtils.getPotionBonus(nbt);
-        if(bonusLevel > 0) {
-            cir.setReturnValue(cir.getReturnValue().stream().map(effect -> ClericUtils.applyPotionBonus(effect, bonusLevel)).collect(Collectors.toList()));
+        if(nbt != null) {
+            byte bonusLevel = ClericUtils.getPotionBonus(nbt);
+            if(bonusLevel > 0) {
+                cir.setReturnValue(cir.getReturnValue().stream().map(effect -> ClericUtils.applyPotionBonus(effect, bonusLevel)).collect(Collectors.toList()));
+            }
         }
     }
 
