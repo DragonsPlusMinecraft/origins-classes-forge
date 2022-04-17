@@ -1,11 +1,9 @@
 package limonblaze.originsclasses.util;
 
-import limonblaze.originsclasses.compat.OriginsClassesCompat;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
-import shadows.apotheosis.Apotheosis;
 
 public class ClericUtils {
 
