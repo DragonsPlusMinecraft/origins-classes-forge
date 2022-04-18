@@ -1,8 +1,7 @@
 {
   "type": "apoli:modify_crafting",
   "item_condition": {
-    "type": "apoli:food",
-    "inverted": true
+    "type": "apoli:food"
   },
   "item_action": {
     "type": "apoli:modify",

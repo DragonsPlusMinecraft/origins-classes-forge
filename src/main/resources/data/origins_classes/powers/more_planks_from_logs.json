@@ -4,8 +4,7 @@
     "type": "origins:ingredient",
     "ingredient": {
       "tag": "minecraft:planks"
-    },
-    "inverted": true
+    }
   },
   "item_action": {
     "type": "apoli:modify",

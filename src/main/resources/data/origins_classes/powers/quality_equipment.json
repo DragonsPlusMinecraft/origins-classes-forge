@@ -3,8 +3,7 @@
   "melee": {
     "type": "apoli:modify_crafting",
     "item_condition": {
-      "type": "origins_classes:melee",
-      "inverted": true
+      "type": "origins_classes:melee"
     },
     "item_action": {
       "type": "apoli:modify",
@@ -14,8 +13,7 @@
   "range": {
     "type": "apoli:modify_crafting",
     "item_condition": {
-      "type": "origins_classes:range",
-      "inverted": true
+      "type": "origins_classes:range"
     },
     "item_action": {
       "type": "apoli:modify",
@@ -25,8 +23,7 @@
   "tool": {
     "type": "apoli:modify_crafting",
     "item_condition": {
-      "type": "origins_classes:tool",
-      "inverted": true
+      "type": "origins_classes:tool"
     },
     "item_action": {
       "type": "apoli:modify",
@@ -36,8 +33,7 @@
   "shield": {
     "type": "apoli:modify_crafting",
     "item_condition": {
-      "type": "origins_classes:shield",
-      "inverted": true
+      "type": "origins_classes:shield"
     },
     "item_action": {
       "type": "apoli:modify",
@@ -47,8 +43,7 @@
   "helmet": {
     "type": "apoli:modify_crafting",
     "item_condition": {
-      "type": "origins_classes:helmet",
-      "inverted": true
+      "type": "origins_classes:helmet"
     },
     "item_action": {
       "type": "apoli:modify",
@@ -58,8 +53,7 @@
   "chestplate": {
     "type": "apoli:modify_crafting",
     "item_condition": {
-      "type": "origins_classes:chestplate",
-      "inverted": true
+      "type": "origins_classes:chestplate"
     },
     "item_action": {
       "type": "apoli:modify",
@@ -69,8 +63,7 @@
   "leggings": {
     "type": "apoli:modify_crafting",
     "item_condition": {
-      "type": "origins_classes:leggings",
-      "inverted": true
+      "type": "origins_classes:leggings"
     },
     "item_action": {
       "type": "apoli:modify",
@@ -80,8 +73,7 @@
   "shoes": {
     "type": "apoli:modify_crafting",
     "item_condition": {
-      "type": "origins_classes:shoes",
-      "inverted": true
+      "type": "origins_classes:shoes"
     },
     "item_action": {
       "type": "apoli:modify",
