@@ -5,6 +5,6 @@
   },
   "item_action": {
     "type": "apoli:modify",
-    "modifier": "origins_classes:cook/food"
+    "modifier": "origins-classes:cook/food"
   }
 }

@@ -35,7 +35,7 @@ public class AbstractCauldronBlockMixin {
             ItemStack stack = player.getItemInHand(hand);
             if(stack.getItem() instanceof PotionItem &&
                !PotionUtils.getPotion(stack).getEffects().isEmpty() &&
-               NbtUtils.getOriginsClassesData(stack, NbtUtils.POTION_BONUS, NbtType.BYTE).isPresent()) {
+                NbtUtils.getOriginsClassesData(stack, NbtUtils.POTION_BONUS, NbtType.BYTE).isPresent()) {
                 int bonus = IPowerContainer.getPowers(player, OriginsClassesPowers.POTION_BONUS.get()).stream()
                     .filter(cp -> cp.isActive(player)).mapToInt(cp -> cp.getConfiguration().value()).sum();
                 if(bonus > 0) {

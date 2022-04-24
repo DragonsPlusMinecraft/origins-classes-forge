@@ -8,7 +8,7 @@ import net.minecraft.world.entity.EntityType;
 
 public class OriginsClassesEntityTypeTags {
 
-    public static final TagKey<EntityType<?>> INFINITE_TRADER = tag(OriginsClasses.identifier("infinite_trader"));
+    public static final TagKey<EntityType<?>> INFINITE_TRADER = tag(OriginsClasses.legacyIdentifier("infinite_trader"));
 
     private static TagKey<EntityType<?>> tag(ResourceLocation id) {
         return TagKey.create(Registry.ENTITY_TYPE_REGISTRY, id);

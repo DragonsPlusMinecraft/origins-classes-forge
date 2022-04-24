@@ -14,22 +14,22 @@ authors="LimonBlaze"
 description = "An add-on for the Origins mod which adds classes to the game."
 
 [[dependencies.origins_classes]]
-modId = "forge"
+modId = "minecraft"
 mandatory = true
-versionRange = "[40.0.47,)"
+versionRange = "${mc_requirements}"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.origins_classes]]
-modId = "minecraft"
+modId = "forge"
 mandatory = true
-versionRange = "[1.18.2,)"
+versionRange = "${forge_requirements}"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.origins_classes]]
 modId = "origins"
 mandatory = true
-versionRange = "[1.18.2-1.4.1,)"
+versionRange = "${origins_requirements}"
 ordering = "NONE"
 side = "BOTH"

@@ -1,7 +1,7 @@
 {
   "powers": [
-    "origins_classes:quality_equipment",
-    "origins_classes:efficient_repairs"
+    "origins-classes:quality_equipment",
+    "origins-classes:efficient_repairs"
   ],
   "icon": "minecraft:iron_ingot",
   "order": 6,

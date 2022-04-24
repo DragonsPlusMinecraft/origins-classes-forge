@@ -1,7 +1,7 @@
 {
   "powers": [
-    "origins_classes:more_crop_drops",
-    "origins_classes:better_bone_meal"
+    "origins-classes:more_crop_drops",
+    "origins-classes:better_bone_meal"
   ],
   "icon": "minecraft:wheat",
   "order": 1,

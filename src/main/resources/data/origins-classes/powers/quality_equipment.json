@@ -7,7 +7,7 @@
     },
     "item_action": {
       "type": "apoli:modify",
-      "modifier": "origins_classes:blacksmith/melee"
+      "modifier": "origins-classes:blacksmith/melee"
     }
   },
   "range": {
@@ -17,7 +17,7 @@
     },
     "item_action": {
       "type": "apoli:modify",
-      "modifier": "origins_classes:blacksmith/range"
+      "modifier": "origins-classes:blacksmith/range"
     }
   },
   "tool": {
@@ -27,7 +27,7 @@
     },
     "item_action": {
       "type": "apoli:modify",
-      "modifier": "origins_classes:blacksmith/tool"
+      "modifier": "origins-classes:blacksmith/tool"
     }
   },
   "shield": {
@@ -37,7 +37,7 @@
     },
     "item_action": {
       "type": "apoli:modify",
-      "modifier": "origins_classes:blacksmith/shield"
+      "modifier": "origins-classes:blacksmith/shield"
     }
   },
   "helmet": {
@@ -47,7 +47,7 @@
     },
     "item_action": {
       "type": "apoli:modify",
-      "modifier": "origins_classes:blacksmith/helmet"
+      "modifier": "origins-classes:blacksmith/helmet"
     }
   },
   "chestplate": {
@@ -57,7 +57,7 @@
     },
     "item_action": {
       "type": "apoli:modify",
-      "modifier": "origins_classes:blacksmith/chestplate"
+      "modifier": "origins-classes:blacksmith/chestplate"
     }
   },
   "leggings": {
@@ -67,7 +67,7 @@
     },
     "item_action": {
       "type": "apoli:modify",
-      "modifier": "origins_classes:blacksmith/leggings"
+      "modifier": "origins-classes:blacksmith/leggings"
     }
   },
   "shoes": {
@@ -77,7 +77,7 @@
     },
     "item_action": {
       "type": "apoli:modify",
-      "modifier": "origins_classes:blacksmith/shoes"
+      "modifier": "origins-classes:blacksmith/shoes"
     }
   }
 }

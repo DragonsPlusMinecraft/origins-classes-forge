@@ -8,6 +8,6 @@
   },
   "item_action": {
     "type": "apoli:modify",
-    "modifier": "origins_classes:lumberjack/craft_plank"
+    "modifier": "origins-classes:lumberjack/craft_plank"
   }
 }

@@ -1,7 +1,7 @@
 {
   "powers": [
-    "origins_classes:better_crafted_food",
-    "origins_classes:more_smoker_xp"
+    "origins-classes:better_crafted_food",
+    "origins-classes:more_smoker_xp"
   ],
   "icon": "minecraft:rabbit_stew",
   "order": 5,

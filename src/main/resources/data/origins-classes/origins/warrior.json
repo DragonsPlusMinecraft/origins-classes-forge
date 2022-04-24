@@ -1,7 +1,7 @@
 {
   "powers": [
-    "origins_classes:more_attack_damage",
-    "origins_classes:less_shield_slowdown"
+    "origins-classes:more_attack_damage",
+    "origins-classes:less_shield_slowdown"
   ],
   "icon": "minecraft:iron_sword",
   "order": 10,
