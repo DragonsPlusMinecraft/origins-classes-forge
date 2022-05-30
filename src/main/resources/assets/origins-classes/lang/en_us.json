@@ -6,7 +6,7 @@
   "attribute.origins_classes.mining_speed": "Mining Speed",
   "attribute.origins_classes.projectile_strength": "Projectile Strength",
 
-  "tooltip.origins_classes.potion_bonus": "+%s Quality",
+  "tooltip.origins_classes.potion_bonus": "Refined",
   "tooltip.origins_classes.food": "Nutrition",
   "tooltip.origins_classes.saturation_modifier": "Saturation",
 
@@ -85,8 +85,8 @@
   "power.origins-classes.better_crafted_food.name": "Good Meals",
   "power.origins-classes.better_crafted_food.description": "Food crafted by you is more saturating.",
 
-  "power.origins-classes.potion_bonus.name": "Qualified Potions",
-  "power.origins-classes.potion_bonus.description": "As a last step in potion brewing, you may strengthen(for instant effects) or extend(for lasting effects) the potion effects with water from a cauldron.",
+  "power.origins-classes.potion_bonus.name": "Refined Potions",
+  "power.origins-classes.potion_bonus.description": "As a last step in potion brewing, you may refine the potion with water from a cauldron. Refined potions will have strengthened instant effects and longer lasting effects.",
 
   "power.origins-classes.better_enchanting.name": "Enchantment Mastery",
   "power.origins-classes.better_enchanting.description": "You are able achieve higher enchantment levels at an enchantment table.",

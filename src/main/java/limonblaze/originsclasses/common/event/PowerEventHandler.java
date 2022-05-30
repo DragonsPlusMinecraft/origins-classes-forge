@@ -11,9 +11,7 @@ import limonblaze.originsclasses.common.network.S2CInfiniteTrader;
 import limonblaze.originsclasses.common.registry.OriginsClassesAttributes;
 import limonblaze.originsclasses.common.registry.OriginsClassesPowers;
 import limonblaze.originsclasses.mixin.accessor.LivingEntityAccessor;
-import limonblaze.originsclasses.util.MathUtils;
-import limonblaze.originsclasses.util.NbtType;
-import limonblaze.originsclasses.util.NbtUtils;
+import limonblaze.originsclasses.util.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -26,7 +24,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
@@ -53,8 +50,6 @@ import net.minecraftforge.network.PacketDistributor;
 
 import java.util.List;
 import java.util.Objects;
-
-import static net.minecraft.world.item.ItemStack.ATTRIBUTE_MODIFIER_FORMAT;
 
 @Mod.EventBusSubscriber
 public class PowerEventHandler {
@@ -183,34 +178,16 @@ public class PowerEventHandler {
             List<Component> tooltip = event.getToolTip();
             if(stack.getFoodProperties(event.getPlayer()) != null) {
                 ModifyCraftedFoodPower.getModifiers(stack, NbtUtils.FOOD_MODIFIERS)
-                    .forEach(modifier -> tooltip.add(modifierTooltip(modifier, FOOD_TRANSLATION_KEY)));
+                    .forEach(modifier -> tooltip.add(ItemUtils.modifierTooltip(modifier, FOOD_TRANSLATION_KEY)));
                 ModifyCraftedFoodPower.getModifiers(stack, NbtUtils.SATURATION_MODIFIERS)
-                    .forEach(modifier -> tooltip.add(modifierTooltip(modifier, SATURATION_MODIFIER_TRANSLATION_KEY)));
+                    .forEach(modifier -> tooltip.add(ItemUtils.modifierTooltip(modifier, SATURATION_MODIFIER_TRANSLATION_KEY)));
             }
-            if(stack.getItem() instanceof PotionItem || stack.getItem() instanceof TippedArrowItem) {
-                NbtUtils.getOriginsClassesData(stack, NbtUtils.POTION_BONUS, NbtType.BYTE).ifPresent(b ->
-                    tooltip.add(new TranslatableComponent(POTION_BONUS_TRANSLATION_KEY, b).withStyle(ChatFormatting.BLUE))
-                );
+            if((stack.getItem() instanceof PotionItem || stack.getItem() instanceof TippedArrowItem) &&
+                PotionUtils.hasPotionBonus(stack)
+            ) {
+                tooltip.add(new TranslatableComponent(POTION_BONUS_TRANSLATION_KEY).withStyle(ChatFormatting.BLUE));
             }
         }
     }
     
-    private static Component modifierTooltip(AttributeModifier modifier, String translationKey) {
-        double value = modifier.getAmount() * (modifier.getOperation() == AttributeModifier.Operation.ADDITION ? 1 : 100);
-        if (value > 0.0D) {
-            return (new TranslatableComponent(
-                "attribute.modifier.plus." + modifier.getOperation().toValue(),
-                ATTRIBUTE_MODIFIER_FORMAT.format(value),
-                new TranslatableComponent(translationKey))
-            ).withStyle(ChatFormatting.BLUE);
-        } else {
-            value *= -1.0D;
-            return (new TranslatableComponent(
-                "attribute.modifier.take." + modifier.getOperation().toValue(),
-                ATTRIBUTE_MODIFIER_FORMAT.format(value),
-                new TranslatableComponent(translationKey))
-            ).withStyle(ChatFormatting.RED);
-        }
-    }
-
 }

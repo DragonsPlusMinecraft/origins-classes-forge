@@ -2,8 +2,12 @@ package limonblaze.originsclasses.util;
 
 import com.google.common.collect.Sets;
 import limonblaze.originsclasses.mixin.accessor.LootTableAccessor;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -17,6 +21,8 @@ import net.minecraft.world.level.storage.loot.entries.TagEntry;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
+
+import static net.minecraft.world.item.ItemStack.ATTRIBUTE_MODIFIER_FORMAT;
 
 public class ItemUtils {
     private static boolean INITIALIZED_OBTAINABLE_ITEMS;
@@ -65,5 +71,23 @@ public class ItemUtils {
         }
         INITIALIZED_OBTAINABLE_ITEMS = true;
     }
-
+    
+    public static Component modifierTooltip(AttributeModifier modifier, String translationKey) {
+        double value = modifier.getAmount() * (modifier.getOperation() == AttributeModifier.Operation.ADDITION ? 1 : 100);
+        if (value > 0.0D) {
+            return (new TranslatableComponent(
+                "attribute.modifier.plus." + modifier.getOperation().toValue(),
+                ATTRIBUTE_MODIFIER_FORMAT.format(value),
+                new TranslatableComponent(translationKey))
+            ).withStyle(ChatFormatting.BLUE);
+        } else {
+            value *= -1.0D;
+            return (new TranslatableComponent(
+                "attribute.modifier.take." + modifier.getOperation().toValue(),
+                ATTRIBUTE_MODIFIER_FORMAT.format(value),
+                new TranslatableComponent(translationKey))
+            ).withStyle(ChatFormatting.RED);
+        }
+    }
+    
 }

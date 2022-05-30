@@ -2,7 +2,7 @@
 {
   "layer.origins-classes.class.name": "职业",
 
-  "tooltip.origins_classes.potion_bonus": "+%s 效力",
+  "tooltip.origins_classes.potion_bonus": "已精炼",
   "tooltip.origins_classes.food": "营养",
   "tooltip.origins_classes.saturation_modifier": "饱和度",
 
@@ -82,16 +82,16 @@
   "power.origins-classes.more_smoker_xp.description": "使用烟熏炉烤制食品时获得的经验更多。",
 
   "power.origins-classes.better_crafted_food.name": "优质食品",
-  "power.origins-classes.better_crafted_food.description": "你制作的食品所回复的饥饿值和饱和度更多。",
+  "power.origins-classes.better_crafted_food.description": "你制作的食品更加饱腹。",
 
-  "power.origins-classes.potion_bonus.name": "精制药水",
-  "power.origins-classes.potion_bonus.description": "使用炼药锅中的水作为炼药的最后一道工序以加强（对于瞬间效果）或加长（对于持续效果）药效。",
+  "power.origins-classes.potion_bonus.name": "精炼药水",
+  "power.origins-classes.potion_bonus.description": "使用炼药锅中的水作为炼药的最后一道工序以精炼药水。精炼后的药水拥有更强的瞬间效果和更久的持续效果。",
 
   "power.origins-classes.better_enchanting.name": "附魔大师",
   "power.origins-classes.better_enchanting.description": "你能在附魔台获得更高的附魔等级。",
 
   "power.origins-classes.quality_equipment.name": "优质装备",
-  "power.origins-classes.quality_equipment.description": "你制作的装备额外提供一点点加成。",
+  "power.origins-classes.quality_equipment.description": "你制作的装备提供少量属性加成。",
 
   "power.origins-classes.efficient_repairs.name": "高效修理",
   "power.origins-classes.efficient_repairs.description": "铁砧修理装备所花费的材料更少；通过合成修理装备恢复的耐久更多。",
