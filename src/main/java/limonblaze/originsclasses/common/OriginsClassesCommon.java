@@ -1,7 +1,6 @@
 package limonblaze.originsclasses.common;
 
 import limonblaze.originsclasses.OriginsClasses;
-import limonblaze.originsclasses.common.apoli.power.MultiMinePower;
 import limonblaze.originsclasses.common.network.S2CMultiMining;
 import limonblaze.originsclasses.common.network.S2CInfiniteTrader;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;

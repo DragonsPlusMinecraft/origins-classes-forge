@@ -1,10 +1,8 @@
 {
-  "type": "apoli:modify_crafting",
-  "item_condition": {
-    "type": "apoli:food"
-  },
-  "item_action": {
-    "type": "apoli:modify",
-    "modifier": "origins-classes:cook/food"
+  "type": "origins_classes:modify_crafted_food",
+  "food_modifier": {
+    "name": "Cook crafted food bonus",
+    "value": 0.25,
+    "operation": "multiply_base"
   }
 }

@@ -14,21 +14,26 @@
     "BrewingRecipeRegistryMixin",
     "EnchantmentMenuMixin",
     "FoodDataMixin",
+    "FoodPropertiesMixin",
+    "FurnaceResultSlotMixin",
     "PlayerMixin",
     "PotionUtilMixin",
     "ProjectileMixin",
     "RepairItemRecipeMixin",
+    "ResultSlotMixin",
     "ServerPlayerGameModeMixin",
     "TippedArrowRecipeMixin",
     "accessor.LivingEntityAccessor",
     "accessor.LootTableAccessor",
-    "compat.apotheosis.ApotheosisEnchantmentMenuMixin"
+    "compat.apotheosis.ApotheosisEnchantmentMenuMixin",
+    "compat.farmersdelight.CookingPotResultSlotMixin",
+    "compat.farmersdelight.SkilletItemMixin"
   ],
   "client": [
     "client.ClientSideMerchantMixin",
     "client.LocalPlayerMixin"
   ],
-  "plugin": "limonblaze.originsclasses.compat.OriginsClassesCompat",
+  "plugin": "limonblaze.originsclasses.compat.OriginsClassesMixinPlugin",
   "refmap": "origins_classes.refmap.json",
   "injectors": {
     "defaultRequire": 1

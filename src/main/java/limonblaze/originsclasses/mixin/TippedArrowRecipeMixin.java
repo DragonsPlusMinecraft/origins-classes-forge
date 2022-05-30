@@ -1,6 +1,6 @@
 package limonblaze.originsclasses.mixin;
 
-import limonblaze.originsclasses.util.ClericUtils;
+import limonblaze.originsclasses.util.PotionUtils;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.TippedArrowRecipe;
@@ -18,9 +18,8 @@ public class TippedArrowRecipeMixin {
         if(!result.isEmpty()) {
             ItemStack input = inv.getItem(1 + inv.getWidth());
             if(input.hasTag()) {
-                byte bonus = ClericUtils.getPotionBonus(input);
-                if(bonus > 0) {
-                    cir.setReturnValue(ClericUtils.setPotionBonus(result, bonus));
+                if(PotionUtils.hasPotionBonus(input)) {
+                    cir.setReturnValue(PotionUtils.addPotionBonus(result));
                 }
             }
         }

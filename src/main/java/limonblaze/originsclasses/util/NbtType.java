@@ -15,11 +15,9 @@ public class NbtType<T> {
     public static final NbtType<Double> DOUBLE = new NbtType<>(Tag.TAG_DOUBLE, CompoundTag::getDouble);
     public static final NbtType<byte[]> BYTE_ARRAY = new NbtType<>(Tag.TAG_BYTE_ARRAY, CompoundTag::getByteArray);
     public static final NbtType<String> STRING = new NbtType<>(Tag.TAG_STRING, CompoundTag::getString);
-    //TagList is not compatible with the getter bifunction
     public static final NbtType<CompoundTag> COMPOUND = new NbtType<>(Tag.TAG_COMPOUND, CompoundTag::getCompound);
     public static final NbtType<int[]> INT_ARRAY = new NbtType<>(Tag.TAG_INT_ARRAY, CompoundTag::getIntArray);
     public static final NbtType<long[]> LONG_ARRAY = new NbtType<>(Tag.TAG_LONG_ARRAY, CompoundTag::getLongArray);
-    //TAG_ANY_NUMMERIC has no getter
     public static final NbtType<UUID> UUID = new NbtType<>(100, CompoundTag::getUUID) {
         @Override
         public boolean check(CompoundTag nbt, String key) {

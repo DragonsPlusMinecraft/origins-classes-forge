@@ -1,7 +1,6 @@
 package limonblaze.originsclasses.util;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -9,11 +8,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.*;
 
 @FunctionalInterface
-public interface MultiMiner {
+public interface MultiMineMode {
 
     List<BlockPos> getAffectedBlocks(Player player, BlockState state, BlockPos pos);
 
-    MultiMiner LUMBERJACK = (player, state, pos) -> {
+    MultiMineMode LUMBERJACK = (player, state, pos) -> {
         Set<BlockPos> affected = new HashSet<>();
         Queue<BlockPos> queue = new LinkedList<>();
         queue.add(pos);

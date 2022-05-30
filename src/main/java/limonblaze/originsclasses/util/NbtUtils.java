@@ -1,6 +1,7 @@
 package limonblaze.originsclasses.util;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.item.ItemStack;
 
@@ -10,7 +11,8 @@ public class NbtUtils {
 
     public static final String ORIGINS_CLASSES = "OriginsClasses";
     public static final String ENCHANTER = "Enchanter";
-    public static final String FOOD_BONUS = "FoodBonus";
+    public static final String FOOD_MODIFIERS = "FoodModifiers";
+    public static final String SATURATION_MODIFIERS = "SaturationModifiers";
     public static final String POTION_BONUS = "PotionBonus";
 
     public static <T> Optional<T> getOriginsClassesData(ItemStack stack, String key, NbtType<T> nbtType) {
@@ -19,6 +21,10 @@ public class NbtUtils {
 
     public static <T> T getOriginsClassesData(ItemStack stack, String key, NbtType<T> nbtType, T defaultValue) {
         return stack.hasTag() ? getOriginsClassesData(stack.getOrCreateTag(), key, nbtType, defaultValue) : defaultValue;
+    }
+    
+    public static ListTag getOriginsClassesData(ItemStack stack, String key, int type) {
+        return stack.hasTag() ? getOriginsClassesData(stack.getOrCreateTag(), key, type) : new ListTag();
     }
 
     public static <T> Optional<T> getOriginsClassesData(CompoundTag nbt, String key, NbtType<T> nbtType) {
@@ -39,6 +45,16 @@ public class NbtUtils {
             }
         }
         return defaultValue;
+    }
+    
+    public static ListTag getOriginsClassesData(CompoundTag nbt, String key, int type) {
+        if(nbt.contains(ORIGINS_CLASSES, Tag.TAG_COMPOUND)) {
+            CompoundTag ocNbt = nbt.getCompound(ORIGINS_CLASSES);
+            if(ocNbt.contains(key, Tag.TAG_LIST)) {
+                return ocNbt.getList(key, type);
+            }
+        }
+        return new ListTag();
     }
 
 }

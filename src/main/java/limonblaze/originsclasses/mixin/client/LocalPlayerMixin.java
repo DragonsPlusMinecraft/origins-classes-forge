@@ -15,14 +15,13 @@ import javax.annotation.Nonnull;
 
 @Mixin(LocalPlayer.class)
 public abstract class LocalPlayerMixin extends AbstractClientPlayer {
-
+    
+    @Shadow public abstract @Nonnull InteractionHand getUsedItemHand();
+    
     public LocalPlayerMixin(ClientLevel world, GameProfile profile) {
         super(world, profile);
     }
-
-    @Shadow
-    public abstract @Nonnull InteractionHand getUsedItemHand();
-
+    
     @ModifyConstant(method = "aiStep", constant = @Constant(floatValue = 0.2F))
     private float originsClasses$modifyItemUseSlowdown(float originalSlowdown) {
         return ModifySpeedOnItemUsePower.modifySlowDown(this, originalSlowdown);

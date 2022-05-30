@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTables;
@@ -17,33 +18,32 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 
-public class ItemUtil {
-    private static boolean APPENDED_OBTAINABLE_ITEMS;
+public class ItemUtils {
+    private static boolean INITIALIZED_OBTAINABLE_ITEMS;
     private static final Set<Item> OBTAINABLE = new HashSet<>();
 
-    public static ItemStack createMerchantItemStack(Item item, Random random) {
+    public static ItemStack randomEnchantedItemStack(Item item, Random random, float chance, int power) {
         ItemStack stack = new ItemStack(item);
-        if(item.isEnchantable(stack) && random.nextFloat() < 0.5) {
-            EnchantmentHelper.enchantItem(random, stack, 1 + random.nextInt(30), random.nextBoolean());
+        if(item.isEnchantable(stack) && random.nextFloat() < chance) {
+            EnchantmentHelper.enchantItem(random, stack, 1 + random.nextInt(power), random.nextBoolean());
         }
         return stack;
     }
 
-    public static Item getRandomObtainableItem(MinecraftServer server, Random random, Set<Item> exclude) {
-        if(!APPENDED_OBTAINABLE_ITEMS) {
-            appendObtainableItems(server);
+    public static Item randomObtainableItem(MinecraftServer server, Random random, Set<Item> exclude) {
+        if(!INITIALIZED_OBTAINABLE_ITEMS) {
+            initObtainableItems(server);
         }
-        Item[] items;
-        if(exclude == null || exclude.isEmpty()) {
-            items = OBTAINABLE.toArray(new Item[0]);
+        Item[] obtainables;
+        if(exclude.isEmpty()) {
+            obtainables = OBTAINABLE.toArray(new Item[0]);
         } else {
-            Set<Item> possibles = Sets.difference(OBTAINABLE, exclude);
-            items = possibles.toArray(new Item[0]);
+            obtainables = Sets.difference(OBTAINABLE, exclude).toArray(new Item[0]);
         }
-        return items[random.nextInt(items.length)];
+        return obtainables.length > 0 ? obtainables[random.nextInt(obtainables.length)] : Items.AIR;
     }
 
-    public static void appendObtainableItems(MinecraftServer server) {
+    private static void initObtainableItems(MinecraftServer server) {
         LootTables lootTables = server.getLootTables();
         for(ResourceLocation id : lootTables.getIds()) {
             List<LootPool> pools = ((LootTableAccessor)lootTables.get(id)).getPools();
@@ -55,15 +55,15 @@ public class ItemUtil {
             while(!entryQueue.isEmpty()) {
                 LootPoolEntryContainer entry = entryQueue.remove();
                 if(entry instanceof LootItem li) {
-                    ItemUtil.OBTAINABLE.add(li.item);
+                    ItemUtils.OBTAINABLE.add(li.item);
                 } else if(entry instanceof TagEntry te) {
-                    ForgeRegistries.ITEMS.tags().getTag(te.tag).forEach(ItemUtil.OBTAINABLE::add);
+                    Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).getTag(te.tag).forEach(ItemUtils.OBTAINABLE::add);
                 } else if(entry instanceof CompositeEntryBase ceb) {
                     entryQueue.addAll(Arrays.asList(ceb.children));
                 }
             }
         }
-        APPENDED_OBTAINABLE_ITEMS = true;
+        INITIALIZED_OBTAINABLE_ITEMS = true;
     }
 
 }

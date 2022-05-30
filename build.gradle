@@ -107,6 +107,7 @@ dependencies {
     implementation fg.deobf("curse.maven:origins-474438:${project.origins_version}")
     //Compat Dependencies
     implementation fg.deobf("curse.maven:apotheosis-313970:${project.apotheosis_version}")
+    implementation fg.deobf("curse.maven:farmers-delight-398521:${project.farmers_delight_version}")
     implementation fileTree(dir: 'libs', include: '*.jar')
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'

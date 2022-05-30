@@ -7,7 +7,7 @@ import io.github.edwinmindcraft.apoli.common.power.configuration.ResourceConfigu
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 
-public class StealthPower extends ResourcePower {
+public class SneakCountingPower extends ResourcePower {
 
     @Override
     public boolean canTick(ConfiguredPower<ResourceConfiguration, ?> configuration, Entity entity) {
@@ -27,8 +27,4 @@ public class StealthPower extends ResourcePower {
         }
     }
 
-    @Override
-    public int tickInterval(ConfiguredPower<ResourceConfiguration, ?> configuration, Entity entity) {
-        return 10;
-    }
 }

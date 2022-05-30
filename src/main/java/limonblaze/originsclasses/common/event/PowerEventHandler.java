@@ -4,6 +4,7 @@ import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityCondition;
 import limonblaze.originsclasses.common.OriginsClassesCommon;
 import limonblaze.originsclasses.common.apoli.power.ActionOnTamePower;
+import limonblaze.originsclasses.common.apoli.power.ModifyCraftedFoodPower;
 import limonblaze.originsclasses.common.apoli.power.MultiMinePower;
 import limonblaze.originsclasses.common.data.tag.OriginsClassesEntityTypeTags;
 import limonblaze.originsclasses.common.network.S2CInfiniteTrader;
@@ -25,10 +26,12 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PotionItem;
+import net.minecraft.world.item.TippedArrowItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -51,10 +54,13 @@ import net.minecraftforge.network.PacketDistributor;
 import java.util.List;
 import java.util.Objects;
 
+import static net.minecraft.world.item.ItemStack.ATTRIBUTE_MODIFIER_FORMAT;
+
 @Mod.EventBusSubscriber
 public class PowerEventHandler {
-    public static final String FOOD_BONUS_TRANSLATION_KEY = "tooltip.origins_classes.food_bonus";
     public static final String POTION_BONUS_TRANSLATION_KEY = "tooltip.origins_classes.potion_bonus";
+    public static final String FOOD_TRANSLATION_KEY = "tooltip.origins_classes.food";
+    public static final String SATURATION_MODIFIER_TRANSLATION_KEY = "tooltip.origins_classes.saturation_modifier";
 
     //ActionOnTame
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -102,7 +108,7 @@ public class PowerEventHandler {
     //ModifyBoneMeal
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onBoneMeal(BonemealEvent event) {
-        int count = MathUtils.naturalRandFloor(IPowerContainer.modify(event.getPlayer(), OriginsClassesPowers.MODIFY_BONE_MEAL.get(), 1.0D), event.getPlayer().getRandom());
+        int count = MathUtils.randomFloor(IPowerContainer.modify(event.getPlayer(), OriginsClassesPowers.MODIFY_BONE_MEAL.get(), 1.0D), event.getPlayer().getRandom());
         if(count == 0) {
             event.setCanceled(true);
             event.setResult(Event.Result.DENY);
@@ -153,10 +159,20 @@ public class PowerEventHandler {
     public static void onLivingDrops(LivingDropsEvent event) {
         if(event.getSource() instanceof EntityDamageSource eds && eds.getEntity() instanceof Player player) {
             LivingEntity target = event.getEntityLiving();
-            int amount = MathUtils.naturalRandFloor(IPowerContainer.modify(player, OriginsClassesPowers.MODIFY_ENTITY_LOOT.get(), 1.0F, cp -> cp.isActive(player) && ConfiguredBiEntityCondition.check(cp.getConfiguration().condition(), player, target)), player.getRandom());
+            int amount = MathUtils.randomFloor(IPowerContainer.modify(player, OriginsClassesPowers.MODIFY_ENTITY_LOOT.get(), 1.0F, cp -> cp.isActive(player) && ConfiguredBiEntityCondition.check(cp.getConfiguration().condition(), player, target)), player.getRandom());
             for(int i = 1; i < amount; ++i) {
                 ((LivingEntityAccessor)target).invokeDropFromLootTable(event.getSource(), true);
             }
+        }
+    }
+    
+    //ModifyCraftedFood
+    @SubscribeEvent
+    public static void onFoodCrafted(ModifyCraftResultEvent event) {
+        Player player = event.getPlayer();
+        ItemStack stack = event.getCrafted();
+        if(stack.getFoodProperties(player) != null) {
+            ModifyCraftedFoodPower.modifyCrafted(player, stack);
         }
     }
 
@@ -165,15 +181,35 @@ public class PowerEventHandler {
         if(event.getFlags().isAdvanced()) {
             ItemStack stack = event.getItemStack();
             List<Component> tooltip = event.getToolTip();
-            NbtUtils.getOriginsClassesData(stack, NbtUtils.FOOD_BONUS, NbtType.FLOAT).ifPresent(f -> {
-                FoodProperties food = stack.getItem().getFoodProperties();
-                if(food != null) {
-                    tooltip.add(new TranslatableComponent(FOOD_BONUS_TRANSLATION_KEY, Mth.floor(f * food.getNutrition())).withStyle(ChatFormatting.BLUE));
-                }
-            });
-            NbtUtils.getOriginsClassesData(stack, NbtUtils.POTION_BONUS, NbtType.BYTE).ifPresent(b ->
-                tooltip.add(new TranslatableComponent(POTION_BONUS_TRANSLATION_KEY, b).withStyle(ChatFormatting.BLUE))
-            );
+            if(stack.getFoodProperties(event.getPlayer()) != null) {
+                ModifyCraftedFoodPower.getModifiers(stack, NbtUtils.FOOD_MODIFIERS)
+                    .forEach(modifier -> tooltip.add(modifierTooltip(modifier, FOOD_TRANSLATION_KEY)));
+                ModifyCraftedFoodPower.getModifiers(stack, NbtUtils.SATURATION_MODIFIERS)
+                    .forEach(modifier -> tooltip.add(modifierTooltip(modifier, SATURATION_MODIFIER_TRANSLATION_KEY)));
+            }
+            if(stack.getItem() instanceof PotionItem || stack.getItem() instanceof TippedArrowItem) {
+                NbtUtils.getOriginsClassesData(stack, NbtUtils.POTION_BONUS, NbtType.BYTE).ifPresent(b ->
+                    tooltip.add(new TranslatableComponent(POTION_BONUS_TRANSLATION_KEY, b).withStyle(ChatFormatting.BLUE))
+                );
+            }
+        }
+    }
+    
+    private static Component modifierTooltip(AttributeModifier modifier, String translationKey) {
+        double value = modifier.getAmount() * (modifier.getOperation() == AttributeModifier.Operation.ADDITION ? 1 : 100);
+        if (value > 0.0D) {
+            return (new TranslatableComponent(
+                "attribute.modifier.plus." + modifier.getOperation().toValue(),
+                ATTRIBUTE_MODIFIER_FORMAT.format(value),
+                new TranslatableComponent(translationKey))
+            ).withStyle(ChatFormatting.BLUE);
+        } else {
+            value *= -1.0D;
+            return (new TranslatableComponent(
+                "attribute.modifier.take." + modifier.getOperation().toValue(),
+                ATTRIBUTE_MODIFIER_FORMAT.format(value),
+                new TranslatableComponent(translationKey))
+            ).withStyle(ChatFormatting.RED);
         }
     }
 

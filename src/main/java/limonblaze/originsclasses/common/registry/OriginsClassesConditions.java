@@ -11,7 +11,7 @@ import io.github.edwinmindcraft.apoli.common.condition.entity.SimpleEntityCondit
 import io.github.edwinmindcraft.apoli.common.condition.item.SimpleItemCondition;
 import limonblaze.originsclasses.OriginsClasses;
 import limonblaze.originsclasses.common.apoli.condition.item.ToolActionCondition;
-import limonblaze.originsclasses.util.MathUtils;
+import limonblaze.originsclasses.util.EntityUtils;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.*;
@@ -25,7 +25,7 @@ public class OriginsClassesConditions {
 
     public static final DeferredRegister<BiEntityCondition<?>> BIENTITY_CONDITIONS = DeferredRegister.create(ApoliRegistries.BIENTITY_CONDITION_KEY, OriginsClasses.MODID);
     public static final RegistryObject<DoubleComparingBiEntityCondition> YAW_DIFF = BIENTITY_CONDITIONS.register("yaw_diff", () ->
-        new DoubleComparingBiEntityCondition(MathUtils::yawDiff));
+        new DoubleComparingBiEntityCondition(EntityUtils::yawDiff));
 
     public static final DeferredRegister<EntityCondition<?>> ENTITY_CONDITIONS = DeferredRegister.create(ApoliRegistries.ENTITY_CONDITION_KEY, OriginsClasses.MODID);
     public static final RegistryObject<SimpleEntityCondition> ANIMAL = ENTITY_CONDITIONS.register("animal", () ->

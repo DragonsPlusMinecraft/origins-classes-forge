@@ -6,8 +6,9 @@
   "attribute.origins_classes.mining_speed": "Mining Speed",
   "attribute.origins_classes.projectile_strength": "Projectile Strength",
 
-  "tooltip.origins_classes.food_bonus": "+%s Сытость",
   "tooltip.origins_classes.potion_bonus": "+%s Quality",
+  "tooltip.origins_classes.food": "Nutrition",
+  "tooltip.origins_classes.saturation_modifier": "Saturation",
 
   "origin.origins-classes.warrior.name": "Воин",
   "origin.origins-classes.warrior.description": "Эти благородные бойцы предпочитают меч и щит, чтобы побеждать своих врагов.",

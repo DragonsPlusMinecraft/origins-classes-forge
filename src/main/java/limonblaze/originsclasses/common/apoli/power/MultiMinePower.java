@@ -10,8 +10,8 @@ import io.github.edwinmindcraft.apoli.api.power.factory.PowerFactory;
 import io.github.edwinmindcraft.apoli.api.registry.ApoliRegistries;
 import limonblaze.originsclasses.client.OriginsClassesClient;
 import limonblaze.originsclasses.common.apoli.configuration.MultiMineConfiguration;
-import limonblaze.originsclasses.common.duck.SneakingStateSave;
-import limonblaze.originsclasses.util.MultiMiner;
+import limonblaze.originsclasses.common.duck.SneakingStateSavingGameMode;
+import limonblaze.originsclasses.util.MultiMineMode;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -22,9 +22,9 @@ import java.util.Optional;
 
 public class MultiMinePower extends PowerFactory<MultiMineConfiguration> {
     private static ImmutableList<MultiMinePower> FACTORIES;
-    public final MultiMiner miner;
+    public final MultiMineMode miner;
 
-    public MultiMinePower(MultiMiner miner) {
+    public MultiMinePower(MultiMineMode miner) {
         super(MultiMineConfiguration.CODEC);
         this.miner = miner;
     }
@@ -64,8 +64,8 @@ public class MultiMinePower extends PowerFactory<MultiMineConfiguration> {
     public static float modifyBreakingSpeed(float speed, Player player, BlockPos pos, BlockState state) {
         boolean processMultimine;
         if(player instanceof ServerPlayer sp) {
-            SneakingStateSave sneakingState = (SneakingStateSave)sp.gameMode;
-            processMultimine = !sneakingState.originsClasses$wasSneakingWhenBlockBreakingStarted();
+            SneakingStateSavingGameMode sneakingState = (SneakingStateSavingGameMode)sp.gameMode;
+            processMultimine = !sneakingState.wasSneakingWhenBlockBreakingStarted();
         } else {
             processMultimine = OriginsClassesClient.MULTI_MINING;
         }

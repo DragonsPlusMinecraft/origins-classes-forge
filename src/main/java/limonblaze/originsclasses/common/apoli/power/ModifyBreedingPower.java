@@ -18,7 +18,7 @@ public class ModifyBreedingPower extends ValueModifyingPowerFactory<ModifyBreedi
     }
     
     public static int getBreedAmount(Player player, Animal actor, Animal target) {
-        return MathUtils.naturalRandFloor(IPowerContainer.modify(player, OriginsClassesPowers.MODIFY_BREEDING.get(), 1.0D,
+        return MathUtils.randomFloor(IPowerContainer.modify(player, OriginsClassesPowers.MODIFY_BREEDING.get(), 1.0D,
             cp -> cp.isActive(player) && ConfiguredBiEntityCondition.check(cp.getConfiguration().parentsCondition(), actor, target),
             cp -> {
                 ConfiguredBiEntityAction.execute(cp.getConfiguration().parentsAction(), actor, target);

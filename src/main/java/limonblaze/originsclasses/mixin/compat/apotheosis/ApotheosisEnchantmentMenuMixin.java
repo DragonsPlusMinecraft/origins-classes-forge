@@ -19,7 +19,12 @@ public class ApotheosisEnchantmentMenuMixin {
 
     @Shadow(remap = false) @Final protected Player player;
 
-    @ModifyVariable(method = "lambda$slotsChanged$1", at = @At(value = "INVOKE", target = "Lshadows/apotheosis/ench/table/ApothEnchantContainer;gatherStats()V", remap = false))
+    @ModifyVariable(
+        method = "lambda$slotsChanged$1",
+        at = @At(value = "INVOKE", target = "Lshadows/apotheosis/ench/table/ApothEnchantContainer;gatherStats()V", remap = false),
+        name = "toEnchant",
+        remap = false
+    )
     private ItemStack originsClasses$storeEnchanter(ItemStack stack) {
         stack.getOrCreateTagElement(NbtUtils.ORIGINS_CLASSES).putUUID(NbtUtils.ENCHANTER, this.player.getUUID());
         return stack;

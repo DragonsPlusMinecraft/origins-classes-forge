@@ -7,12 +7,13 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import java.util.List;
 import java.util.Set;
 
-public class OriginsClassesCompat implements IMixinConfigPlugin {
-    private static boolean APOTHEOSIS;
+public class OriginsClassesMixinPlugin implements IMixinConfigPlugin {
+    private boolean apotheosis;
+    private boolean farmersdelight;
 
-    private static boolean checkForClass(String cls) {
+    private boolean checkForClass(String cls) {
         try {
-            Class.forName(cls, false, OriginsClassesCompat.class.getClassLoader());
+            Class.forName(cls, false, OriginsClassesMixinPlugin.class.getClassLoader());
             return true;
         } catch (ClassNotFoundException exception) {
             return false;
@@ -21,9 +22,8 @@ public class OriginsClassesCompat implements IMixinConfigPlugin {
 
     @Override
     public void onLoad(String mixinPackage) {
-        if(checkForClass("shadows.apotheosis.Apotheosis")) {
-            APOTHEOSIS = true;
-        }
+        apotheosis = checkForClass("shadows.apotheosis.Apotheosis");
+        farmersdelight = checkForClass("vectorwing.farmersdelight.FarmersDelight");
     }
 
     @Override
@@ -34,8 +34,9 @@ public class OriginsClassesCompat implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         return switch(mixinClassName) {
-            case "limonblaze.originsclasses.mixin.compat.apotheosis.ApotheosisEnchantmentMenuMixin" -> APOTHEOSIS;
-            case "limonblaze.originsclasses.mixin.AnvilMenuMixin" -> !APOTHEOSIS;
+            case "limonblaze.originsclasses.mixin.compat.apotheosis.ApotheosisEnchantmentMenuMixin" -> apotheosis;
+            case "limonblaze.originsclasses.mixin.compat.farmersdelight.CookingPotResultSlotMixin",
+                 "limonblaze.originsclasses.mixin.compat.farmersdelight.SkilletItemMixin" -> farmersdelight;
             default -> true;
         };
     }

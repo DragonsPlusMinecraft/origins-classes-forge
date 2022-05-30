@@ -7,7 +7,7 @@ import io.github.edwinmindcraft.apoli.common.power.ModifyValueBlockPower;
 import io.github.edwinmindcraft.apoli.common.power.ModifyValuePower;
 import limonblaze.originsclasses.OriginsClasses;
 import limonblaze.originsclasses.common.apoli.power.*;
-import limonblaze.originsclasses.util.MultiMiner;
+import limonblaze.originsclasses.util.MultiMineMode;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -15,7 +15,7 @@ public class OriginsClassesPowers {
     public static final DeferredRegister<PowerFactory<?>> POWER_FACTORIES = DeferredRegister.create(ApoliRegistries.POWER_FACTORY_KEY, OriginsClasses.MODID);
 
     // Rogue
-    public static final RegistryObject<StealthPower> STEALTH = POWER_FACTORIES.register("stealth", StealthPower::new);
+    public static final RegistryObject<SneakCountingPower> STEALTH = POWER_FACTORIES.register("stealth", SneakCountingPower::new);
     // Warrior
     public static final RegistryObject<ModifySpeedOnItemUsePower> MODIFY_SPEED_ON_ITEM_USE = POWER_FACTORIES.register("modify_speed_on_item_use", ModifySpeedOnItemUsePower::new);
     // Ranger
@@ -24,9 +24,10 @@ public class OriginsClassesPowers {
     public static final RegistryObject<ActionOnTamePower> ACTION_ON_TAME = POWER_FACTORIES.register("action_on_tame", ActionOnTamePower::new);
     public static final RegistryObject<DummyPower> TAMED_POTION_DIFFUSAL = POWER_FACTORIES.register("tamed_potion_diffusal", DummyPower::new);
     // Cook
+    public static final RegistryObject<ModifyCraftedFoodPower> MODIFY_CRAFTED_FOOD = POWER_FACTORIES.register("modify_crafted_food", ModifyCraftedFoodPower::new);
     public static final RegistryObject<ModifyValueBlockPower> MODIFY_FURNACE_XP = POWER_FACTORIES.register("modify_furnace_xp", ModifyValueBlockPower::new);
     // Cleric
-    public static final RegistryObject<PotionBonusPower> POTION_BONUS = POWER_FACTORIES.register("potion_bonus", PotionBonusPower::new);
+    public static final RegistryObject<DummyPower> POTION_BONUS = POWER_FACTORIES.register("potion_bonus", DummyPower::new);
     public static final RegistryObject<ModifyValuePower> MODIFY_ENCHANTING_LEVEL = POWER_FACTORIES.register("modify_enchanting_level", ModifyValuePower::new);
     // Blacksmith
     public static final RegistryObject<ModifyValuePower> MODIFY_REPAIR_MATERIAL_COST = POWER_FACTORIES.register("modify_repair_material_cost", ModifyValuePower::new);
@@ -41,7 +42,7 @@ public class OriginsClassesPowers {
     public static final RegistryObject<DummyPower> INFINITE_TRADE = POWER_FACTORIES.register("infinite_trade", DummyPower::new);
     public static final RegistryObject<DummyPower> RARE_WANDERING_LOOT = POWER_FACTORIES.register("rare_wandering_loot", DummyPower::new);
     // Lumberjack
-    public static final RegistryObject<MultiMinePower> LUMBERJACK = POWER_FACTORIES.register("lumberjack", () -> new MultiMinePower(MultiMiner.LUMBERJACK));
+    public static final RegistryObject<MultiMinePower> LUMBERJACK = POWER_FACTORIES.register("lumberjack", () -> new MultiMinePower(MultiMineMode.LUMBERJACK));
     // Miner
     public static final RegistryObject<DummyPower> NO_MINING_EXHAUSTION = POWER_FACTORIES.register("no_mining_exhaustion", DummyPower::new);
     // Adventurer

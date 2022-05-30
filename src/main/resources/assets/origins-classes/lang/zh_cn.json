@@ -2,8 +2,9 @@
 {
   "layer.origins-classes.class.name": "职业",
 
-  "tooltip.origins_classes.food_bonus": "+%s 营养",
   "tooltip.origins_classes.potion_bonus": "+%s 效力",
+  "tooltip.origins_classes.food": "营养",
+  "tooltip.origins_classes.saturation_modifier": "饱和度",
 
   "attribute.origins_classes.mining_speed": "挖掘速度",
   "attribute.origins_classes.projectile_strength": "弹射物强度",

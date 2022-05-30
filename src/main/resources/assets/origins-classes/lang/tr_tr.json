@@ -6,8 +6,9 @@
   "attribute.origins_classes.mining_speed": "Mining Speed",
   "attribute.origins_classes.projectile_strength": "Projectile Strength",
 
-  "tooltip.origins_classes.food_bonus": "+%s Besin",
   "tooltip.origins_classes.potion_bonus": "+%s Quality",
+  "tooltip.origins_classes.food": "Nutrition",
+  "tooltip.origins_classes.saturation_modifier": "Saturation",
 
   "origin.origins-classes.warrior.name": "Şavaşcı",
   "origin.origins-classes.warrior.description": "Bu Şerefli Şavaşçılar düşmanlarını indirmek için kılıç ve kalkan kullanır.",
