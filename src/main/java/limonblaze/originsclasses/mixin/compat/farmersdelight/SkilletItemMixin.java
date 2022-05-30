@@ -16,8 +16,7 @@ public class SkilletItemMixin {
     @ModifyVariable(
         method = "lambda$finishUsingItem$1",
         at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Inventory;add(Lnet/minecraft/world/item/ItemStack;)Z"),
-        name = "resultStack",
-        remap = false
+        name = "resultStack"
     )
     private static ItemStack originsClasses$modifyCraftResult(ItemStack result, Player player, ItemStack skillet, CampfireCookingRecipe recipe) {
         ModifyCraftResultEvent event = new ModifyCraftResultEvent(player, result);
