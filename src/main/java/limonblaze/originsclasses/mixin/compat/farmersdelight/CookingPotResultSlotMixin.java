@@ -24,6 +24,14 @@ public class CookingPotResultSlotMixin extends SlotItemHandler {
     
     @Override
     @Nonnull
+    public ItemStack remove(int amount) {
+        ModifyCraftResultEvent event = new ModifyCraftResultEvent(this.player, super.remove(amount).copy());
+        MinecraftForge.EVENT_BUS.post(event);
+        return event.getCrafted();
+    }
+    
+    @Override
+    @Nonnull
     public ItemStack getItem() {
         ModifyCraftResultEvent event = new ModifyCraftResultEvent(this.player, super.getItem().copy());
         MinecraftForge.EVENT_BUS.post(event);

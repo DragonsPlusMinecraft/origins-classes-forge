@@ -2,7 +2,7 @@
   "type": "origins_classes:modify_crafted_food",
   "food_modifier": {
     "name": "Cook crafted food bonus",
-    "value": 0.25,
+    "value": 1,
     "operation": "multiply_base"
   }
 }
