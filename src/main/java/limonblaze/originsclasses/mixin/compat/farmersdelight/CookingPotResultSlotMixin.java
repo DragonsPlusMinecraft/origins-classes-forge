@@ -1,6 +1,7 @@
 package limonblaze.originsclasses.mixin.compat.farmersdelight;
 
 import limonblaze.originsclasses.common.event.ModifyCraftResultEvent;
+import limonblaze.originsclasses.common.event.ModifyCraftResultEvent.CraftingResultType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,7 +26,7 @@ public class CookingPotResultSlotMixin extends SlotItemHandler {
     @Override
     @Nonnull
     public ItemStack remove(int amount) {
-        ModifyCraftResultEvent event = new ModifyCraftResultEvent(this.player, super.remove(amount).copy());
+        ModifyCraftResultEvent event = new ModifyCraftResultEvent(this.player, super.remove(amount).copy(), CraftingResultType.COOKING_POT);
         MinecraftForge.EVENT_BUS.post(event);
         return event.getCrafted();
     }
@@ -33,7 +34,7 @@ public class CookingPotResultSlotMixin extends SlotItemHandler {
     @Override
     @Nonnull
     public ItemStack getItem() {
-        ModifyCraftResultEvent event = new ModifyCraftResultEvent(this.player, super.getItem().copy());
+        ModifyCraftResultEvent event = new ModifyCraftResultEvent(this.player, super.getItem().copy(), CraftingResultType.COOKING_POT);
         MinecraftForge.EVENT_BUS.post(event);
         return event.getCrafted();
     }

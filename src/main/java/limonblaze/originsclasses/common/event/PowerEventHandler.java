@@ -2,6 +2,8 @@ package limonblaze.originsclasses.common.event;
 
 import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityCondition;
+import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
+import io.github.edwinmindcraft.apoli.common.power.ModifyFoodPower;
 import limonblaze.originsclasses.common.OriginsClassesCommon;
 import limonblaze.originsclasses.common.apoli.power.ActionOnTamePower;
 import limonblaze.originsclasses.common.apoli.power.ModifyCraftedFoodPower;
@@ -24,6 +26,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
@@ -48,6 +51,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -167,26 +171,34 @@ public class PowerEventHandler {
         Player player = event.getPlayer();
         ItemStack stack = event.getCrafted();
         if(stack.getFoodProperties(player) != null) {
-            ModifyCraftedFoodPower.modifyCrafted(player, stack);
+            ModifyCraftedFoodPower.modify(player, stack, event.getType());
         }
     }
 
     @SubscribeEvent
     public static void onTooltip(ItemTooltipEvent event) {
-        if(event.getFlags().isAdvanced()) {
-            ItemStack stack = event.getItemStack();
-            List<Component> tooltip = event.getToolTip();
-            if(stack.getFoodProperties(event.getPlayer()) != null) {
-                ModifyCraftedFoodPower.getModifiers(stack, NbtUtils.FOOD_MODIFIERS)
-                    .forEach(modifier -> tooltip.add(ItemUtils.modifierTooltip(modifier, FOOD_TRANSLATION_KEY)));
-                ModifyCraftedFoodPower.getModifiers(stack, NbtUtils.SATURATION_MODIFIERS)
-                    .forEach(modifier -> tooltip.add(ItemUtils.modifierTooltip(modifier, SATURATION_MODIFIER_TRANSLATION_KEY)));
-            }
-            if((stack.getItem() instanceof PotionItem || stack.getItem() instanceof TippedArrowItem) &&
-                PotionUtils.hasPotionBonus(stack)
-            ) {
-                tooltip.add(new TranslatableComponent(POTION_BONUS_TRANSLATION_KEY).withStyle(ChatFormatting.BLUE));
-            }
+        Player player = event.getPlayer();
+        ItemStack stack = event.getItemStack();
+        List<Component> tooltip = event.getToolTip();
+        if(ClientConfig.CONFIG.showModifyFoodTooltip.get() &&
+            stack.getFoodProperties(player) != null)
+        {
+            List<AttributeModifier> foodModifiers = new ArrayList<>();
+            List<AttributeModifier> saturationModifiers = new ArrayList<>();
+            ModifyFoodPower.getValidPowers(player, stack).stream()
+                .map(ConfiguredPower::getConfiguration)
+                .forEach(config -> {
+                    foodModifiers.addAll(config.foodModifiers().entries());
+                    saturationModifiers.addAll(config.saturationModifiers().entries());
+                });
+            foodModifiers.forEach(mod -> tooltip.add(ItemUtils.modifierTooltip(mod, FOOD_TRANSLATION_KEY)));
+            saturationModifiers.forEach(mod -> tooltip.add(ItemUtils.modifierTooltip(mod, SATURATION_MODIFIER_TRANSLATION_KEY)));
+        }
+        if(ClientConfig.CONFIG.showPotionBonusTooltip.get() &&
+            (stack.getItem() instanceof PotionItem || stack.getItem() instanceof TippedArrowItem) &&
+            PotionUtils.hasPotionBonus(stack))
+        {
+            tooltip.add(new TranslatableComponent(POTION_BONUS_TRANSLATION_KEY).withStyle(ChatFormatting.BLUE));
         }
     }
     

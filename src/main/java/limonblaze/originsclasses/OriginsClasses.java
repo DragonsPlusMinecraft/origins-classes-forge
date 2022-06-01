@@ -6,12 +6,14 @@ import limonblaze.originsclasses.common.registry.OriginsClassesActions;
 import limonblaze.originsclasses.common.registry.OriginsClassesAttributes;
 import limonblaze.originsclasses.common.registry.OriginsClassesConditions;
 import limonblaze.originsclasses.common.registry.OriginsClassesPowers;
+import limonblaze.originsclasses.util.ClientConfig;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +25,7 @@ public class OriginsClasses {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public OriginsClasses() {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC);
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         OriginsClassesAttributes.ATTRIBUTES.register(modBus);
         OriginsClassesActions.ENTITY_ACTIONS.register(modBus);

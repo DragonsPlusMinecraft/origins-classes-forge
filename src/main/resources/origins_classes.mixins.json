@@ -13,7 +13,6 @@
     "BreedGoalMixin",
     "BrewingRecipeRegistryMixin",
     "EnchantmentMenuMixin",
-    "FoodDataMixin",
     "FurnaceResultSlotMixin",
     "PlayerMixin",
     "PotionUtilMixin",
@@ -24,6 +23,7 @@
     "TippedArrowRecipeMixin",
     "accessor.LivingEntityAccessor",
     "accessor.LootTableAccessor",
+    "compat.apoli.ModifyFoodPowerMixin",
     "compat.apotheosis.ApotheosisEnchantmentMenuMixin",
     "compat.farmersdelight.CookingPotResultSlotMixin",
     "compat.farmersdelight.SkilletItemMixin"

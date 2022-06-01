@@ -3,25 +3,26 @@ package limonblaze.originsclasses.common.apoli.configuration;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.github.edwinmindcraft.apoli.api.IDynamicFeatureConfiguration;
-import io.github.edwinmindcraft.apoli.api.configuration.ListConfiguration;
-import io.github.edwinmindcraft.apoli.api.power.configuration.*;
+import io.github.edwinmindcraft.apoli.api.configuration.PowerReference;
+import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredItemCondition;
+import io.github.edwinmindcraft.calio.api.network.CalioCodecHelper;
+import limonblaze.originsclasses.common.event.ModifyCraftResultEvent;
+import limonblaze.originsclasses.util.OriginsClassesDataTypes;
 import net.minecraft.core.Holder;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
-public record ModifyCraftedFoodConfiguration(ListConfiguration<AttributeModifier> foodModifiers,
-                                             ListConfiguration<AttributeModifier> saturationModifiers,
-                                             Holder<ConfiguredItemCondition<?, ?>> itemCondition,
-                                             Holder<ConfiguredEntityCondition<?, ?>> entityCondition) implements IDynamicFeatureConfiguration {
+import java.util.EnumSet;
+
+public record ModifyCraftedFoodConfiguration(PowerReference modifyFoodPower,
+                                             EnumSet<ModifyCraftResultEvent.CraftingResultType> craftingResultTypes,
+                                                Holder<ConfiguredItemCondition<?, ?>>itemCondition) implements IDynamicFeatureConfiguration {
     
     public static final Codec<ModifyCraftedFoodConfiguration> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-        ListConfiguration.modifierCodec("food_modifier")
-            .forGetter(ModifyCraftedFoodConfiguration::foodModifiers),
-        ListConfiguration.modifierCodec("saturation_modifier")
-            .forGetter(ModifyCraftedFoodConfiguration::saturationModifiers),
+        PowerReference.mapCodec("modify_food_power")
+            .forGetter(ModifyCraftedFoodConfiguration::modifyFoodPower),
+        CalioCodecHelper.optionalField(OriginsClassesDataTypes.CRAFTING_RESULT_TYPE_SET, "crafting_result_type", EnumSet.allOf(ModifyCraftResultEvent.CraftingResultType.class))
+            .forGetter(ModifyCraftedFoodConfiguration::craftingResultTypes),
         ConfiguredItemCondition.optional("item_condition")
-            .forGetter(ModifyCraftedFoodConfiguration::itemCondition),
-        ConfiguredEntityCondition.optional("entity_condition")
-            .forGetter(ModifyCraftedFoodConfiguration::entityCondition)
+            .forGetter(ModifyCraftedFoodConfiguration::itemCondition)
     ).apply(instance, ModifyCraftedFoodConfiguration::new));
     
 }

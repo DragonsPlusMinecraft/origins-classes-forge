@@ -1,6 +1,7 @@
 package limonblaze.originsclasses.mixin;
 
 import limonblaze.originsclasses.common.event.ModifyCraftResultEvent;
+import limonblaze.originsclasses.common.event.ModifyCraftResultEvent.CraftingResultType;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.FurnaceResultSlot;
@@ -25,7 +26,7 @@ public class FurnaceResultSlotMixin extends Slot {
     @Override
     @Nonnull
     public ItemStack remove(int amount) {
-        ModifyCraftResultEvent event = new ModifyCraftResultEvent(this.player, super.remove(amount).copy());
+        ModifyCraftResultEvent event = new ModifyCraftResultEvent(this.player, super.remove(amount).copy(), CraftingResultType.SMELTING);
         MinecraftForge.EVENT_BUS.post(event);
         return event.getCrafted();
     }
@@ -33,7 +34,7 @@ public class FurnaceResultSlotMixin extends Slot {
     @Override
     @Nonnull
     public ItemStack getItem() {
-        ModifyCraftResultEvent event = new ModifyCraftResultEvent(this.player, super.getItem().copy());
+        ModifyCraftResultEvent event = new ModifyCraftResultEvent(this.player, super.getItem().copy(), CraftingResultType.SMELTING);
         MinecraftForge.EVENT_BUS.post(event);
         return event.getCrafted();
     }

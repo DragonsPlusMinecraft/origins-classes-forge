@@ -1,6 +1,7 @@
 package limonblaze.originsclasses.mixin.compat.farmersdelight;
 
 import limonblaze.originsclasses.common.event.ModifyCraftResultEvent;
+import limonblaze.originsclasses.common.event.ModifyCraftResultEvent.CraftingResultType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CampfireCookingRecipe;
@@ -19,7 +20,7 @@ public class SkilletItemMixin {
         name = "resultStack"
     )
     private static ItemStack originsClasses$modifyCraftResult(ItemStack result, Player player, ItemStack skillet, CampfireCookingRecipe recipe) {
-        ModifyCraftResultEvent event = new ModifyCraftResultEvent(player, result);
+        ModifyCraftResultEvent event = new ModifyCraftResultEvent(player, result, CraftingResultType.SKILLET);
         MinecraftForge.EVENT_BUS.post(event);
         return event.getCrafted();
     }

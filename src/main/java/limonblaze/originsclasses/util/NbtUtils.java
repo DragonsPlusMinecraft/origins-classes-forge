@@ -11,8 +11,7 @@ public class NbtUtils {
 
     public static final String ORIGINS_CLASSES = "OriginsClasses";
     public static final String ENCHANTER = "Enchanter";
-    public static final String FOOD_MODIFIERS = "FoodModifiers";
-    public static final String SATURATION_MODIFIERS = "SaturationModifiers";
+    public static final String MODIFY_FOOD_POWERS = "ModifyFoodPowers";
     public static final String POTION_BONUS = "PotionBonus";
 
     public static <T> Optional<T> getOriginsClassesData(ItemStack stack, String key, NbtType<T> nbtType) {
