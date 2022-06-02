@@ -178,6 +178,7 @@ public class PowerEventHandler {
     @SubscribeEvent
     public static void onTooltip(ItemTooltipEvent event) {
         Player player = event.getPlayer();
+        if(player == null) return;
         ItemStack stack = event.getItemStack();
         List<Component> tooltip = event.getToolTip();
         if(ClientConfig.CONFIG.showModifyFoodTooltip.get() &&
