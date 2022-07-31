@@ -32,8 +32,6 @@ public class WorkbenchTileMixin {
             remap = false
     )
     private static void modifyResult(ItemStack upgradedStack, String slot, boolean isReplacing, Player player, ItemStack[] preMaterials, ItemStack[] postMaterials, Map<ToolAction, Integer> tools, Level world, BlockPos pos, BlockState blockState, boolean consumeResources, CallbackInfoReturnable<ItemStack> cir){
-        Logger LOGGER = LogManager.getLogger();
-        LOGGER.info("INJECT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         Mutable<ItemStack> mutable = new MutableObject();
         mutable.setValue(upgradedStack);
         IPowerContainer.getPowers(player, ApoliPowers.MODIFY_CRAFTING.get()).stream()
