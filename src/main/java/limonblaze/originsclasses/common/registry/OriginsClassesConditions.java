@@ -45,14 +45,14 @@ public class OriginsClassesConditions {
     public static final RegistryObject<SimpleItemCondition> MELEE = ITEM_CONDITIONS.register("melee", () ->
         new SimpleItemCondition( stack ->
                 (
-                        stack.toString().equals("item.tetra.modular_single") ||
+                        stack.getDescriptionId().equals("item.tetra.modular_single") ||
                         stack.getDescriptionId().equals("item.tetra.modular_double") ||
                         Enchantments.SHARPNESS.canEnchant(stack)
                 )));
     public static final RegistryObject<SimpleItemCondition> SWORD = ITEM_CONDITIONS.register("sword", () ->
             new SimpleItemCondition( stack ->
                     (
-                            stack.toString().equals("tetra:modular_sword") ||
+                            stack.getDescriptionId().equals("tetra:modular_sword") ||
                             Enchantments.SHARPNESS.canEnchant(stack) && !Enchantments.BLOCK_EFFICIENCY.canEnchant(stack)
                     )));
     public static final RegistryObject<SimpleItemCondition> RANGE = ITEM_CONDITIONS.register("range", () ->
