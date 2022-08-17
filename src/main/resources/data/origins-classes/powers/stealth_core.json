@@ -5,13 +5,13 @@
     "interval": 20,
     "entity_action": {
       "type": "apoli:change_resource",
-      "resource": "origins_classes:stealth",
+      "resource": "origins-classes:stealth",
       "change": 1,
       "operation": "add"
     },
     "falling_action": {
       "type": "apoli:change_resource",
-      "resource": "origins_classes:stealth",
+      "resource": "origins-classes:stealth",
       "change": 0,
       "operation": "set"
     },
@@ -32,7 +32,7 @@
     "hide_with_hud": false,
     "condition": {
       "type": "apoli:resource",
-      "resource": "origins_classes:stealth",
+      "resource": "origins-classes:stealth",
       "comparison": "==",
       "compare_to": 10
     }
@@ -55,7 +55,7 @@
     },
     "condition": {
       "type": "apoli:resource",
-      "resource": "origins_classes:stealth",
+      "resource": "origins-classes:stealth",
       "comparison": "==",
       "compare_to": 10
     }
@@ -65,7 +65,7 @@
     "event": "minecraft:step",
     "condition": {
       "type": "apoli:resource",
-      "resource": "origins_classes:stealth",
+      "resource": "origins-classes:stealth",
       "comparison": "==",
       "compare_to": 10
     }

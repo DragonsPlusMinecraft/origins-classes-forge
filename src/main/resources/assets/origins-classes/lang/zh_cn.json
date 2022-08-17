@@ -57,7 +57,7 @@
   "power.origins-classes.sneaky.description": "你的名字标签不会在墙的后面显示，哪怕不潜行也是。",
 
   "power.origins-classes.stealth.name": "隐匿",
-  "power.origins-classes.stealth.description": "按住潜行按键5秒后会进入匿踪模式。",
+  "power.origins-classes.stealth.description": "按住潜行按键10秒后会进入匿踪模式。",
 
   "power.origins-classes.stealth_core.name": "匿踪模式",
   "power.origins-classes.stealth_core.description": "进入匿踪模式以后，发出声响减少，且背后偷袭造成伤害更高。松开潜行键将解除匿踪模式。",

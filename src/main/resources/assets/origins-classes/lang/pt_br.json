@@ -59,7 +59,7 @@
   "power.origins-classes.sneaky.description": "Seu nome nunca estará visível através de paredes, até quando não esgueirando.",
 
   "power.origins-classes.stealth.name": "Nas sombras",
-  "power.origins-classes.stealth.description": "Após se esgueirar por 5 segundos, você entra em furtividade.",
+  "power.origins-classes.stealth.description": "Após se esgueirar por 10 segundos, você entra em furtividade.",
 
   "power.origins-classes.stealth_core.name": "Furtividade",
   "power.origins-classes.stealth_core.description": "Enquanto em modo furtivo, você faz menos som e da mais dano quando ataca alguém pelas costas. Você sai de modo furtivo ao atacar alguém ao deixar de esgueirar.",

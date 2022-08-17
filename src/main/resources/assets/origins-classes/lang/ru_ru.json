@@ -59,7 +59,7 @@
   "power.origins-classes.sneaky.description": "Ваше имя никогда не видно сквозь стены, даже если вы не подкрадываетесь.",
 
   "power.origins-classes.stealth.name": "В тени",
-  "power.origins-classes.stealth.description": "Когда вы подкрадываетесь более 5 секунд, вы становитесь скрытным.",
+  "power.origins-classes.stealth.description": "Когда вы подкрадываетесь более 10 секунд, вы становитесь скрытным.",
 
   "power.origins-classes.stealth_core.name": "Скрытность",
   "power.origins-classes.stealth_core.description": "В скрытности, вы производите меньше звуков и наносите дополнительный урон когда атакуете врага за спиною. Вы выходите из скрытности когда вы перестаёте подкрадываться или атакуете врага.",

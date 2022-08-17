@@ -59,7 +59,7 @@
   "power.origins-classes.sneaky.description": "Your nameplate is never visible through walls, even when you're not sneaking.",
 
   "power.origins-classes.stealth.name": "In the Shadows",
-  "power.origins-classes.stealth.description": "When you have been sneaking for 5 seconds, you enter Stealth.",
+  "power.origins-classes.stealth.description": "When you have been sneaking for 10 seconds, you enter Stealth.",
 
   "power.origins-classes.stealth_core.name": "Stealth",
   "power.origins-classes.stealth_core.description": "While in stealth, you make less sound and deal extra damage when attacking an enemy from behind. You exit Stealth when you stop sneaking.",
