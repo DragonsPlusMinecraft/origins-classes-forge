@@ -1,0 +1,8 @@
+{
+  "type": "origins:modify_break_speed",
+  "modifier": {
+    "name": "Blacksmith Digger Bonus",
+    "operation": "multiply_base",
+    "value": 0.1
+  }
+}

@@ -1,7 +1,7 @@
 package limonblaze.originsclasses.mixin;
 
 import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
-import limonblaze.originsclasses.common.data.tag.OriginsClassesItemTags;
+import limonblaze.originsclasses.common.tag.OriginsClassesItemTags;
 import limonblaze.originsclasses.common.registry.OriginsClassesPowers;
 import limonblaze.originsclasses.util.ItemUtils;
 import net.minecraft.nbt.CompoundTag;

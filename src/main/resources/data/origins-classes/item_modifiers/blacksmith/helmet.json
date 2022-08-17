@@ -1,22 +1,7 @@
 [
   {
-    "function": "minecraft:set_attributes",
-    "modifiers": [
-      {
-        "name": "Blacksmith Helmet Bonus",
-        "attribute": "minecraft:generic.armor_toughness",
-        "operation": "addition",
-        "amount": {
-          "type": "minecraft:constant",
-          "value": 0.25
-        },
-        "id": "8a362136-f803-473f-bf65-2e7fc1dda544",
-        "slot": "head"
-      }
-    ]
-  },
-  {
-    "function": "minecraft:set_nbt",
-    "tag": "{AdditionalAttributes: 1b}"
+    "function": "apoli:add_power",
+    "power": "origins-classes:items/tough_helmet",
+    "slot": "head"
   }
 ]

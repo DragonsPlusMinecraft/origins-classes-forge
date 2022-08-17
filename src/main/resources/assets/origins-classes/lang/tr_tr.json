@@ -131,5 +131,30 @@
   "power.origins-classes.tree_felling.description": "Eğilmediğin sürece koca ağaçları tekte kessebilirsin.",
 
   "power.origins-classes.more_planks_from_logs.name": "Verimli Üretim",
-  "power.origins-classes.more_planks_from_logs.description": "1 kütükten 6 tahta alırsın."
+  "power.origins-classes.more_planks_from_logs.description": "1 kütükten 6 tahta alırsın.",
+
+  "power.origins-classes.items/effecient_digger.name": "Effecient Digger",
+  "power.origins-classes.items/effecient_digger.description": "+10% Break Speed",
+
+  "power.origins-classes.items/sharp_blade.name": "Sharp Blade",
+  "power.origins-classes.items/sharp_blade.description": "+0.5 Attack Damage",
+
+  "power.origins-classes.items/steady_shield.name": "Steady Shield",
+  "power.origins-classes.items/steady_shield.description": "+10% Knockback Resistance",
+
+  "power.origins-classes.items/strong_string.name": "Strong String",
+  "power.origins-classes.items/strong_string.description": "+2 Projectile Damage",
+
+  "power.origins-classes.items/tough_helmet.name": "Tough",
+  "power.origins-classes.items/tough_helmet.description": "+0.25 Armor Toughness",
+
+  "power.origins-classes.items/tough_chestplate.name": "Tough",
+  "power.origins-classes.items/tough_chestplate.description": "+0.25 Armor Toughness",
+
+  "power.origins-classes.items/tough_leggings.name": "Tough",
+  "power.origins-classes.items/tough_leggings.description": "+0.25 Armor Toughness",
+
+  "power.origins-classes.items/tough_shoes.name": "Tough",
+  "power.origins-classes.items/tough_shoes.description": "+0.25 Armor Toughness"
+
 }

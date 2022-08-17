@@ -6,12 +6,11 @@ import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
 import io.github.edwinmindcraft.apoli.common.power.ModifyFoodPower;
 import limonblaze.originsclasses.common.OriginsClassesCommon;
 import limonblaze.originsclasses.common.apoli.power.ActionOnTamePower;
+import limonblaze.originsclasses.common.apoli.power.ModifyCraftResultPower;
 import limonblaze.originsclasses.common.apoli.power.ModifyCraftedFoodPower;
-import limonblaze.originsclasses.common.apoli.power.MultiMinePower;
-import limonblaze.originsclasses.common.data.tag.OriginsClassesEntityTypeTags;
 import limonblaze.originsclasses.common.network.S2CInfiniteTrader;
-import limonblaze.originsclasses.common.registry.OriginsClassesAttributes;
 import limonblaze.originsclasses.common.registry.OriginsClassesPowers;
+import limonblaze.originsclasses.common.tag.OriginsClassesEntityTypeTags;
 import limonblaze.originsclasses.mixin.accessor.LivingEntityAccessor;
 import limonblaze.originsclasses.util.*;
 import net.minecraft.ChatFormatting;
@@ -28,7 +27,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.item.TippedArrowItem;
@@ -36,14 +34,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.enchanting.EnchantmentLevelSetEvent;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.AnimalTameEvent;
 import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.PotionEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -138,21 +134,6 @@ public class PowerEventHandler {
         }
     }
 
-    //Multimine & MiningSpeed
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void onBreakSpeed(PlayerEvent.BreakSpeed event) {
-        double multiplier = event.getPlayer().getAttributeValue(OriginsClassesAttributes.MINING_SPEED.get());
-        event.setNewSpeed(MultiMinePower.modifyBreakingSpeed((float) (event.getNewSpeed() * multiplier), event.getPlayer(), event.getPos(), event.getState()));
-    }
-
-    //ProjectileStrength
-    @SubscribeEvent
-    public static void onArrowShoots(EntityJoinWorldEvent event) {
-        if(event.getEntity() instanceof AbstractArrow arrow && arrow.getOwner() instanceof LivingEntity owner) {
-            arrow.setBaseDamage(arrow.getBaseDamage() * owner.getAttributeValue(OriginsClassesAttributes.PROJECTILE_STRENGTH.get()));
-        }
-    }
-
     //ModifyEntityLoot
     @SubscribeEvent
     public static void onLivingDrops(LivingDropsEvent event) {
@@ -165,14 +146,16 @@ public class PowerEventHandler {
         }
     }
     
-    //ModifyCraftedFood
+    //ModifyCraftedFood, ModifyCraftResult
     @SubscribeEvent
-    public static void onFoodCrafted(ModifyCraftResultEvent event) {
+    public static void onItemCrafted(ModifyCraftResultEvent event) {
         Player player = event.getPlayer();
         ItemStack stack = event.getCrafted();
         if(stack.getFoodProperties(player) != null) {
-            ModifyCraftedFoodPower.modify(player, stack, event.getType());
+            stack = ModifyCraftedFoodPower.modify(player, stack, event.getType());
         }
+        stack = ModifyCraftResultPower.modify(player, stack, event.getType());
+        event.setCrafted(stack);
     }
 
     @SubscribeEvent

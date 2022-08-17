@@ -14,8 +14,6 @@ import net.minecraftforge.registries.RegistryObject;
 public class OriginsClassesPowers {
     public static final DeferredRegister<PowerFactory<?>> POWER_FACTORIES = DeferredRegister.create(ApoliRegistries.POWER_FACTORY_KEY, OriginsClasses.MODID);
 
-    // Rogue
-    public static final RegistryObject<SneakCountingPower> STEALTH = POWER_FACTORIES.register("stealth", SneakCountingPower::new);
     // Warrior
     public static final RegistryObject<ModifySpeedOnItemUsePower> MODIFY_SPEED_ON_ITEM_USE = POWER_FACTORIES.register("modify_speed_on_item_use", ModifySpeedOnItemUsePower::new);
     // Ranger
@@ -30,6 +28,7 @@ public class OriginsClassesPowers {
     public static final RegistryObject<DummyPower> POTION_BONUS = POWER_FACTORIES.register("potion_bonus", DummyPower::new);
     public static final RegistryObject<ModifyValuePower> MODIFY_ENCHANTING_LEVEL = POWER_FACTORIES.register("modify_enchanting_level", ModifyValuePower::new);
     // Blacksmith
+    public static final RegistryObject<ModifyCraftResultPower> MODIFY_CRAFT_RESULT = POWER_FACTORIES.register("modify_craft_result", ModifyCraftResultPower::new);
     public static final RegistryObject<ModifyValuePower> MODIFY_REPAIR_MATERIAL_COST = POWER_FACTORIES.register("modify_repair_material_cost", ModifyValuePower::new);
     public static final RegistryObject<ModifyValuePower> MODIFY_COMBINE_REPAIR_DURABILITY = POWER_FACTORIES.register("modify_combine_repair_durability", ModifyValuePower::new);
     // Farmer

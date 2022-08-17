@@ -1,7 +1,7 @@
 [
   {
     "function": "apoli:add_power",
-    "power": "origins-classes:items/strong_string",
+    "power": "origins-classes:items/effecient_digger",
     "slot": "mainhand"
   }
 ]

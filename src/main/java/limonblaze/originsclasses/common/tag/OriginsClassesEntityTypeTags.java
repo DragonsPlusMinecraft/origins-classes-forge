@@ -1,4 +1,4 @@
-package limonblaze.originsclasses.common.data.tag;
+package limonblaze.originsclasses.common.tag;
 
 import limonblaze.originsclasses.OriginsClasses;
 import net.minecraft.core.Registry;

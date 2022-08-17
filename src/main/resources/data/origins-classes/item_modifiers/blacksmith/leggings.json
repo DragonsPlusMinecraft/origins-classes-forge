@@ -1,22 +1,7 @@
 [
   {
-    "function": "minecraft:set_attributes",
-    "modifiers": [
-      {
-        "name": "Blacksmith Leggings Bonus",
-        "attribute": "minecraft:generic.armor_toughness",
-        "operation": "addition",
-        "amount": {
-          "type": "minecraft:constant",
-          "value": 0.25
-        },
-        "id": "53a599dd-ca07-47a3-83cf-1507f77ccafd",
-        "slot": "legs"
-      }
-    ]
-  },
-  {
-    "function": "minecraft:set_nbt",
-    "tag": "{AdditionalAttributes: 1b}"
+    "function": "apoli:add_power",
+    "power": "origins-classes:items/tough_leggings",
+    "slot": "legs"
   }
 ]

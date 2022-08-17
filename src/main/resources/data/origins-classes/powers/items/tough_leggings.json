@@ -1,0 +1,9 @@
+{
+  "type": "apoli:attribute",
+  "modifier": {
+    "name": "Blacksmith Armor Bonus",
+    "attribute": "minecraft:generic.armor_toughness",
+    "value": 0.25,
+    "operation": "addition"
+  }
+}

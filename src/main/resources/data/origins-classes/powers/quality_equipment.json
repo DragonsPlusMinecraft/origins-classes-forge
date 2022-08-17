@@ -1,7 +1,7 @@
 {
   "type": "apoli:multiple",
   "melee": {
-    "type": "apoli:modify_crafting",
+    "type": "origins_classes:modify_craft_result",
     "item_condition": {
       "type": "origins_classes:melee"
     },
@@ -11,7 +11,7 @@
     }
   },
   "range": {
-    "type": "apoli:modify_crafting",
+    "type": "origins_classes:modify_craft_result",
     "item_condition": {
       "type": "origins_classes:range"
     },
@@ -20,18 +20,18 @@
       "modifier": "origins-classes:blacksmith/range"
     }
   },
-  "tool": {
-    "type": "apoli:modify_crafting",
+  "digger": {
+    "type": "origins_classes:modify_craft_result",
     "item_condition": {
-      "type": "origins_classes:tool"
+      "type": "origins_classes:diggers"
     },
     "item_action": {
       "type": "apoli:modify",
-      "modifier": "origins-classes:blacksmith/tool"
+      "modifier": "origins-classes:blacksmith/digger"
     }
   },
   "shield": {
-    "type": "apoli:modify_crafting",
+    "type": "origins_classes:modify_craft_result",
     "item_condition": {
       "type": "origins_classes:shield"
     },
@@ -41,7 +41,7 @@
     }
   },
   "helmet": {
-    "type": "apoli:modify_crafting",
+    "type": "origins_classes:modify_craft_result",
     "item_condition": {
       "type": "origins_classes:helmet"
     },
@@ -51,7 +51,7 @@
     }
   },
   "chestplate": {
-    "type": "apoli:modify_crafting",
+    "type": "origins_classes:modify_craft_result",
     "item_condition": {
       "type": "origins_classes:chestplate"
     },
@@ -61,7 +61,7 @@
     }
   },
   "leggings": {
-    "type": "apoli:modify_crafting",
+    "type": "origins_classes:modify_craft_result",
     "item_condition": {
       "type": "origins_classes:leggings"
     },
@@ -71,7 +71,7 @@
     }
   },
   "shoes": {
-    "type": "apoli:modify_crafting",
+    "type": "origins_classes:modify_craft_result",
     "item_condition": {
       "type": "origins_classes:shoes"
     },

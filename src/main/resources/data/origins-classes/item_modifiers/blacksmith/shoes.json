@@ -1,22 +1,7 @@
 [
   {
-    "function": "minecraft:set_attributes",
-    "modifiers": [
-      {
-        "name": "Blacksmith Shoes Bonus",
-        "attribute": "minecraft:generic.armor_toughness",
-        "operation": "addition",
-        "amount": {
-          "type": "minecraft:constant",
-          "value": 0.25
-        },
-        "id": "45ce3000-b56b-4029-b86a-febb269809e7",
-        "slot": "feet"
-      }
-    ]
-  },
-  {
-    "function": "minecraft:set_nbt",
-    "tag": "{AdditionalAttributes: 1b}"
+    "function": "apoli:add_power",
+    "power": "origins-classes:items/tough_shoes",
+    "slot": "feet"
   }
 ]

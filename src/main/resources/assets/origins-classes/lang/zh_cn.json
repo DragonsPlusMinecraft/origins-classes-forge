@@ -1,4 +1,3 @@
-
 {
   "layer.origins-classes.class.name": "职业",
 
@@ -130,5 +129,30 @@
   "power.origins-classes.tree_felling.description": "你可以立刻砍下整棵树木，除非你潜行。",
 
   "power.origins-classes.more_planks_from_logs.name": "木工",
-  "power.origins-classes.more_planks_from_logs.description": "合成木板的时候你会多获得两个木板。"
+  "power.origins-classes.more_planks_from_logs.description": "合成木板的时候你会多获得两个木板。",
+  
+  "power.origins-classes.items/effecient_digger.name": "高效挖掘",
+  "power.origins-classes.items/effecient_digger.description": "+10% 破坏速度",
+
+  "power.origins-classes.items/sharp_blade.name": "锋锐刀刃",
+  "power.origins-classes.items/sharp_blade.description": "+0.5 攻击伤害",
+
+  "power.origins-classes.items/steady_shield.name": "沉稳盾牌",
+  "power.origins-classes.items/steady_shield.description": "+10% 击退抗性",
+
+  "power.origins-classes.items/strong_string.name": "强劲弓弦",
+  "power.origins-classes.items/strong_string.description": "+2 弹射物伤害",
+
+  "power.origins-classes.items/tough_helmet.name": "坚韧",
+  "power.origins-classes.items/tough_helmet.description": "+0.25 盔甲韧性",
+
+  "power.origins-classes.items/tough_chestplate.name": "坚韧",
+  "power.origins-classes.items/tough_chestplate.description": "+0.25 盔甲韧性",
+
+  "power.origins-classes.items/tough_leggings.name": "坚韧",
+  "power.origins-classes.items/tough_leggings.description": "+0.25 盔甲韧性",
+
+  "power.origins-classes.items/tough_shoes.name": "坚韧",
+  "power.origins-classes.items/tough_shoes.description": "+0.25 盔甲韧性"
+
 }

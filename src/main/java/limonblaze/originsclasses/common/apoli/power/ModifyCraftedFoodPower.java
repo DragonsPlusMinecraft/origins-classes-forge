@@ -24,12 +24,13 @@ public class ModifyCraftedFoodPower extends PowerFactory<ModifyCraftedFoodConfig
         return cp.getConfiguration().craftingResultTypes().contains(type) && ConfiguredItemCondition.check(cp.getConfiguration().itemCondition(), level, stack);
     }
     
-    public static void modify(Player player, ItemStack stack, ModifyCraftResultEvent.CraftingResultType type) {
+    public static ItemStack modify(Player player, ItemStack stack, ModifyCraftResultEvent.CraftingResultType type) {
         ListTag tag = new ListTag();
         IPowerContainer.getPowers(player, OriginsClassesPowers.MODIFY_CRAFTED_FOOD.get()).stream()
             .filter(cp -> check(cp, player.level, stack, type))
             .forEach(cp -> tag.add(StringTag.valueOf(cp.getConfiguration().modifyFoodPower().power().toString())));
         if(!tag.isEmpty()) stack.getOrCreateTagElement(NbtUtils.ORIGINS_CLASSES).put(NbtUtils.MODIFY_FOOD_POWERS, tag);
+        return stack;
     }
 
 }

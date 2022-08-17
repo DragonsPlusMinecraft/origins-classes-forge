@@ -1,0 +1,9 @@
+{
+  "type": "apoli:attribute",
+  "modifier": {
+    "name": "Blacksmith Shield Bonus",
+    "attribute": "minecraft:generic.knockback_resistance",
+    "value": 0.1,
+    "operation": "addition"
+  }
+}

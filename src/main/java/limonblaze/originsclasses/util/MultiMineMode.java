@@ -40,7 +40,8 @@ public interface MultiMineMode {
                                 return new ArrayList<>(affected);
                             }
                         } else
-                        if(newState.getBlock() instanceof LeavesBlock && !newState.getValue(LeavesBlock.PERSISTENT)) {
+                        if(newState.getBlock() instanceof LeavesBlock &&
+                           (!newState.hasProperty(LeavesBlock.PERSISTENT) || !newState.getValue(LeavesBlock.PERSISTENT))) {
                             foundOneWithLeaves = true;
                         }
                     }

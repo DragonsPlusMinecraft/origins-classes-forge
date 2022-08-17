@@ -1,0 +1,9 @@
+{
+  "type": "apoli:attribute",
+  "modifier": {
+    "name": "Blacksmith Melee Weapon Bonus",
+    "attribute": "minecraft:generic.attack_damage",
+    "value": 0.5,
+    "operation": "addition"
+  }
+}

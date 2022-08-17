@@ -6,6 +6,6 @@
     "operation": "multiply_base"
   },
   "block_condition": {
-    "type": "origins_classes:crop"
+    "type": "origins_classes:harvestable_crops"
   }
 }

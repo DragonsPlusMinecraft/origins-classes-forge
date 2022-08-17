@@ -1,5 +1,24 @@
 {
   "type": "apoli:multiple",
+  "tick": {
+    "type": "apoli:action_over_time",
+    "interval": 20,
+    "entity_action": {
+      "type": "apoli:change_resource",
+      "resource": "origins_classes:stealth",
+      "change": 1,
+      "operation": "add"
+    },
+    "falling_action": {
+      "type": "apoli:change_resource",
+      "resource": "origins_classes:stealth",
+      "change": 0,
+      "operation": "set"
+    },
+    "condition": {
+      "type": "apoli:sneaking"
+    }
+  },
   "overlay": {
     "type": "apoli:overlay",
     "texture": "minecraft:textures/misc/nausea.png",
