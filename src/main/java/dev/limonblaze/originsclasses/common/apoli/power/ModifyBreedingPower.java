@@ -1,6 +1,6 @@
 package dev.limonblaze.originsclasses.common.apoli.power;
 
-import dev.limonblaze.originsclasses.util.MathUtils;
+import dev.limonblaze.originsclasses.util.CommonUtils;
 import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityAction;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityCondition;
@@ -18,7 +18,7 @@ public class ModifyBreedingPower extends ValueModifyingPowerFactory<ModifyBreedi
     }
     
     public static int getBreedAmount(Player player, Animal actor, Animal target) {
-        return MathUtils.randomFloor(IPowerContainer.modify(player, OriginsClassesPowers.MODIFY_BREEDING.get(), 1.0D,
+        return CommonUtils.rollInt(IPowerContainer.modify(player, OriginsClassesPowers.MODIFY_BREEDING.get(), 1.0D,
             cp ->
                 cp.get().isActive(player) &&
                 ConfiguredBiEntityCondition.check(cp.get().getConfiguration().parentsCondition(), actor, target),

@@ -12,12 +12,12 @@ import dev.limonblaze.originsclasses.common.OriginsClassesCommon;
 import dev.limonblaze.originsclasses.common.network.S2CInfiniteTrader;
 import dev.limonblaze.originsclasses.common.registry.OriginsClassesPowers;
 import dev.limonblaze.originsclasses.common.tag.OriginsClassesEntityTypeTags;
-import dev.limonblaze.originsclasses.mixin.accessor.LivingEntityAccessor;
+import dev.limonblaze.originsclasses.core.mixin.accessor.minecraft.LivingEntityAccessor;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
@@ -93,23 +93,25 @@ public class PowerEventHandler {
     //ModifyEnchantingLevel
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onEnchantmentLevel(EnchantmentLevelSetEvent event) {
-        NbtUtils.getOriginsClassesData(event.getItem(), NbtUtils.ENCHANTER, NbtType.UUID).ifPresent(uuid -> {
-            Player player = event.getLevel().getPlayerByUUID(uuid);
-            if(player != null) {
-                event.setEnchantLevel(Mth.floor(IPowerContainer.modify(
-                    player,
-                    OriginsClassesPowers.MODIFY_ENCHANTING_LEVEL.get(),
-                    event.getEnchantLevel(),
-                    cp -> cp.get().isActive(player)
-                )));
-            }
-        });
+        ItemStack stack = event.getItem();
+        if(!stack.hasTag()) return;
+        CompoundTag entry = CommonUtils.getOriginsClassesTag(stack.getTag());
+        if(!entry.contains(CommonUtils.ENCHANTER, Tag.TAG_INT_ARRAY)) return;
+        Player player = event.getLevel().getPlayerByUUID(entry.getUUID(CommonUtils.ENCHANTER));
+        if(player != null) {
+            event.setEnchantLevel(Mth.floor(IPowerContainer.modify(
+                player,
+                OriginsClassesPowers.MODIFY_ENCHANTING_LEVEL.get(),
+                event.getEnchantLevel(),
+                cp -> cp.get().isActive(player)
+            )));
+        }
     }
 
     //ModifyBoneMeal
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onBoneMeal(BonemealEvent event) {
-        int count = MathUtils.randomFloor(IPowerContainer.modify(
+        int count = CommonUtils.rollInt(IPowerContainer.modify(
             event.getEntity(),
             OriginsClassesPowers.MODIFY_BONE_MEAL.get(), 1.0D
         ), event.getEntity().getRandom());
@@ -148,7 +150,7 @@ public class PowerEventHandler {
     public static void onLivingDrops(LivingDropsEvent event) {
         if(event.getSource() instanceof EntityDamageSource eds && eds.getEntity() instanceof Player player) {
             LivingEntity target = event.getEntity();
-            int amount = MathUtils.randomFloor(IPowerContainer.modify(
+            int amount = CommonUtils.rollInt(IPowerContainer.modify(
                 player,
                 OriginsClassesPowers.MODIFY_ENTITY_LOOT.get(), 1.0F,
                 cp -> cp.get().isActive(player) &&
@@ -178,6 +180,7 @@ public class PowerEventHandler {
         if(player == null) return;
         ItemStack stack = event.getItemStack();
         List<Component> tooltip = event.getToolTip();
+        
         if(ClientConfig.CONFIG.showModifyFoodTooltip.get() &&
             stack.getFoodProperties(player) != null)
         {
@@ -189,14 +192,15 @@ public class PowerEventHandler {
                     foodModifiers.addAll(config.foodModifiers().entries());
                     saturationModifiers.addAll(config.saturationModifiers().entries());
                 });
-            foodModifiers.forEach(mod -> tooltip.add(ItemUtils.modifierTooltip(mod, FOOD_TRANSLATION_KEY)));
-            saturationModifiers.forEach(mod -> tooltip.add(ItemUtils.modifierTooltip(mod, SATURATION_MODIFIER_TRANSLATION_KEY)));
+            foodModifiers.forEach(mod -> tooltip.add(ClientUtils.modifierTooltip(mod, FOOD_TRANSLATION_KEY)));
+            saturationModifiers.forEach(mod -> tooltip.add(ClientUtils.modifierTooltip(mod, SATURATION_MODIFIER_TRANSLATION_KEY)));
         }
+        
         if(ClientConfig.CONFIG.showPotionBonusTooltip.get() &&
             (stack.getItem() instanceof PotionItem || stack.getItem() instanceof TippedArrowItem) &&
-            PotionUtils.hasPotionBonus(stack))
+            stack.hasTag() && ClericHelper.getPotionBonus(stack.getTag()))
         {
-            tooltip.add(MutableComponent.create(new TranslatableContents(POTION_BONUS_TRANSLATION_KEY)).withStyle(ChatFormatting.BLUE));
+            tooltip.add(ClientUtils.translate(POTION_BONUS_TRANSLATION_KEY).withStyle(ChatFormatting.BLUE));
         }
     }
     

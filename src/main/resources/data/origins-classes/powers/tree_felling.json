@@ -3,5 +3,9 @@
   "item_condition": {
     "type": "origins_classes:tool_action",
     "tool_action": "axe_dig"
+  },
+  "block_condition": {
+    "type": "apoli:in_tag",
+    "tag": "minecraft:logs"
   }
 }

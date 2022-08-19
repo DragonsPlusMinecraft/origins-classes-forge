@@ -3,7 +3,7 @@ package dev.limonblaze.originsclasses.common.apoli.configuration;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.limonblaze.originsclasses.common.event.ModifyCraftResultEvent;
-import dev.limonblaze.originsclasses.util.OriginsClassesDataTypes;
+import dev.limonblaze.originsclasses.common.calio.OriginsClassesDataTypes;
 import io.github.edwinmindcraft.apoli.api.IDynamicFeatureConfiguration;
 import io.github.edwinmindcraft.apoli.api.configuration.PowerReference;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredItemCondition;

@@ -1,11 +1,12 @@
 package dev.limonblaze.originsclasses;
 
-import dev.limonblaze.originsclasses.client.OriginsClassesClient;
 import dev.limonblaze.originsclasses.common.OriginsClassesCommon;
 import dev.limonblaze.originsclasses.common.registry.OriginsClassesConditions;
 import dev.limonblaze.originsclasses.common.registry.OriginsClassesPowers;
 import dev.limonblaze.originsclasses.util.ClientConfig;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +20,12 @@ public class OriginsClasses {
     public static final String MODID = "origins_classes";
     public static final String LEGACY_MODID = "origins-classes";
     public static final Logger LOGGER = LogManager.getLogger();
-
+    
+    @OnlyIn(Dist.CLIENT)
+    public static boolean INFINITE_TRADER;
+    @OnlyIn(Dist.CLIENT)
+    public static boolean MULTI_MINING;
+    
     public OriginsClasses() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC);
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -29,7 +35,6 @@ public class OriginsClasses {
         OriginsClassesConditions.ITEM_CONDITIONS.register(modBus);
         OriginsClassesPowers.POWER_FACTORIES.register(modBus);
         modBus.addListener(OriginsClassesCommon::setup);
-        modBus.addListener(OriginsClassesClient::setup);
         LOGGER.info("Origins:Classes " + ModLoadingContext.get().getActiveContainer().getModInfo().getVersion() + " has initialized. Time for work!");
     }
 

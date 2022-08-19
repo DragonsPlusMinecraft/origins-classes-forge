@@ -1,6 +1,6 @@
 package dev.limonblaze.originsclasses.common.network;
 
-import dev.limonblaze.originsclasses.client.OriginsClassesClient;
+import dev.limonblaze.originsclasses.OriginsClasses;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -21,7 +21,7 @@ public record S2CInfiniteTrader(boolean infiniteTrader) {
 
     @OnlyIn(Dist.CLIENT)
     private void handleSync() {
-        OriginsClassesClient.INFINITE_TRADER = this.infiniteTrader;
+        OriginsClasses.INFINITE_TRADER = this.infiniteTrader;
     }
 
     public void handle(Supplier<NetworkEvent.Context> contextSupplier) {

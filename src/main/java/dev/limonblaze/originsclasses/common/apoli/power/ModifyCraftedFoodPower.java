@@ -1,6 +1,6 @@
 package dev.limonblaze.originsclasses.common.apoli.power;
 
-import dev.limonblaze.originsclasses.util.NbtUtils;
+import dev.limonblaze.originsclasses.util.CommonUtils;
 import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredItemCondition;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
@@ -29,7 +29,7 @@ public class ModifyCraftedFoodPower extends PowerFactory<ModifyCraftedFoodConfig
         IPowerContainer.getPowers(player, OriginsClassesPowers.MODIFY_CRAFTED_FOOD.get()).stream()
             .filter(cp -> check(cp.get(), player.level, stack, type))
             .forEach(cp -> tag.add(StringTag.valueOf(cp.get().getConfiguration().modifyFoodPower().power().toString())));
-        if(!tag.isEmpty()) stack.getOrCreateTagElement(NbtUtils.ORIGINS_CLASSES).put(NbtUtils.MODIFY_FOOD_POWERS, tag);
+        if(!tag.isEmpty()) stack.getOrCreateTagElement(CommonUtils.ORIGINS_CLASSES).put(CommonUtils.MODIFY_FOOD_POWERS, tag);
         return stack;
     }
 

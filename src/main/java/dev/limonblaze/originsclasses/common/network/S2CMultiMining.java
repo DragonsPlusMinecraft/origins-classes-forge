@@ -1,6 +1,6 @@
 package dev.limonblaze.originsclasses.common.network;
 
-import dev.limonblaze.originsclasses.client.OriginsClassesClient;
+import dev.limonblaze.originsclasses.OriginsClasses;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -21,7 +21,7 @@ public record S2CMultiMining(boolean multiMining) {
 
     @OnlyIn(Dist.CLIENT)
     private void handleSync() {
-        OriginsClassesClient.MULTI_MINING = this.multiMining;
+        OriginsClasses.MULTI_MINING = this.multiMining;
     }
 
     public void handle(Supplier<NetworkEvent.Context> contextSupplier) {
