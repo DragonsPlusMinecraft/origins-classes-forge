@@ -1,4 +1,8 @@
 # Origin: Classes (Forge)
+[![GitHub issues](https://img.shields.io/github/issues/LimonBlaze/origins-classes-forge?style=flat-square)](https://github.com/Frinn38/Custom-Machinery/issues)
+[![GitHub license](https://img.shields.io/github/license/LimonBlaze/origins-classes-forge?color=0690ff&style=flat-square)]([MIT](https://github.com/LimonBlaze/origins-classes-forge/blob/1.19.x/LICENSE))
+[![](http://cf.way2muchnoise.eu/610127.svg?badge_style=flat)](https://www.curseforge.com/minecraft/mc-mods/origins-classes-forge)
+
 An unofficial Forge port for [Origin: Classes](https://github.com/apace100/origins-classes)<br>
 This mod depends on [Origins (Forge)](https://github.com/EdwinMindcraft/origins-forge), please have the proper version of that mod installed!
 
