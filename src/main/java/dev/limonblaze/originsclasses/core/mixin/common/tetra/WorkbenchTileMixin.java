@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import se.mickelus.tetra.blocks.workbench.WorkbenchTile;
+import se.mickelus.tetra.module.schematic.UpgradeSchematic;
 
 import java.util.Map;
 
@@ -26,7 +27,7 @@ public class WorkbenchTileMixin {
             cancellable = true,
             remap = false
     )
-    private static void originsClasses$modifyResult(ItemStack upgradedStack, String slot, boolean isReplacing, Player player, ItemStack[] preMaterials, ItemStack[] postMaterials, Map<ToolAction, Integer> tools, Level world, BlockPos pos, BlockState blockState, boolean consumeResources, CallbackInfoReturnable<ItemStack> cir){
+    private static void originsClasses$modifyResult(ItemStack upgradedStack, String slot, boolean isReplacing, Player player, ItemStack[] preMaterials, ItemStack[] postMaterials, Map<ToolAction, Integer> tools, UpgradeSchematic schematic, Level world, BlockPos pos, BlockState blockState, boolean consumeResources, CallbackInfoReturnable<ItemStack> cir){
         ModifyCraftResultEvent event = new ModifyCraftResultEvent(player, upgradedStack, ModifyCraftResultEvent.CraftingResultType.TETRA);
         MinecraftForge.EVENT_BUS.post(event);
         cir.setReturnValue(event.getCrafted());
