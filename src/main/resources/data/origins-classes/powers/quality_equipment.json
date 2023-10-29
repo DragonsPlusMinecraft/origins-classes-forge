@@ -3,7 +3,17 @@
   "melee": {
     "type": "origins_classes:modify_craft_result",
     "item_condition": {
-      "type": "origins_classes:melee"
+        "type": "origins:and",
+	    "conditions": [
+	        {
+      			"type": "origins_classes:melee"
+	        },
+	        {      
+	            "type": "origins_classes:has_power",
+	            "power": "origins-classes:items/sharp_blade",
+			    "inverted": true
+	        }
+	    ]
     },
     "item_action": {
       "type": "apoli:modify",
@@ -13,7 +23,17 @@
   "range": {
     "type": "origins_classes:modify_craft_result",
     "item_condition": {
-      "type": "origins_classes:range"
+        "type": "origins:and",
+	    "conditions": [
+	        {
+      			"type": "origins_classes:range"
+	        },
+	        {      
+	            "type": "origins_classes:has_power",
+	            "power": "origins-classes:items/strong_string",
+			    "inverted": true
+	        }
+	    ]
     },
     "item_action": {
       "type": "apoli:modify",
@@ -23,7 +43,17 @@
   "digger": {
     "type": "origins_classes:modify_craft_result",
     "item_condition": {
-      "type": "origins_classes:diggers"
+        "type": "origins:and",
+	    "conditions": [
+	        {
+      			"type": "origins_classes:diggers"
+	        },
+	        {      
+	            "type": "origins_classes:has_power",
+	            "power": "origins-classes:items/effecient_digger",
+			    "inverted": true
+	        }
+	    ]
     },
     "item_action": {
       "type": "apoli:modify",
@@ -33,7 +63,17 @@
   "shield": {
     "type": "origins_classes:modify_craft_result",
     "item_condition": {
-      "type": "origins_classes:shield"
+        "type": "origins:and",
+	    "conditions": [
+	        {
+      			"type": "origins_classes:shield"
+	        },
+	        {      
+	            "type": "origins_classes:has_power",
+	            "power": "origins-classes:items/steady_shield",
+			    "inverted": true
+	        }
+	    ]
     },
     "item_action": {
       "type": "apoli:modify",
@@ -43,7 +83,17 @@
   "helmet": {
     "type": "origins_classes:modify_craft_result",
     "item_condition": {
-      "type": "origins_classes:helmet"
+        "type": "origins:and",
+	    "conditions": [
+	        {
+      			"type": "origins_classes:helmet"
+	        },
+	        {      
+	            "type": "origins_classes:has_power",
+	            "power": "origins-classes:items/tough_helmet",
+			    "inverted": true
+	        }
+	    ]
     },
     "item_action": {
       "type": "apoli:modify",
@@ -53,7 +103,17 @@
   "chestplate": {
     "type": "origins_classes:modify_craft_result",
     "item_condition": {
-      "type": "origins_classes:chestplate"
+        "type": "origins:and",
+	    "conditions": [
+	        {
+      			"type": "origins_classes:chestplate"
+	        },
+	        {      
+	            "type": "origins_classes:has_power",
+	            "power": "origins-classes:items/tough_chestplate",
+			    "inverted": true
+	        }
+	    ]
     },
     "item_action": {
       "type": "apoli:modify",
@@ -63,8 +123,18 @@
   "leggings": {
     "type": "origins_classes:modify_craft_result",
     "item_condition": {
-      "type": "origins_classes:leggings"
-    },
+        "type": "origins:and",
+	    "conditions": [
+	        {
+      			"type": "origins_classes:leggings"
+	        },
+	        {      
+	            "type": "origins_classes:has_power",
+	            "power": "origins-classes:items/tough_leggings",
+			    "inverted": true
+	        }
+	    ]
+    },    
     "item_action": {
       "type": "apoli:modify",
       "modifier": "origins-classes:blacksmith/leggings"
@@ -73,8 +143,18 @@
   "shoes": {
     "type": "origins_classes:modify_craft_result",
     "item_condition": {
-      "type": "origins_classes:shoes"
-    },
+        "type": "origins:and",
+	    "conditions": [
+	        {
+      			"type": "origins_classes:shoes"
+	        },
+	        {      
+	            "type": "origins_classes:has_power",
+	            "power": "origins-classes:items/tough_shoes",
+			    "inverted": true
+	        }
+	    ]
+    }, 
     "item_action": {
       "type": "apoli:modify",
       "modifier": "origins-classes:blacksmith/shoes"
