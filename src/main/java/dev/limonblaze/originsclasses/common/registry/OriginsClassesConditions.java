@@ -1,6 +1,26 @@
 package dev.limonblaze.originsclasses.common.registry;
 
+import static net.minecraftforge.common.ToolActions.AXE_DIG;
+import static net.minecraftforge.common.ToolActions.AXE_SCRAPE;
+import static net.minecraftforge.common.ToolActions.AXE_STRIP;
+import static net.minecraftforge.common.ToolActions.AXE_WAX_OFF;
+import static net.minecraftforge.common.ToolActions.HOE_DIG;
+import static net.minecraftforge.common.ToolActions.HOE_TILL;
+import static net.minecraftforge.common.ToolActions.PICKAXE_DIG;
+import static net.minecraftforge.common.ToolActions.SHEARS_CARVE;
+import static net.minecraftforge.common.ToolActions.SHEARS_DIG;
+import static net.minecraftforge.common.ToolActions.SHEARS_DISARM;
+import static net.minecraftforge.common.ToolActions.SHEARS_HARVEST;
+import static net.minecraftforge.common.ToolActions.SHIELD_BLOCK;
+import static net.minecraftforge.common.ToolActions.SHOVEL_DIG;
+import static net.minecraftforge.common.ToolActions.SHOVEL_FLATTEN;
+import static net.minecraftforge.common.ToolActions.SWORD_DIG;
+import static net.minecraftforge.common.ToolActions.SWORD_SWEEP;
+
 import dev.limonblaze.originsclasses.OriginsClasses;
+import dev.limonblaze.originsclasses.common.apoli.condition.item.HasPowerContition;
+import dev.limonblaze.originsclasses.common.apoli.condition.item.ToolActionCondition;
+import dev.limonblaze.originsclasses.common.tag.OriginsClassesItemTags;
 import dev.limonblaze.originsclasses.util.CommonUtils;
 import io.github.edwinmindcraft.apoli.api.power.factory.BiEntityCondition;
 import io.github.edwinmindcraft.apoli.api.power.factory.BlockCondition;
@@ -11,18 +31,20 @@ import io.github.edwinmindcraft.apoli.common.condition.bientity.DoubleComparingB
 import io.github.edwinmindcraft.apoli.common.condition.block.SimpleBlockCondition;
 import io.github.edwinmindcraft.apoli.common.condition.entity.SimpleEntityCondition;
 import io.github.edwinmindcraft.apoli.common.condition.item.SimpleItemCondition;
-import dev.limonblaze.originsclasses.common.apoli.condition.item.ToolActionCondition;
-import dev.limonblaze.originsclasses.common.tag.OriginsClassesItemTags;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.DiggerItem;
+import net.minecraft.world.item.ProjectileWeaponItem;
+import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-
-import static net.minecraftforge.common.ToolActions.*;
 
 public class OriginsClassesConditions {
 
@@ -137,6 +159,7 @@ public class OriginsClassesConditions {
             stack.is(OriginsClassesItemTags.SHOES)
         ));
     public static final RegistryObject<ToolActionCondition> TOOL_ACTION = ITEM_CONDITIONS.register("tool_action", ToolActionCondition::new);
+    public static final RegistryObject<HasPowerContition> HAS_POWER = ITEM_CONDITIONS.register("has_power", HasPowerContition::new);
     
     public static final DeferredRegister<BlockCondition<?>> BLOCK_CONDITIONS = DeferredRegister.create(ApoliRegistries.BLOCK_CONDITION_KEY, OriginsClasses.MODID);
     public static final RegistryObject<SimpleBlockCondition> HARVESTABLE_CROPS = BLOCK_CONDITIONS.register("harvestable_crops", () ->
