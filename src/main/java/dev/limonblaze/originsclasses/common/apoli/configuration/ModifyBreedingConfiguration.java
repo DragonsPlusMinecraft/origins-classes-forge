@@ -6,11 +6,12 @@ import io.github.edwinmindcraft.apoli.api.configuration.ListConfiguration;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityAction;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredBiEntityCondition;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredEntityAction;
+import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredModifier;
 import io.github.edwinmindcraft.apoli.api.power.configuration.power.IValueModifyingPowerConfiguration;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
-public record ModifyBreedingConfiguration(ListConfiguration<AttributeModifier> modifiers,
+public record ModifyBreedingConfiguration(ListConfiguration<ConfiguredModifier<?>> modifiers,
                                           Holder<ConfiguredBiEntityCondition<?, ?>> parentsCondition,
                                           Holder<ConfiguredBiEntityAction<?, ?>> parentsAction,
                                           Holder<ConfiguredEntityAction<?, ?>> playerAction) implements IValueModifyingPowerConfiguration {

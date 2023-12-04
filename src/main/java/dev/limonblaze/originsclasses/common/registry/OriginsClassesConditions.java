@@ -140,22 +140,22 @@ public class OriginsClassesConditions {
         ));
     public static final RegistryObject<SimpleItemCondition> HELMET = ITEM_CONDITIONS.register("helmet", () ->
         new SimpleItemCondition(stack ->
-            (stack.getItem() instanceof ArmorItem armor && armor.getSlot() == EquipmentSlot.HEAD) ||
+            (stack.getItem() instanceof ArmorItem armor && armor.getEquipmentSlot() == EquipmentSlot.HEAD) ||
             stack.is(OriginsClassesItemTags.HELMETS)
         ));
     public static final RegistryObject<SimpleItemCondition> CHESTPLATE = ITEM_CONDITIONS.register("chestplate", () ->
         new SimpleItemCondition(stack ->
-            (stack.getItem() instanceof ArmorItem armor && armor.getSlot() == EquipmentSlot.CHEST) ||
+            (stack.getItem() instanceof ArmorItem armor && armor.getEquipmentSlot() == EquipmentSlot.CHEST) ||
             stack.is(OriginsClassesItemTags.CHESTPLATES)
         ));
     public static final RegistryObject<SimpleItemCondition> LEGGINGS = ITEM_CONDITIONS.register("leggings", () ->
         new SimpleItemCondition(stack ->
-            (stack.getItem() instanceof ArmorItem armor && armor.getSlot() == EquipmentSlot.LEGS) ||
+            (stack.getItem() instanceof ArmorItem armor && armor.getEquipmentSlot() == EquipmentSlot.LEGS) ||
             stack.is(OriginsClassesItemTags.LEGGINGS)
         ));
     public static final RegistryObject<SimpleItemCondition> SHOES = ITEM_CONDITIONS.register("shoes", () ->
         new SimpleItemCondition(stack ->
-            (stack.getItem() instanceof ArmorItem armor && armor.getSlot() == EquipmentSlot.FEET) ||
+            (stack.getItem() instanceof ArmorItem armor && armor.getEquipmentSlot() == EquipmentSlot.FEET) ||
             stack.is(OriginsClassesItemTags.SHOES)
         ));
     public static final RegistryObject<ToolActionCondition> TOOL_ACTION = ITEM_CONDITIONS.register("tool_action", ToolActionCondition::new);

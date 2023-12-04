@@ -27,8 +27,8 @@ public class MultiMinePower extends PowerFactory<MultiMineConfiguration> {
     public static boolean shouldApply(ConfiguredPower<?, ?> cp, Player player, BlockPos pos, BlockState state) {
         return cp.isActive(player) &&
             cp.getConfiguration() instanceof MultiMineConfiguration mmc &&
-            ConfiguredBlockCondition.check(mmc.blockCondition(), player.level, pos, () -> state) &&
-            ConfiguredItemCondition.check(mmc.itemCondition(), player.level, player.getMainHandItem());
+            ConfiguredBlockCondition.check(mmc.blockCondition(), player.level(), pos, () -> state) &&
+            ConfiguredItemCondition.check(mmc.itemCondition(), player.level(), player.getMainHandItem());
     }
     
     public static List<BlockPos> apply(Player player, BlockPos pos, BlockState state) {

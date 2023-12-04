@@ -21,7 +21,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.EntityDamageSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.Entity;
@@ -83,7 +83,7 @@ public class PowerEventHandler {
         LivingEntity owner = event.getEntity();
         Entity source = event.getEffectSource() == null ? owner : event.getEffectSource();
         if(!effect.isAmbient() && IPowerContainer.hasPower(owner, OriginsClassesPowers.TAMED_POTION_DIFFUSAL.get())) {
-            owner.level.getEntitiesOfClass(LivingEntity.class,
+            owner.level().getEntitiesOfClass(LivingEntity.class,
                 owner.getBoundingBox().expandTowards(8F, 2F, 8F).expandTowards(-8F, -2F, -8F),
                 e -> e instanceof OwnableEntity ownable && Objects.equals(ownable.getOwnerUUID(), owner.getUUID())
             ).forEach(e -> e.addEffect(effect, source));
@@ -148,7 +148,8 @@ public class PowerEventHandler {
     //ModifyEntityLoot
     @SubscribeEvent
     public static void onLivingDrops(LivingDropsEvent event) {
-        if(event.getSource() instanceof EntityDamageSource eds && eds.getEntity() instanceof Player player) {
+        if(event.getSource().isIndirect()) return;
+        if(event.getEntity() instanceof Player player) {
             LivingEntity target = event.getEntity();
             int amount = CommonUtils.rollInt(IPowerContainer.modify(
                 player,
@@ -181,20 +182,20 @@ public class PowerEventHandler {
         ItemStack stack = event.getItemStack();
         List<Component> tooltip = event.getToolTip();
         
-        if(ClientConfig.CONFIG.showModifyFoodTooltip.get() &&
-            stack.getFoodProperties(player) != null)
-        {
-            List<AttributeModifier> foodModifiers = new ArrayList<>();
-            List<AttributeModifier> saturationModifiers = new ArrayList<>();
-            ModifyFoodPower.getValidPowers(player, stack).stream()
-                .map(ConfiguredPower::getConfiguration)
-                .forEach(config -> {
-                    foodModifiers.addAll(config.foodModifiers().entries());
-                    saturationModifiers.addAll(config.saturationModifiers().entries());
-                });
-            foodModifiers.forEach(mod -> tooltip.add(ClientUtils.modifierTooltip(mod, FOOD_TRANSLATION_KEY)));
-            saturationModifiers.forEach(mod -> tooltip.add(ClientUtils.modifierTooltip(mod, SATURATION_MODIFIER_TRANSLATION_KEY)));
-        }
+//        if(ClientConfig.CONFIG.showModifyFoodTooltip.get() &&
+//            stack.getFoodProperties(player) != null)
+//        {
+//            List<AttributeModifier> foodModifiers = new ArrayList<>();
+//            List<AttributeModifier> saturationModifiers = new ArrayList<>();
+//            ModifyFoodPower.getValidPowers(player, stack).stream()
+//                .map(ConfiguredPower::getConfiguration)
+//                .forEach(config -> {
+//                    foodModifiers.addAll(config.foodModifiers().entries());
+//                    saturationModifiers.addAll(config.saturationModifiers().entries());
+//                });
+//            foodModifiers.forEach(mod -> tooltip.add(ClientUtils.modifierTooltip(mod, FOOD_TRANSLATION_KEY)));
+//            saturationModifiers.forEach(mod -> tooltip.add(ClientUtils.modifierTooltip(mod, SATURATION_MODIFIER_TRANSLATION_KEY)));
+//        }
         
         if(ClientConfig.CONFIG.showPotionBonusTooltip.get() &&
             (stack.getItem() instanceof PotionItem || stack.getItem() instanceof TippedArrowItem) &&

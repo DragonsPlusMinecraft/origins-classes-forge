@@ -20,8 +20,8 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
     
     @Shadow public abstract @Nonnull InteractionHand getUsedItemHand();
     
-    public LocalPlayerMixin(ClientLevel world, GameProfile profile, @Nullable ProfilePublicKey profilePublicKey) {
-        super(world, profile, profilePublicKey);
+    public LocalPlayerMixin(ClientLevel world, GameProfile profile) {
+        super(world, profile);
     }
     
     @ModifyConstant(method = "aiStep", constant = @Constant(floatValue = 0.2F))

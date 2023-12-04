@@ -1,6 +1,7 @@
 package dev.limonblaze.originsclasses.core.mixin.common.apotheosis;
 
 import dev.limonblaze.originsclasses.util.CommonUtils;
+import dev.shadowsoffire.apotheosis.ench.table.ApothEnchantmentMenu;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
@@ -12,16 +13,15 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import shadows.apotheosis.ench.table.ApothEnchantContainer;
 
-@Mixin(ApothEnchantContainer.class)
+@Mixin(ApothEnchantmentMenu.class)
 public class ApotheosisEnchantmentMenuMixin {
 
     @Shadow(remap = false) @Final protected Player player;
 
     @ModifyVariable(
         method = "lambda$slotsChanged$1",
-        at = @At(value = "INVOKE", target = "Lshadows/apotheosis/ench/table/ApothEnchantContainer;gatherStats()V", remap = false),
+        at = @At(value = "INVOKE", target = "Ldev/shadowsoffire/apotheosis/ench/table/ApothEnchantmentMenu;gatherStats()V", remap = false),
         name = "toEnchant"
     )
     private ItemStack originsClasses$storeEnchanter(ItemStack stack) {

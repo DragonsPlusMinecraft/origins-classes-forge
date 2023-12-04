@@ -4,6 +4,12 @@
   "package": "dev.limonblaze.originsclasses.core.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "accessor.minecraft.LivingEntityAccessor",
+    "accessor.minecraft.LootTableAccessor",
+    "common.apoli.ModifyFoodPowerMixin",
+    "common.apotheosis.ApotheosisEnchantmentMenuMixin",
+    "common.farmersdelight.CookingPotResultSlotMixin",
+    "common.farmersdelight.SkilletItemMixin",
     "common.minecraft.AbstractCauldronBlockMixin",
     "common.minecraft.AbstractFurnaceBlockEntityMixin",
     "common.minecraft.AbstractVillagerMixin",
@@ -21,12 +27,7 @@
     "common.minecraft.ResultSlotMixin",
     "common.minecraft.ServerPlayerGameModeMixin",
     "common.minecraft.TippedArrowRecipeMixin",
-    "accessor.minecraft.LivingEntityAccessor",
-    "accessor.minecraft.LootTableAccessor",
-    "common.apoli.ModifyFoodPowerMixin",
-    "common.apotheosis.ApotheosisEnchantmentMenuMixin",
-    "common.farmersdelight.CookingPotResultSlotMixin",
-    "common.farmersdelight.SkilletItemMixin",
+    "common.minecraft.TransientCraftingContainerMixin",
     "common.tetra.WorkbenchTileMixin"
   ],
   "client": [

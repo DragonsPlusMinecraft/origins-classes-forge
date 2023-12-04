@@ -31,9 +31,9 @@ public class ModifyCraftResultPower extends PowerFactory<ModifyCraftResultConfig
         Mutable<ItemStack> mutable = new MutableObject<>(stack);
         IPowerContainer.getPowers(player, OriginsClassesPowers.MODIFY_CRAFT_RESULT.get())
             .stream()
-            .filter(cp -> check(cp.get(), player.level, stack, type))
+            .filter(cp -> check(cp.get(), player.level(), stack, type))
             .map(cp -> cp.get().getConfiguration().itemAction())
-            .forEach(action -> ConfiguredItemAction.execute(action, player.level, mutable));
+            .forEach(action -> ConfiguredItemAction.execute(action, player.level(), mutable));
         return mutable.getValue();
     }
     
