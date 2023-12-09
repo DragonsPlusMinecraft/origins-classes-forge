@@ -101,26 +101,34 @@ repositories {
         url 'https://maven.theillusivec4.top'
     }
     maven {
-        name 'Curse Maven'
         url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
+    }
+    maven {
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
     }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
-    implementation  fg.deobf("top.theillusivec4.caelus:caelus-forge:${mc_version}-${caelus_version}")
+    implementation  fg.deobf("top.theillusivec4.caelus:caelus-forge:3.1.0+1.20")
     implementation  fg.deobf("io.github.edwinmindcraft:calio-forge:${mc_version}-${calio_version}")
     implementation  fg.deobf("io.github.edwinmindcraft:apoli-forge:${mc_version}-${apoli_version}")
-    implementation  fg.deobf("io.github.edwinmindcraft:origins-forge:${mc_version}-${origins_version}")
+    implementation  fg.deobf("io.github.edwinmindcraft:origins-forge:${mc_version}-${origins_version}-all")
+    implementation  fg.deobf("de.dafuqs:additionalentityattributes-forge:1.4.0.5+1.20.1")
 
     implementation  fg.deobf("curse.maven:farmers-delight-398521:${farmersdelight_file}")
-    implementation  fg.deobf("curse.maven:appleskin-248787:${appleskin_file}")
+    implementation  fg.deobf("curse.maven:appleskin-forge-248787:${appleskin_file}")
     compileOnly     fg.deobf("curse.maven:placebo-283644:${placebo_file}")
     compileOnly     fg.deobf("curse.maven:apotheosis-313970:${apotheosis_file}")
+    compileOnly     fg.deobf("curse.maven:apothic-attributes-898963:${attlib_file}")
     compileOnly     fg.deobf("curse.maven:mutil-351914:${mutil_file}")
     compileOnly     fg.deobf("curse.maven:tetra-289712:${tetra_file}")
     runtimeOnly     fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")

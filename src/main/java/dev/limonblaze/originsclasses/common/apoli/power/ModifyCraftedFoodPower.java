@@ -27,7 +27,7 @@ public class ModifyCraftedFoodPower extends PowerFactory<ModifyCraftedFoodConfig
     public static ItemStack modify(Player player, ItemStack stack, ModifyCraftResultEvent.CraftingResultType type) {
         ListTag tag = new ListTag();
         IPowerContainer.getPowers(player, OriginsClassesPowers.MODIFY_CRAFTED_FOOD.get()).stream()
-            .filter(cp -> check(cp.get(), player.level, stack, type))
+            .filter(cp -> check(cp.get(), player.level(), stack, type))
             .forEach(cp -> tag.add(StringTag.valueOf(cp.get().getConfiguration().modifyFoodPower().power().toString())));
         if(!tag.isEmpty()) stack.getOrCreateTagElement(CommonUtils.ORIGINS_CLASSES).put(CommonUtils.MODIFY_FOOD_POWERS, tag);
         return stack;

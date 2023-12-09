@@ -11,7 +11,7 @@ import static net.minecraft.world.item.ItemStack.ATTRIBUTE_MODIFIER_FORMAT;
 public class ClientUtils {
     
     public static MutableComponent translate(String key, Object... args) {
-        return MutableComponent.create(new TranslatableContents(key, args));
+        return MutableComponent.create(new TranslatableContents(key, null, args));
     }
     
     public static Component modifierTooltip(AttributeModifier modifier, String translationKey) {

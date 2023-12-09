@@ -1,6 +1,7 @@
 package dev.limonblaze.originsclasses.core.mixin.common.minecraft;
 
 import dev.limonblaze.originsclasses.common.apoli.power.ModifyBreedingPower;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.goal.BreedGoal;
 import net.minecraft.world.entity.animal.Animal;
@@ -33,7 +34,7 @@ public class BreedGoalMixin {
                 ci.cancel();
             } else if(amount > 1) {
                 for(int i = 1; i < amount; i++) {
-                    animal.spawnChildFromBreeding(player.getLevel(), partner);
+                    animal.spawnChildFromBreeding((ServerLevel) player.level(), partner);
                 }
             }
         }

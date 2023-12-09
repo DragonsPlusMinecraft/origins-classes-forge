@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 @Mixin(Block.class)
 public abstract class BlockMixin {
 
-    @Inject(method = "playerDestroy", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;dropResources(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/item/ItemStack;)V"))
+    @Inject(method = "playerDestroy", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;dropResources(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/item/ItemStack;Z)V"))
     private void originsClasses$additionalDrop(Level world, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack, CallbackInfo ci) {
         int amount = CommonUtils.rollInt(IPowerContainer.modify(player, OriginsClassesPowers.MODIFY_BLOCK_LOOT.get(), 1.0F, cp -> cp.get().isActive(player) && ConfiguredBlockCondition.check(cp.get().getConfiguration().condition(), world, pos, () -> state)), world.random);
         for(int i = 1; i < amount; ++i) {

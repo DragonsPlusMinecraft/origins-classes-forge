@@ -67,7 +67,7 @@ public class CommonUtils {
                             continue;
                         }
                         newPos$mutable.set(pos$mutable.getX() + dx, pos$mutable.getY() + dy, pos$mutable.getZ() + dz);
-                        BlockState newState = player.level.getBlockState(newPos$mutable);
+                        BlockState newState = player.level().getBlockState(newPos$mutable);
                         if(newState.is(state.getBlock()) && !affected.contains(newPos$mutable)) {
                             BlockPos savedNewPos = newPos$mutable.immutable();
                             affected.add(savedNewPos);

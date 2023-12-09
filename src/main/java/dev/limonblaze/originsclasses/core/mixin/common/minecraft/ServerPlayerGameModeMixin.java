@@ -55,7 +55,7 @@ public abstract class ServerPlayerGameModeMixin implements ServerPlayerGameModeH
             ItemStack tool = player.getMainHandItem().copy();
             for(BlockPos bp : MultiMinePower.apply(player, pos, justMinedState)) {
                 destroyAndAck(bp, i, reason);
-                if(!player.getMainHandItem().sameItem(tool)) {
+                if(!player.getMainHandItem().is(tool.getItem())) {
                     break;
                 }
             }

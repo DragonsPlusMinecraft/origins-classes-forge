@@ -46,7 +46,7 @@ public abstract class AbstractFurnaceBlockEntityMixin extends BaseContainerBlock
                     cp.get().isActive(CACHED_PLAYER) &&
                     ConfiguredBlockCondition.check(
                         cp.get().getConfiguration().condition(),
-                        CACHED_PLAYER.level,
+                        CACHED_PLAYER.level(),
                         CACHED_BLOCK_POS
                     )
             );

@@ -13,8 +13,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.storage.loot.LootDataManager;
+import net.minecraft.world.level.storage.loot.LootDataType;
 import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.entries.CompositeEntryBase;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
@@ -30,11 +31,11 @@ import java.util.stream.Collectors;
 @Mod.EventBusSubscriber
 public class MerchantHelper extends SimplePreparableReloadListener<Void> {
     private static MerchantHelper INSTANCE;
-    private final LootTables lootTables;
+    private final LootDataManager lootTables;
     public Set<Item> obtainableItems = ImmutableSet.of();
     public Set<Item> blacklistItems = ImmutableSet.of();
     
-    public MerchantHelper(LootTables lootTables) {
+    public MerchantHelper(LootDataManager lootTables) {
         this.lootTables = lootTables;
     }
     
@@ -46,8 +47,8 @@ public class MerchantHelper extends SimplePreparableReloadListener<Void> {
     @Override
     protected void apply(Void nothing, ResourceManager resourceManager, ProfilerFiller profiler) {
         ImmutableSet.Builder<Item> builder = ImmutableSet.builder();
-        for(ResourceLocation id : lootTables.getIds()) {
-            List<LootPool> pools = ((LootTableAccessor)lootTables.get(id)).getPools();
+        for(ResourceLocation id : lootTables.getKeys(LootDataType.TABLE)) {
+            List<LootPool> pools = ((LootTableAccessor)lootTables.getLootTable(id)).getPools();
             Queue<LootPoolEntryContainer> entryQueue = new LinkedList<>();
             for (LootPool pool : pools) {
                 LootPoolEntryContainer[] entries = pool.entries;
@@ -98,7 +99,7 @@ public class MerchantHelper extends SimplePreparableReloadListener<Void> {
     
     @SubscribeEvent
     public static void addSelfToReloadListeners(AddReloadListenerEvent event) {
-        INSTANCE = new MerchantHelper(event.getServerResources().getLootTables());
+        INSTANCE = new MerchantHelper(event.getServerResources().getLootData());
         event.addListener(INSTANCE);
     }
     
