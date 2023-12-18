@@ -2,7 +2,6 @@ package dev.limonblaze.originsclasses.common;
 
 import dev.limonblaze.originsclasses.OriginsClasses;
 import dev.limonblaze.originsclasses.common.network.S2CInfiniteTrader;
-import dev.limonblaze.originsclasses.compat.AppleSkinCompat;
 import dev.limonblaze.originsclasses.common.network.S2CMultiMining;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModList;
@@ -22,9 +21,6 @@ public class OriginsClassesCommon {
 
     public static void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(OriginsClassesCommon::initNetwork);
-        if(ModList.get().isLoaded("appleskin")) {
-            MinecraftForge.EVENT_BUS.register(AppleSkinCompat.class);
-        }
     }
 
     private static void initNetwork() {
