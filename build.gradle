@@ -166,7 +166,6 @@ publishMods {
     type = STABLE
     displayName = "Origins Classes Forge ${mod_version}"
     modLoaders.add("forge")
-    modLoaders.add("neoforge")
 
     curseforge {
         projectId = "610127"
