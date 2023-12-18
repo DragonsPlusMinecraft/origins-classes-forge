@@ -12,6 +12,9 @@ buildscript {
         classpath 'org.parchmentmc:librarian:1.+'
     }
 }
+plugins {
+    id "me.modmuss50.mod-publish-plugin" version "0.3.5"
+}
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'eclipse'
@@ -155,6 +158,32 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
+
+publishMods {
+    file = tasks.jar.archiveFile
+    changelog = new File("changelog/${mod_version}.md").text
+    version = mod_version
+    type = STABLE
+    displayName = "Origins Classes Forge ${mod_version}"
+    modLoaders.add("forge")
+    modLoaders.add("neoforge")
+
+    curseforge {
+        projectId = "610127"
+        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        minecraftVersions.add(mc_version)
+
+        requires {
+            slug = "origins-forge"
+        }
+    }
+
+    modrinth {
+        projectId = "HTjxjxqK"
+        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+        minecraftVersions.add(mc_version)
+    }
+}
 
 publishing {
     publications {
