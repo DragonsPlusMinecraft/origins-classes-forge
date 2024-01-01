@@ -1,0 +1,160 @@
+{
+  "layer.origins-classes.class.name": "Clase",
+  "layer.origins-classes.class.missing_origin.name": "No disponible",
+  "layer.origins-classes.class.missing_origin.description": "No tienes asignada una clase.",
+
+  "attribute.origins_classes.mining_speed": "Velocidad al picar",
+  "attribute.origins_classes.projectile_strength": "Fuerza del proyectil",
+
+  "tooltip.origins_classes.potion_bonus": "Refinado",
+  "tooltip.origins_classes.food": "Nutrición",
+  "tooltip.origins_classes.saturation_modifier": "Saturación",
+
+  "origin.origins-classes.warrior.name": "Guerrero",
+  "origin.origins-classes.warrior.description": "Estos honorables luchadores prefieren la espada y el escudo para derrotar a sus enemigos.",
+
+  "origin.origins-classes.archer.name": "Arquero",
+  "origin.origins-classes.archer.description": "Un disparo, una muerte.",
+
+  "origin.origins-classes.rogue.name": "Picaro",
+  "origin.origins-classes.rogue.description": "Generalmente conocidos por ser ladrones y asaltantes, los pícaros son expertos en emboscadas y ataques sigilosos.",
+
+  "origin.origins-classes.beastmaster.name": "Señor de las Bestias",
+  "origin.origins-classes.beastmaster.description": "Los señores de las bestias son personas solitarias que prefieren la compañía de los animales.",
+
+  "origin.origins-classes.blacksmith.name": "Herreros",
+  "origin.origins-classes.blacksmith.description": "Valiosos amigos de cualquiera, los herreros pueden crear mejores herramientas, armas y armaduras.",
+
+  "origin.origins-classes.cleric.name": "Clerigo",
+  "origin.origins-classes.cleric.description": "Han aprendido a canalizar la magia presente en el mundo y utilizarla en su beneficio.",
+
+  "origin.origins-classes.cook.name": "Cocinero",
+  "origin.origins-classes.cook.description": "No hay nadie mejor para preparar tu comida que un Cocinero.",
+
+  "origin.origins-classes.farmer.name": "Granjero",
+  "origin.origins-classes.farmer.description": "Es sabido que los agricultores han proporcionado alimentos a todos desde que tenemos uso de razón.",
+
+  "origin.origins-classes.merchant.name": "Mercader",
+  "origin.origins-classes.merchant.description": "Siempre buscando una esmeralda adicional, los mercaderes son hábiles comerciantes.",
+
+  "origin.origins-classes.rancher.name": "Ganadero",
+  "origin.origins-classes.rancher.description": "Aprovechando al máximo los animales, los ganaderos pueden obtener muchos recursos útiles.",
+
+  "origin.origins-classes.miner.name": "Minero",
+  "origin.origins-classes.miner.description": "Los mineros son los más hábiles a la hora de desenterrar los tesoros de la tierra.",
+
+  "origin.origins-classes.lumberjack.name": "Leñador",
+  "origin.origins-classes.lumberjack.description": "Los árboles deben andarse con ojo cuando hay leñadores cerca.",
+
+  "origin.origins-classes.explorer.name": "Explorador",
+  "origin.origins-classes.explorer.description": "Los exploradores encuentran fácilmente su camino a través del terreno más difícil y descubren puntos de referencia ocultos.",
+
+  "origin.origins-classes.nitwit.name": "Simplón",
+  "origin.origins-classes.nitwit.description": "Los simplones no son realmente buenos en nada.",
+
+  "power.origins-classes.less_shield_slowdown.name": "Especialista en Escudos",
+  "power.origins-classes.less_shield_slowdown.description": "Te ralentizas menos cuando te proteges con un escudo.",
+
+  "power.origins-classes.sneaky.name": "Discreto",
+  "power.origins-classes.sneaky.description": "Tu nombre nunca es visible a través de las paredes, incluso cuando no estás a hurtadillas.",
+
+  "power.origins-classes.stealth.name": "Sigiloso",
+  "power.origins-classes.stealth.description": "Cuando llevas 10 segundos a hurtadillas, entras en Sigilo.",
+
+  "power.origins-classes.stealth_core.name": "Sigilo",
+  "power.origins-classes.stealth_core.description": "Mientras estás en sigilo, haces menos ruido e infliges daño adicional cuando atacas a un enemigo por detrás. Sales del sigilo cuando dejas de estar a  hurtadillas.",
+
+  "power.origins-classes.less_bow_slowdown.name": "Agilidad",
+  "power.origins-classes.less_bow_slowdown.description": "Puedes moverte más rápido que los demás mientras tensas tu arco.",
+
+  "power.origins-classes.no_projectile_divergence.name": "Punteria",
+  "power.origins-classes.no_projectile_divergence.description": "Todos tus proyectiles tienen mayor precisión.",
+
+  "power.origins-classes.more_attack_damage.name": "Conocimiento de las Armas",
+  "power.origins-classes.more_attack_damage.description": "Capaz de utilizar cada arma en su máximo potencial, infliges un poco más de daño.",
+
+  "power.origins-classes.tamed_animal_boost.name": "Amigos de la fauna",
+  "power.origins-classes.tamed_animal_boost.description": "Los animales que domesticas reciben una mejora permanente en su salud y fuerza.",
+
+  "power.origins-classes.tamed_potion_diffusal.name": "Empatía efectiva",
+  "power.origins-classes.tamed_potion_diffusal.description": "Los animales domesticados cercanos también reciben efectos de poción cuando bebes una poción.",
+
+  "power.origins-classes.more_smoker_xp.name": "Ahumador",
+  "power.origins-classes.more_smoker_xp.description": "Obtienes más experiencia cocinando alimentos en un ahumador.",
+
+  "power.origins-classes.better_crafted_food.name": "Buenas comidas",
+  "power.origins-classes.better_crafted_food.description": "La comida elaborada por ti es más saturante.",
+
+  "power.origins-classes.potion_bonus.name": "Pociones refinadas",
+  "power.origins-classes.potion_bonus.description": "Como último paso en la elaboración de una poción, puedes refinarla con agua de un caldero. Las pociones refinadas tendrán efectos instantáneos fortalecidos y efectos más duraderos.",
+
+  "power.origins-classes.better_enchanting.name": "Dominio de encantamientos",
+  "power.origins-classes.better_enchanting.description": "Puedes alcanzar niveles de encantamiento más altos en una mesa de encantamiento.",
+
+  "power.origins-classes.quality_equipment.name": "Equipo de alta calidad",
+  "power.origins-classes.quality_equipment.description": "El equipo que creas proporciona pequeñas ventajas.",
+
+  "power.origins-classes.efficient_repairs.name": "Reparaciones eficientes",
+  "power.origins-classes.efficient_repairs.description": "La reparación de equipos en un yunque cuesta menos material. La reparación combinando equipos restaura una mayor durabilidad.",
+
+  "power.origins-classes.more_crop_drops.name": "Cosecha abundante",
+  "power.origins-classes.more_crop_drops.description": "Al cosechar cultivos, existe la posibilidad de obtener el doble de rendimiento.",
+
+  "power.origins-classes.better_bone_meal.name": "Técnicas de fertilización",
+  "power.origins-classes.better_bone_meal.description": "El polvo de huesos es dos veces más eficaz en manos experimentadas cuando se utiliza en cultivos y plantas.",
+
+  "power.origins-classes.twin_breeding.name": "Nacimientos de gemelos",
+  "power.origins-classes.twin_breeding.description": "Los animales criados por ti tienen la posibilidad de tener dos crías.",
+
+  "power.origins-classes.more_animal_loot.name": "Carroñero",
+  "power.origins-classes.more_animal_loot.description": "A veces puedes recibir más material al matar animales.",
+
+  "power.origins-classes.trade_availability.name": "Reaprovisionador",
+  "power.origins-classes.trade_availability.description": "Los aldeanos con los que comercias nunca se quedan sin recursos al comerciar contigo.",
+
+  "power.origins-classes.rare_wandering_loot.name": "Carisma",
+  "power.origins-classes.rare_wandering_loot.description": "Podrás convencer a los comerciantes ambulantes para que te ofrezcan algunos de sus artículos más raros.",
+
+  "power.origins-classes.no_sprint_exhaustion.name": "En forma",
+  "power.origins-classes.no_sprint_exhaustion.description": "Correr no te agota.",
+
+  "power.origins-classes.explorer_kit.name": "Kit de explorador",
+  "power.origins-classes.explorer_kit.description": "Comienzas el juego con una brújula, un reloj y nueve mapas vacíos.",
+
+  "power.origins-classes.no_mining_exhaustion.name": "Excavador experimentado",
+  "power.origins-classes.no_mining_exhaustion.description": "Romper bloques no te agotará.",
+
+  "power.origins-classes.more_stone_break_speed.name": "Experto en minería",
+  "power.origins-classes.more_stone_break_speed.description": "Extraes material de piedra más rápido que otros.",
+
+  "power.origins-classes.tree_felling.name": "¡Arbol va!",
+  "power.origins-classes.tree_felling.description": "Talas árboles enteros de una vez, a menos que estes a hurtadillas",
+
+  "power.origins-classes.more_planks_from_logs.name": "Tala de Madera",
+  "power.origins-classes.more_planks_from_logs.description": "Obtienes dos tablas de madera más de un solo tronco.",
+
+  "power.origins-classes.items/effecient_digger.name": "Excavador Eficiente",
+  "power.origins-classes.items/effecient_digger.description": "+10% Velocidad al icar bloques",
+
+  "power.origins-classes.items/sharp_blade.name": "Hoja Afilada",
+  "power.origins-classes.items/sharp_blade.description": "+0 en daño de ataque",
+
+  "power.origins-classes.items/steady_shield.name": "Escudo estable",
+  "power.origins-classes.items/steady_shield.description": "+10% Resistencia al retroceso",
+
+  "power.origins-classes.items/strong_string.name": "Cuerda fuerte",
+  "power.origins-classes.items/strong_string.description": "+2 daño con projectiles",
+
+  "power.origins-classes.items/tough_helmet.name": "Duro",
+  "power.origins-classes.items/tough_helmet.description": "+0.25 Dureza de armadura",
+
+  "power.origins-classes.items/tough_chestplate.name": "Duro",
+  "power.origins-classes.items/tough_chestplate.description": "+0.25 Dureza de armadura",
+
+  "power.origins-classes.items/tough_leggings.name": "Duro",
+  "power.origins-classes.items/tough_leggings.description": "+0.25 Dureza de armadura",
+
+  "power.origins-classes.items/tough_shoes.name": "Duro",
+  "power.origins-classes.items/tough_shoes.description": "+0.25 Dureza de armadura"
+
+}
